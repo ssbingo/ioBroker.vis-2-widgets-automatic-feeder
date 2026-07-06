@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "news": {
-            "0.0.4": {
-                "en": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
-                "de": "Intern: CI auf die ioBroker-Standard-Actions (testing-action-check / testing-action-deploy) umgestellt, weiterhin token-loses npm Trusted Publishing mit Provenance, sowie auf das Standard-Dependabot-Auto-Merge.",
-                "ru": "Внутреннее: CI переведён на стандартные действия ioBroker (testing-action-check / testing-action-deploy) с сохранением доверенной публикации npm без токена и с provenance, а также на стандартный авто-мёрж Dependabot.",
-                "pt": "Interno: a CI passou a usar as ações padrão do ioBroker (testing-action-check / testing-action-deploy) mantendo a publicação confiável do npm sem token com procedência, e o auto-merge padrão do Dependabot.",
-                "nl": "Intern: de CI is overgezet naar de standaard ioBroker-acties (testing-action-check / testing-action-deploy) met behoud van token-loos vertrouwd publiceren op npm met provenance, en naar de standaard Dependabot-automerge.",
-                "fr": "Interne : la CI utilise désormais les actions standard ioBroker (testing-action-check / testing-action-deploy) tout en conservant la publication de confiance npm sans jeton avec provenance, ainsi que l'auto-merge Dependabot standard.",
-                "it": "Interno: la CI è passata alle azioni standard di ioBroker (testing-action-check / testing-action-deploy) mantenendo la pubblicazione affidabile di npm senza token con provenienza, e all'auto-merge standard di Dependabot.",
-                "es": "Interno: se cambió la CI a las acciones estándar de ioBroker (testing-action-check / testing-action-deploy) manteniendo la publicación de confianza de npm sin token con procedencia, y al auto-merge estándar de Dependabot.",
-                "pl": "Wewnętrzne: CI przełączono na standardowe akcje ioBroker (testing-action-check / testing-action-deploy) z zachowaniem zaufanego publikowania w npm bez tokenu i z provenance oraz na standardowy auto-merge Dependabota.",
-                "uk": "Внутрішнє: CI переведено на стандартні дії ioBroker (testing-action-check / testing-action-deploy) зі збереженням довіреної публікації npm без токена та з provenance, а також на стандартний авто-мердж Dependabot.",
-                "zh-cn": "内部：将 CI 切换为 ioBroker 标准操作（testing-action-check / testing-action-deploy），同时保持无令牌的 npm 可信发布（带来源证明 provenance），并改用标准的 Dependabot 自动合并。"
+            "0.0.5": {
+                "en": "Internal: the package test now uses the standard @iobroker/testing test suite for adapter-checker compatibility.",
+                "de": "Intern: Der Package-Test nutzt jetzt die Standard-Testsuite von @iobroker/testing (Kompatibilität mit dem Adapter-Checker).",
+                "ru": "Внутреннее: тест пакета теперь использует стандартный набор тестов @iobroker/testing (совместимость с проверкой адаптеров).",
+                "pt": "Interno: o teste de pacote agora usa o conjunto de testes padrão do @iobroker/testing (compatibilidade com o verificador de adaptadores).",
+                "nl": "Intern: de pakkettest gebruikt nu de standaard testsuite van @iobroker/testing (compatibiliteit met de adapter-checker).",
+                "fr": "Interne : le test de paquet utilise désormais la suite de tests standard @iobroker/testing (compatibilité avec le vérificateur d'adaptateurs).",
+                "it": "Interno: il test del pacchetto ora usa la suite di test standard di @iobroker/testing (compatibilità con il controllo degli adapter).",
+                "es": "Interno: la prueba del paquete ahora usa el conjunto de pruebas estándar de @iobroker/testing (compatibilidad con el verificador de adaptadores).",
+                "pl": "Wewnętrzne: test pakietu korzysta teraz ze standardowego zestawu testów @iobroker/testing (zgodność ze sprawdzaniem adapterów).",
+                "uk": "Внутрішнє: тест пакета тепер використовує стандартний набір тестів @iobroker/testing (сумісність із перевіркою адаптерів).",
+                "zh-cn": "内部：软件包测试现在使用 @iobroker/testing 标准测试套件（与适配器检查器兼容）。"
             }
         },
         "titleLang": {
