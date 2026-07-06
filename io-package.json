@@ -105,8 +105,7 @@
         },
         "restartAdapters": [
             "vis-2"
-        ],
-        "noGit": true
+        ]
     },
     "native": {},
     "objects": [],
