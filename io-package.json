@@ -76,7 +76,10 @@
                 "bundlerType": "module",
                 "components": [
                     "FeederStatus",
-                    "FeedControl"
+                    "FeedControl",
+                    "Environment",
+                    "DynamicFeeding",
+                    "SeasonBanner"
                 ]
             }
         },

@@ -41,6 +41,30 @@ const CSS = `
 .af-chk:checked{background:var(--af-accent)}
 .af-chk::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#eef2f4;transition:left .2s}
 .af-chk:checked::after{left:25px}
+.af-pill--crit{background:rgba(244,67,54,.16);color:#f44336}
+.af-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.af-tiles--4{grid-template-columns:repeat(4,1fr)}
+.af-tile{background:#3a414e;border-radius:10px;padding:9px 11px}
+.af-tile .t{font-size:10.5px;color:#9aa3b0;text-transform:uppercase;letter-spacing:.06em}
+.af-tile .n{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;color:#fff}
+.af-tile .n small{font-size:12px;color:#9aa3b0;font-weight:500}
+.af-strip{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.af-astro{margin-top:12px}
+.af-astro-bar{position:relative;height:15px;border-radius:8px;overflow:hidden;
+  background:linear-gradient(90deg,#191d25 0 14%,#2f5a63 24%,#4aa0ad 50%,#2f5a63 78%,#191d25 88% 100%)}
+.af-astro-now{position:absolute;top:-2px;bottom:-2px;width:2px;background:#fff;box-shadow:0 0 6px #fff}
+.af-astro-lbl{display:flex;justify-content:space-between;font-size:10.5px;color:#9aa3b0;margin-top:5px;font-variant-numeric:tabular-nums}
+.af-banner{height:100%;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:0 14px;
+  border-radius:10px;border:1px solid rgba(255,255,255,.08);background:#2e353d;color:#fff;
+  font-family:Arial,sans-serif;font-size:13px;box-shadow:0 0 10px #000}
+.af-banner .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.af-banner--good .dot{background:#4caf50;box-shadow:0 0 8px #4caf50}
+.af-banner--warn{border-color:rgba(241,196,15,.4)}
+.af-banner--warn .dot{background:#f1c40f;box-shadow:0 0 8px #f1c40f}
+.af-banner--crit{border-color:rgba(244,67,54,.4)}
+.af-banner--crit .dot{background:#f44336;box-shadow:0 0 8px #f44336}
+.af-banner--info{border-color:rgba(130,177,255,.4)}
+.af-banner--info .dot{background:#82b1ff;box-shadow:0 0 8px #82b1ff}
 `;
 
 /** Injects the shared widget CSS (keyframes + classes) once per page. */

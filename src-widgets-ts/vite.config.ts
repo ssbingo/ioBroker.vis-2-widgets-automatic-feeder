@@ -15,6 +15,9 @@ const config = {
             exposes: {
                 './FeederStatus': './src/FeederStatus', // List of all widgets in this package
                 './FeedControl': './src/FeedControl',
+                './Environment': './src/Environment',
+                './DynamicFeeding': './src/DynamicFeeding',
+                './SeasonBanner': './src/SeasonBanner',
                 './translations': './src/translations',
             },
             remotes: {},
