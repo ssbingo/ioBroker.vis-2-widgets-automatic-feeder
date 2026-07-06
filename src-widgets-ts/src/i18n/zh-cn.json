@@ -24,5 +24,16 @@
   "astro_window": "Astro window",
   "reason": "Reason",
   "feeder_status": "Feeder status",
-  "select_channel_hint": "Select the feeder switch channel in the widget settings."
+  "select_channel_hint": "Select the feeder switch channel in the widget settings.",
+  "FeedControl": "Feed control",
+  "control": "Control",
+  "feed_control": "Feed control",
+  "feed_now": "Feed now",
+  "confirm": "Confirm",
+  "triggered": "Triggered ✓",
+  "portion": "Portion (manual)",
+  "suspend_feeding": "Suspend feeding",
+  "suspend_feeding_hint": "Immediately suspends all feeding until switched off again.",
+  "max_duration": "Max. duration (s)",
+  "show_pause": "Show pause switch"
 }

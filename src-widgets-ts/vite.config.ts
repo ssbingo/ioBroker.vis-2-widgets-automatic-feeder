@@ -14,6 +14,7 @@ const config = {
             filename: 'customWidgets.js',
             exposes: {
                 './FeederStatus': './src/FeederStatus', // List of all widgets in this package
+                './FeedControl': './src/FeedControl',
                 './translations': './src/translations',
             },
             remotes: {},

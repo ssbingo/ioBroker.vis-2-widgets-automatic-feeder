@@ -75,7 +75,8 @@
                 "url": "vis-2-widgets-automatic-feeder/customWidgets.js",
                 "bundlerType": "module",
                 "components": [
-                    "FeederStatus"
+                    "FeederStatus",
+                    "FeedControl"
                 ]
             }
         },

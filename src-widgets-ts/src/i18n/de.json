@@ -24,5 +24,16 @@
   "astro_window": "Astro-Fenster",
   "reason": "Grund",
   "feeder_status": "Feeder-Status",
-  "select_channel_hint": "Wähle den Schalter-Kanal des Futterautomaten in den Widget-Einstellungen."
+  "select_channel_hint": "Wähle den Schalter-Kanal des Futterautomaten in den Widget-Einstellungen.",
+  "FeedControl": "Feeder-Bedienung",
+  "control": "Bedienung",
+  "feed_control": "Feeder-Bedienung",
+  "feed_now": "Jetzt füttern",
+  "confirm": "Bestätigen",
+  "triggered": "Ausgelöst ✓",
+  "portion": "Portion (Handfütterung)",
+  "suspend_feeding": "Fütterung aussetzen",
+  "suspend_feeding_hint": "Setzt sofort alle Fütterungen aus, bis wieder eingeschaltet.",
+  "max_duration": "Max. Dauer (s)",
+  "show_pause": "Pause-Schalter anzeigen"
 }

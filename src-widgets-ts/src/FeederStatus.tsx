@@ -3,6 +3,8 @@ import React from 'react';
 import type { RxRenderWidgetProps, RxWidgetInfo, VisRxWidgetProps, VisRxWidgetState } from '@iobroker/types-vis-2';
 import type VisRxWidget from '@iobroker/types-vis-2/visRxWidget';
 
+import { injectStyles } from './styles';
+
 // Sub-states (relative to the switch channel) this widget reads.
 const SUB_IDS = [
     'status.feedingActive',
@@ -31,47 +33,6 @@ interface FeederStatusRxData {
 interface FeederStatusState extends VisRxWidgetState {
     fv: Record<string, ioBroker.StateValue | null>;
     tick: number;
-}
-
-/** Injects the widget's CSS (keyframes + classes) once per page. */
-function injectStyles(): void {
-    if (typeof document === 'undefined' || document.getElementById('af-feeder-styles')) {
-        return;
-    }
-    const css = `
-.af-card{box-sizing:border-box;height:100%;width:100%;display:flex;flex-direction:column;
-  font-family:Arial,Helvetica,sans-serif;color:#fff;border-radius:15px;padding:12px 14px;overflow:hidden}
-.af-card.af-bg{background:#2e353d;box-shadow:0 0 10px #000}
-.af-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9aa3b0;font-weight:700;
-  display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.af-pill{font-size:11px;padding:3px 9px;border-radius:999px;font-weight:700;display:inline-flex;align-items:center;gap:6px}
-.af-pill--good{background:rgba(76,175,80,.18);color:#4caf50}
-.af-pill--warn{background:rgba(241,196,15,.16);color:#f1c40f}
-.af-graphic{display:flex;align-items:center;justify-content:flex-start;gap:10px;padding-left:6px;margin:2px 0 4px}
-.af-graphic svg{height:84px;width:auto;display:block}
-.af-timer{flex:0 0 auto;width:56px;height:56px;border-radius:50%;display:flex;align-items:baseline;
-  justify-content:center;gap:1px;border:2px solid var(--af-accent-a);background:var(--af-accent-b)}
-.af-timer .n{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1;color:var(--af-accent)}
-.af-timer .u{font-size:12px;color:#9aa3b0}
-.af-lower{margin-top:auto}
-.af-count{font-size:32px;font-weight:700;color:var(--af-accent);font-variant-numeric:tabular-nums;line-height:1.15;margin:2px 0;letter-spacing:-.01em}
-.af-sub{font-size:14px;color:#9aa3b0}
-.af-sub b{color:#fff}
-.af-div{height:1px;background:rgba(255,255,255,.08);margin:10px 0}
-.af-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px;margin-top:6px}
-.af-row .k{color:#9aa3b0;flex:0 0 auto}
-.af-row .v{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.af-fan{transform-origin:100px 62px}
-.af-graphic.af-feeding .af-fan{animation:af-spin .7s linear infinite}
-@keyframes af-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.af-water{animation:af-wave 3.5s ease-in-out infinite}
-@keyframes af-wave{0%,100%{opacity:.55}50%{opacity:.95}}
-@media (prefers-reduced-motion:reduce){.af-graphic.af-feeding .af-fan,.af-water{animation:none}}
-`;
-    const el = document.createElement('style');
-    el.id = 'af-feeder-styles';
-    el.appendChild(document.createTextNode(css));
-    document.head.appendChild(el);
 }
 
 export default class FeederStatus extends (window.visRxWidget as typeof VisRxWidget)<
