@@ -63,6 +63,10 @@ jobs:
             github.event_name == 'push' &&
             startsWith(github.ref, 'refs/tags/')
         runs-on: ubuntu-latest
+        # npm Trusted Publisher (OIDC): id-token for auth, contents for the GitHub release
+        permissions:
+            id-token: write
+            contents: write
         steps:
             - name: Checkout code
               uses: actions/checkout@v7
@@ -89,13 +93,14 @@ jobs:
                   BODY="${BODY//$'\r'/'%0D'}"
                   echo "::set-output name=BODY::$BODY"
 
-            #      - name: Create a clean build
-            #        run: npm run build
-            - name: Publish package to npm
-              run: |
-                  npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
-                  npm whoami
-                  npm publish
+            # npm Trusted Publisher (OIDC) — no NPM_TOKEN secret is used.
+            # The npm package must have a trusted publisher configured that points at
+            # this repository and this workflow.
+            - name: Update npm (OIDC trusted publishing needs npm >= 11.5.1)
+              run: npm install -g npm@latest
+
+            - name: Publish package to npm (npm Trusted Publisher, OIDC)
+              run: npm publish --provenance --access public
 
             - name: Create Github Release
               uses: actions/create-release@v1
