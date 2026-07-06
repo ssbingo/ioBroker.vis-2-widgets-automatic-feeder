@@ -51,9 +51,9 @@
         ],
         "platform": "Javascript/Node.js",
         "icon": "vis-2-widgets-automatic-feeder.svg",
-        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-automatic-feeder/master/admin/vis-2-widgets-automatic-feeder.svg",
+        "extIcon": "https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/main/admin/vis-2-widgets-automatic-feeder.svg",
         "enabled": true,
-        "readme": "https://github.com/ioBroker/ioBroker.vis-2-widgets-automatic-feeder/blob/master/README.md",
+        "readme": "https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/README.md",
         "loglevel": "info",
         "mode": "none",
         "adminUI": {
