@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "news": {
-            "0.0.3": {
-                "en": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
-                "de": "Repository- und CI-Härtung (Lint-Prüfung, eingecheckte Lockfile, natives Dependabot-Auto-Merge, Cron-Zeitplan); erstes Release mit Provenance über npm Trusted Publisher signiert.",
-                "ru": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
-                "pt": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
-                "nl": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
-                "fr": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
-                "it": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
-                "es": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
-                "pl": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
-                "uk": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
-                "zh-cn": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher."
+            "0.0.4": {
+                "en": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
+                "de": "Intern: CI auf die ioBroker-Standard-Actions (testing-action-check / testing-action-deploy) umgestellt, weiterhin token-loses npm Trusted Publishing mit Provenance, sowie auf das Standard-Dependabot-Auto-Merge.",
+                "ru": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
+                "pt": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
+                "nl": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
+                "fr": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
+                "it": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
+                "es": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
+                "pl": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
+                "uk": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge.",
+                "zh-cn": "Internal: switched CI to the ioBroker standard actions (testing-action-check / testing-action-deploy) while keeping token-less npm trusted publishing with provenance, and to the standard Dependabot auto-merge."
             }
         },
         "titleLang": {
