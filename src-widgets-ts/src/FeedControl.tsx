@@ -64,7 +64,7 @@ export default class FeedControl extends (window.visRxWidget as typeof VisRxWidg
                 },
             ],
             visDefaultStyle: { width: 300, height: 240 },
-            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-widget-demo.png',
+            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-2-widgets-automatic-feeder.svg',
         };
     }
 

@@ -42,7 +42,7 @@ export default class DynamicFeeding extends FeederWidgetBase<DynamicFeedingRxDat
                 },
             ],
             visDefaultStyle: { width: 460, height: 150 },
-            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-widget-demo.png',
+            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-2-widgets-automatic-feeder.svg',
         };
     }
 

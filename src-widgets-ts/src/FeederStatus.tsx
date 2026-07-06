@@ -89,7 +89,7 @@ export default class FeederStatus extends (window.visRxWidget as typeof VisRxWid
                 width: 320,
                 height: 340,
             },
-            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-widget-demo.png',
+            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-2-widgets-automatic-feeder.svg',
         };
     }
 

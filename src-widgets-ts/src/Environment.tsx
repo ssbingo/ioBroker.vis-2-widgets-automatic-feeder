@@ -50,7 +50,7 @@ export default class Environment extends FeederWidgetBase<EnvironmentRxData, Fee
                 },
             ],
             visDefaultStyle: { width: 320, height: 220 },
-            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-widget-demo.png',
+            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-2-widgets-automatic-feeder.svg',
         };
     }
 

@@ -28,7 +28,7 @@ export default class SeasonBanner extends FeederWidgetBase<DynamicFeedingRxData,
             visName: 'SeasonBanner',
             visAttrs: [feederCommonGroup()],
             visDefaultStyle: { width: 460, height: 44 },
-            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-widget-demo.png',
+            visPrev: 'widgets/vis-2-widgets-automatic-feeder/img/vis-2-widgets-automatic-feeder.svg',
         };
     }
 
