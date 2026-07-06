@@ -17,7 +17,6 @@
                 "zh-cn": "首次发布"
             }
         },
-        "title": "vis-2-widgets-automatic-feeder.org",
         "titleLang": {
             "en": "Automatic Feeder Widgets",
             "de": "Automatic Feeder Widgets",
@@ -28,19 +27,21 @@
             "it": "Automatic Feeder Widgets",
             "es": "Automatic Feeder Widgets",
             "pl": "Automatic Feeder Widgets",
+            "uk": "Automatic Feeder Widgets",
             "zh-cn": "Automatic Feeder Widgets"
         },
         "desc": {
             "en": "vis-2 widgets for the Automatic Feeder adapter",
-            "de": "vis-2 widgets for the Automatic Feeder adapter",
-            "ru": "vis-2 widgets for the Automatic Feeder adapter",
-            "pt": "vis-2 widgets for the Automatic Feeder adapter",
-            "nl": "vis-2 widgets for the Automatic Feeder adapter",
-            "fr": "vis-2 widgets for the Automatic Feeder adapter",
-            "it": "vis-2 widgets for the Automatic Feeder adapter",
-            "es": "vis-2 widgets for the Automatic Feeder adapter",
-            "pl": "vis-2 widgets for the Automatic Feeder adapter",
-            "zh-cn": "vis-2 widgets for the Automatic Feeder adapter"
+            "de": "vis-2-Widgets für den Adapter Automatic Feeder",
+            "ru": "vis-2 виджеты для адаптера Automatic Feeder",
+            "pt": "widgets vis-2 para o adaptador Automatic Feeder",
+            "nl": "vis-2-widgets voor de Automatic Feeder-adapter",
+            "fr": "widgets vis-2 pour l’adaptateur Automatic Feeder",
+            "it": "widget vis-2 per l’adattatore Automatic Feeder",
+            "es": "widgets vis-2 para el adaptador Automatic Feeder",
+            "pl": "widżety vis-2 dla adaptera Automatic Feeder",
+            "uk": "віджети vis-2 для адаптера Automatic Feeder",
+            "zh-cn": "用于 Automatic Feeder 适配器的 vis-2 小部件"
         },
         "authors": [
             "ssbingo <silvio.sternitzke@googlemail.com>"
@@ -48,14 +49,13 @@
         "keywords": [
             "vis-2-widgets-automatic-feeder"
         ],
-        "license": "MIT",
         "platform": "Javascript/Node.js",
         "icon": "vis-2-widgets-automatic-feeder.svg",
         "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-automatic-feeder/master/admin/vis-2-widgets-automatic-feeder.svg",
         "enabled": true,
         "readme": "https://github.com/ioBroker/ioBroker.vis-2-widgets-automatic-feeder/blob/master/README.md",
         "loglevel": "info",
-        "mode": "once",
+        "mode": "none",
         "adminUI": {
             "config": "none"
         },
@@ -105,7 +105,8 @@
         },
         "restartAdapters": [
             "vis-2"
-        ]
+        ],
+        "noGit": true
     },
     "native": {},
     "objects": [],
