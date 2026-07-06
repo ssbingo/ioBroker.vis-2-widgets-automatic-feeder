@@ -1,6 +1,7 @@
 /.idea
 node_modules
-package-lock.json
+# root package-lock.json IS committed (reproducible CI installs / repochecker S5023);
+# the per-workspace lock files below stay ignored
 tmp/
 *.tgz
 src-widgets-js/node_modules
@@ -18,3 +19,6 @@ src-widgets-jsvite/.__mf__temp
 
 # release-script commit info
 .commitinfo
+
+# stray local verification clone of this repo (not part of the package)
+/ioBroker.vis-2-widgets-automatic-feeder/

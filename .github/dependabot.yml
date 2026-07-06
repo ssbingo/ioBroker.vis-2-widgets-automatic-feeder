@@ -3,8 +3,9 @@ updates:
     - package-ecosystem: github-actions
       directory: '/'
       schedule:
-          interval: monthly
-          time: '04:00'
+          # custom cron (distributes load vs. a fixed monthly time); times are Europe/Berlin
+          interval: cron
+          cronjob: '17 3 6 * *'
           timezone: Europe/Berlin
       open-pull-requests-limit: 15
       cooldown:
@@ -13,8 +14,9 @@ updates:
     - package-ecosystem: npm
       directory: '/'
       schedule:
-          interval: monthly
-          time: '04:00'
+          # custom cron (distributes load vs. a fixed monthly time); times are Europe/Berlin
+          interval: cron
+          cronjob: '23 3 6 * *'
           timezone: Europe/Berlin
       open-pull-requests-limit: 15
       versioning-strategy: increase
@@ -27,8 +29,9 @@ updates:
     - package-ecosystem: npm
       directory: '/src-widgets-ts'
       schedule:
-          interval: monthly
-          time: '04:00'
+          # custom cron (distributes load vs. a fixed monthly time); times are Europe/Berlin
+          interval: cron
+          cronjob: '31 3 6 * *'
           timezone: Europe/Berlin
       open-pull-requests-limit: 15
       versioning-strategy: increase

@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "news": {
-            "0.0.2": {
-                "en": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download).",
-                "de": "Alle fünf Widgets registriert; Widget-Vorschau nutzt das Feeder-Icon; direkt aus GitHub installierbar (kein Browser-Download).",
-                "ru": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download).",
-                "pt": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download).",
-                "nl": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download).",
-                "fr": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download).",
-                "it": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download).",
-                "es": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download).",
-                "pl": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download).",
-                "uk": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download).",
-                "zh-cn": "All five widgets registered; widget preview uses the feeder icon; installable straight from GitHub (no browser download)."
+            "0.0.3": {
+                "en": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
+                "de": "Repository- und CI-Härtung (Lint-Prüfung, eingecheckte Lockfile, natives Dependabot-Auto-Merge, Cron-Zeitplan); erstes Release mit Provenance über npm Trusted Publisher signiert.",
+                "ru": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
+                "pt": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
+                "nl": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
+                "fr": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
+                "it": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
+                "es": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
+                "pl": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
+                "uk": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher.",
+                "zh-cn": "Repository and CI hardening (lint gate, committed lockfile, native Dependabot auto-merge, cron schedule); first release signed with provenance via npm Trusted Publisher."
             }
         },
         "titleLang": {
