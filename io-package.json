@@ -69,14 +69,13 @@
         "connectionType": "cloud",
         "dataSource": "poll",
         "visWidgets": {
-            "vis2DemoWidget": {
+            "vis2AutomaticFeeder": {
                 "i18n": "component",
-                "name": "vis2DemoWidget",
+                "name": "vis2AutomaticFeeder",
                 "url": "vis-2-widgets-automatic-feeder/customWidgets.js",
                 "bundlerType": "module",
-                "bundlerTypeComment": "Set bundlerType only for TypeScript or vite widgets",
                 "components": [
-                    "DemoWidget"
+                    "FeederStatus"
                 ]
             }
         },

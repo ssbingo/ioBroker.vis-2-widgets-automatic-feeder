@@ -10,10 +10,10 @@ const config = {
     plugins: [
         federation({
             manifest: true,
-            name: 'vis2DemoWidget',
+            name: 'vis2AutomaticFeeder',
             filename: 'customWidgets.js',
             exposes: {
-                './DemoWidget': './src/DemoWidget', // List of all widgets in this package
+                './FeederStatus': './src/FeederStatus', // List of all widgets in this package
                 './translations': './src/translations',
             },
             remotes: {},
