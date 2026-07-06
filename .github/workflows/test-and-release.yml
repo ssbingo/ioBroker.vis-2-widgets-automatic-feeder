@@ -120,7 +120,15 @@ jobs:
             # The npm package must have a trusted publisher configured that points at
             # this repository and this workflow.
             - name: Update npm (OIDC trusted publishing needs npm >= 11.5.1)
-              run: npm install -g npm@latest
+              run: |
+                  npm install -g npm@latest
+                  echo "node: $(node --version)"
+                  echo "npm:  $(npm --version)"
+                  if [ -n "$ACTIONS_ID_TOKEN_REQUEST_URL" ]; then
+                    echo "OIDC id-token: available"
+                  else
+                    echo "OIDC id-token: MISSING — id-token:write is not effective for this run"
+                  fi
 
             - name: Publish package to npm (npm Trusted Publisher, OIDC)
               run: npm publish --provenance --access public
