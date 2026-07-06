@@ -10,54 +10,265 @@
 ---
 
 <p align="center">
-  <a href="https://www.buymeacoffee.com/ssbingo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=ssbingo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+  <a href="https://www.buymeacoffee.com/ssbingo"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=ssbingo&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" alt="Buy me a coffee" /></a>
 </p>
 
 ---
 
+## vis-2 widgets for the Automatic Feeder
+
 Ready-made **vis-2 widgets** for the [ioBroker.automatic-feeder](https://github.com/ssbingo/ioBroker.automatic-feeder)
-adapter — drag-and-drop cards for a fish/pond feeder dashboard. No object IDs, no HTML: you pick your feeder
-and your switch **by name**, the widgets do the rest.
+adapter — drag-and-drop dashboard cards for a fish / pond feeder. There are **no object IDs to look up and no HTML to
+write**: you pick your feeder instance and your switch **by its friendly name**, and the widgets read and control
+everything on their own.
 
-## Requirements
+This document is a complete manual. If you have never used these widgets before, read it from top to bottom — the
+**Quick start** gets you a working dashboard in a couple of minutes, the rest explains every widget and every option
+in detail.
 
-- ioBroker **vis-2**
-- The **ioBroker.automatic-feeder** adapter, installed and configured:
-  - **v1.4.0 or newer** for the numeric timestamps, `blockReasonCode` and the `feedFor` command,
-  - **v1.5.0 or newer** additionally for the live **runtime countdown** in the FeederStatus widget (`status.feedingEndsTs`).
+> 🇩🇪 Deutsche Anleitung: [doc/de/README.md](doc/de/README.md) · other languages: see
+> [Documentation](#documentation) at the bottom.
 
-The widgets only read/write the switch's own `status.*` / `settings.*` data points — they never need a manual object ID.
+---
 
-## Installation
+## Table of contents
 
-Install the adapter in ioBroker (from the admin adapter list once it is in the repository, or from GitHub), then
-open **vis-2**. A new widget set **Automatic Feeder** appears; drag its widgets onto a view.
+1. [What you get](#1-what-you-get)
+2. [Requirements](#2-requirements)
+3. [Installation](#3-installation)
+4. [Quick start](#4-quick-start)
+5. [The widgets in detail](#5-the-widgets-in-detail)
+   - [5.1 FeederStatus](#51-feederstatus)
+   - [5.2 FeedControl](#52-feedcontrol)
+   - [5.3 Environment](#53-environment)
+   - [5.4 DynamicFeeding](#54-dynamicfeeding)
+   - [5.5 SeasonBanner](#55-seasonbanner)
+6. [Configuration](#6-configuration)
+7. [Which data points each widget uses](#7-which-data-points-each-widget-uses)
+8. [Troubleshooting & FAQ](#8-troubleshooting--faq)
 
-## The widgets
+---
 
-| Widget | What it shows |
-|--------|---------------|
-| **FeederStatus** | Animated feeder graphic with a fan that spins while feeding, a live runtime countdown, the countdown to the next feeding, last feeding / result, the astronomical window and the block reason. |
-| **FeedControl** | A **Feed now** button with a two-step confirmation (writes a one-off feeding via `feedFor`), a duration slider, and a master-pause switch. |
-| **Environment** | Water temperature (shallow / deep), the stratification Δ, an oxygen pill (hidden automatically if there is no sensor) and a day bar with a live "now" marker. |
-| **DynamicFeeding** | The Q10 model tiles: average temperature, rate, interval and portion; shows a hint when dynamic feeding is off. |
-| **SeasonBanner** | A single status line, prioritised: manual pause → time-based pause (with end) → winter pause → "automatic active". |
+## 1. What you get
 
-## Configuration
+Five widgets that together form a complete feeder dashboard. Each one is a self-contained card with a dark,
+tablet-friendly design and an accent colour you can change.
 
-Every widget has just two required settings:
+| Widget | What it shows / does |
+|--------|----------------------|
+| **FeederStatus** | Animated feeder graphic (the fan spins while feeding), a live runtime countdown, the countdown to the next feeding with time and mode, the last feeding and its result, the astronomical (sunrise/sunset) window and — when blocked — the reason. |
+| **FeedControl** | A **Feed now** button with a two-step confirmation, a portion (duration) slider and a master **suspend feeding** switch. |
+| **Environment** | Water temperature (shallow and deep), the thermal stratification Δ, an oxygen reading (shown only if a sensor exists) and a day bar with a live "now" marker between sunrise and sunset. |
+| **DynamicFeeding** | The Q10 temperature model at a glance: average temperature, rate factor, interval and portion, plus which sensor (water/air) drives it. |
+| **SeasonBanner** | A single, colour-coded status line with the currently most important state (manual pause → time-based pause → winter pause → automatic active). |
 
-- **Feeder instance** – choose your `automatic-feeder` instance from the dropdown.
-- **Switch** – choose the feeder from a dropdown that lists your configured switches **by their friendly name**
-  (e.g. *KoiTeich Ponton*), not by an internal id.
+All five widgets are **read-and-control**: FeederStatus, Environment, DynamicFeeding and SeasonBanner only *display*
+data, while FeedControl also *writes* (triggers a feeding, toggles the pause). Nothing is ever written that you did
+not explicitly ask for.
 
-Optional appearance settings per widget: **accent colour**, **runtime-timer position** (FeederStatus),
-**animation on/off**, **maximum manual duration** (FeedControl), and **no card background** to place the widget on a
-custom panel.
+---
 
-## Screenshots
+## 2. Requirements
 
-_Screenshots will be added here._
+- ioBroker **vis-2** (the modern vis; these are vis-2 widgets, not classic vis-1).
+- The **ioBroker.automatic-feeder** adapter, installed and configured with at least one switch:
+  - **v1.4.0 or newer** — required, for the numeric timestamps, the `blockReasonCode` and the `feedFor` command.
+  - **v1.5.0 or newer** — recommended, additionally enables the live **runtime countdown** in FeederStatus
+    (the `status.feedingEndsTs` data point).
+
+The widgets only read and write the switch's own `status.*` and `settings.*` data points, so you never have to enter
+an object ID by hand.
+
+---
+
+## 3. Installation
+
+1. Install **ioBroker.vis-2-widgets-automatic-feeder** in ioBroker — from the admin adapter list once it is in the
+   repository, or directly from GitHub / npm.
+2. Open **vis-2**. A new widget set **Automatic Feeder** appears in the widget palette.
+3. Drag any of its widgets onto a view (see the Quick start below).
+
+> **After an update:** run `iobroker upload vis-2-widgets-automatic-feeder`, then restart vis-2 (or the whole host)
+> and do a hard refresh (Ctrl+F5) in the browser, so the runner picks up the new widget bundle. See
+> [Troubleshooting](#8-troubleshooting--faq).
+
+---
+
+## 4. Quick start
+
+1. In vis-2, open a view and drag the **FeederStatus** widget onto it.
+2. In the widget's **Attributes → General** group, set the two required fields:
+   - **Feeder instance** — pick your `automatic-feeder` instance (usually `0`).
+   - **Switch** — pick your feeder from the dropdown; it lists your configured switches **by name**
+     (e.g. *KoiTeich Ponton*).
+3. The card immediately shows live data. Repeat for the other widgets — the instance/switch selection works the same
+   for all of them.
+
+That is all: no object IDs, no bindings, no scripts.
+
+---
+
+## 5. The widgets in detail
+
+Every widget shares the two **General** settings (instance + switch, see [Configuration](#6-configuration)). The
+per-widget appearance options are listed with each widget below. All screenshots show the widgets with live data from
+a real koi-pond feeder.
+
+### 5.1 FeederStatus
+
+![FeederStatus widget](img/feederstatus.png)
+
+The main card. From top to bottom it shows:
+
+- A status pill: **Ready** (green) or **Blocked** (amber). "Blocked" means the adapter is currently not allowed to
+  feed (night, temperature too low, oxygen too low, a pause …).
+- An **animated feeder graphic**. While a feeding runs, the impeller/fan spins and — with adapter v1.5.0+ — a
+  **runtime countdown** (e.g. `5 s`) appears next to it and counts down to the end of the current feeding.
+- The **next feeding**: a large countdown (e.g. *in about 27 min*), the exact time, and the mode
+  (*dynamic interval* or *schedule*).
+- The **last feeding** with a ✓ (success) or ✗ (error) marker and the adapter's **result** text.
+- The **astro window** (sunrise – sunset) used for the day/night logic.
+- When blocked, an extra **reason** line with the human-readable block reason.
+
+**Appearance options:** accent colour · **runtime-timer position** (left / right of the graphic) ·
+**animation** on/off · **no card background** (to drop the widget onto your own panel).
+
+### 5.2 FeedControl
+
+![FeedControl widget](img/feedcontrol.png)
+
+The control card:
+
+- **Feed now** — a two-step button (first click arms it and shows *Confirm: N s?*, the second click triggers exactly
+  one feeding of the chosen duration; it disarms itself after a few seconds if you do not confirm).
+- **Portion (manual feeding)** — a slider that sets the duration in seconds (1 … *max duration*).
+- **Suspend feeding** — a master switch that immediately suspends **all** feeding for this switch until you turn it
+  back off (this maps to the adapter's `pauseNow`, which overrides every mode and every time-based pause).
+
+**Appearance options:** accent colour · **max. duration** (upper end of the slider, default 30 s) ·
+**show pause switch** on/off · **no card background**.
+
+> The button writes a one-off feeding via the adapter's `feedFor` command — it does **not** change your schedule and
+> does **not** restart the adapter.
+
+### 5.3 Environment
+
+![Environment widget](img/environment.png)
+
+The water/environment card:
+
+- **Water shallow** and **Water deep** temperatures (the deep tile stays at `–` if you did not configure a second,
+  deeper sensor).
+- A **stratification** pill showing the difference Δ between the two layers (turns amber when the layers differ by
+  more than 3 K).
+- An **oxygen** pill in mg/l — shown **only** when an O₂ sensor is configured, and turning red if the value falls
+  below the configured minimum.
+- A **day bar** from sunrise to sunset with a live marker for the current time.
+
+**Appearance options:** accent colour · **no card background**.
+
+### 5.4 DynamicFeeding
+
+![DynamicFeeding widget](img/dynamicfeeding.png)
+
+Shows the **Q10 temperature model** the adapter uses to adapt feeding to the water temperature:
+
+- **Ø temperature** — the averaged temperature the model is based on.
+- **Rate (Q10)** — the resulting rate factor (× relative to the reference temperature).
+- **Interval** — the resulting feeding interval in minutes.
+- **Portion** — the resulting feeding duration in seconds.
+- A **source** pill in the header shows whether the model is driven by the **water** or the **air** sensor.
+
+If dynamic feeding is switched off for this switch, the card shows a short hint instead of the tiles.
+
+**Appearance options:** accent colour · **no card background**.
+
+### 5.5 SeasonBanner
+
+![SeasonBanner widget](img/seasonbanner.png)
+
+A single, colour-coded status line — ideal for the top of a view. It always shows the **most important** current
+state, in this order of priority:
+
+1. **Manual pause** (red) — the master pause switch is on.
+2. **Time-based pause** (amber) — a configured pause window is active, with its end time.
+3. **Winter pause** (blue) — the winter window is active.
+4. **Automatic active** (green) — nothing blocks feeding, the schedule runs normally.
+
+This widget has **no** appearance options beyond the two General settings.
+
+---
+
+## 6. Configuration
+
+Every widget has the same two required settings in the **Attributes → General** group:
+
+![Widget attributes: instance and switch by name](img/config-attributes.png)
+
+- **Feeder instance** — choose your `automatic-feeder` instance from the dropdown (usually `0`).
+- **Switch** — choose the feeder from a dropdown that lists your configured switches **by their friendly name**
+  (e.g. *KoiTeich Ponton*), not by an internal id. The names come straight from the adapter's own configuration.
+
+Until both are set, a widget shows a friendly *"select a feeder / switch"* hint instead of data.
+
+The optional appearance settings live in the **Attributes → Style** group and differ per widget:
+
+| Option | Widgets | Meaning |
+|--------|---------|---------|
+| **Accent colour** | all except SeasonBanner | The highlight colour of the card (default pond-aqua `#33c1cf`). |
+| **Runtime-timer position** | FeederStatus | Show the running-feeding countdown left or right of the graphic. |
+| **Animation** | FeederStatus | Turn the spinning-fan animation on/off. |
+| **Max. duration** | FeedControl | Upper end of the portion slider in seconds (default 30). |
+| **Show pause switch** | FeedControl | Show/hide the master *Suspend feeding* switch. |
+| **No card background** | all except SeasonBanner | Render the widget without its card background, e.g. to place it on a custom panel. |
+
+---
+
+## 7. Which data points each widget uses
+
+For full transparency — the widgets subscribe to the switch channel
+`automatic-feeder.<instance>.switches.<switch>.…` and use only these relative data points:
+
+| Widget | Reads | Writes |
+|--------|-------|--------|
+| **FeederStatus** | `status.feedingActive`, `status.feedingEndsTs`, `status.nextFeeding(Ts)`, `status.lastFeeding`, `status.lastResult`, `status.blocked`, `status.blockReason(Code)`, `status.error`, `status.sunrise`, `status.sunset`, `settings.dynamicEnabled` | — |
+| **FeedControl** | `status.pauseManual`, `status.feedingActive` | `feedFor` (one-off feeding), `settings.pauseNow` |
+| **Environment** | `status.waterTemperature`, `status.waterTemperatureDeep`, `status.waterStratification`, `status.oxygen`, `status.sunrise(Ts)`, `status.sunset(Ts)`, `settings.o2Min` | — |
+| **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
+| **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
+
+See the [ioBroker.automatic-feeder documentation](https://github.com/ssbingo/ioBroker.automatic-feeder) for the exact
+meaning of each data point.
+
+---
+
+## 8. Troubleshooting & FAQ
+
+**A widget only shows "select a feeder / switch".**
+Set both **General** fields (instance *and* switch). The switch dropdown is filled from the selected instance, so pick
+the instance first.
+
+**The switch dropdown is empty.**
+The chosen `automatic-feeder` instance has no configured switches yet, or the instance number is wrong. Configure a
+switch in the adapter first.
+
+**Values show `–` or `undefined`.**
+Make sure the adapter is **v1.4.0 or newer** (v1.5.0+ for the runtime countdown). Older versions do not provide the
+numeric timestamps and command data points the widgets rely on. The **deep water** tile stays `–` unless you
+configured a second, deeper sensor; the **oxygen** pill is hidden unless an O₂ sensor is configured — both are normal.
+
+**The runtime countdown never appears.**
+It needs adapter **v1.5.0+** (`status.feedingEndsTs`) and is only shown *while a feeding is actually running*.
+
+**New/updated widgets don't appear, or only some are visible.**
+This is almost always a stale widget bundle in the browser/runner. Run
+`iobroker upload vis-2-widgets-automatic-feeder`, restart vis-2 (or the host), and hard-refresh the browser (Ctrl+F5).
+
+**Does this replace the adapter?**
+No. These are only the dashboard widgets. All scheduling, temperature logic and notifications live in the
+**ioBroker.automatic-feeder** adapter; the widgets are a view onto it.
+
+---
 
 ## Changelog
 <!--
@@ -65,13 +276,31 @@ _Screenshots will be added here._
 	### **WORK IN PROGRESS**
 -->
 ### 0.0.3 (2026-07-06)
-* (ssbingo) Repository and CI hardening: added a `check-and-lint` job, committed the root `package-lock.json`, replaced the broken Dependabot auto-merge with the GitHub-native flow, moved Dependabot to a distributed cron schedule and added `.vscode` JSON-schema settings; this is the first release published with provenance via the npm Trusted Publisher pipeline
+* (ssbingo) Full user manual with screenshots of every widget, plus translations in all 11 languages (`doc/<lang>/README.md`)
+* (ssbingo) Repository and CI hardening: added a `check-and-lint` job, committed the root `package-lock.json`, replaced the broken Dependabot auto-merge with the GitHub-native flow, moved Dependabot to a distributed cron schedule and added `.vscode` JSON-schema settings; first release published with provenance via the npm Trusted Publisher pipeline
 
 ### 0.0.2 (2026-07-06)
 * (ssbingo) All five widgets now register correctly; widget preview uses the feeder icon instead of the template demo image; the adapter installs straight from GitHub (removed the puppeteer-based demo test)
 
 ### 0.0.1 (2026-07-06)
 * (ssbingo) Initial version with five widgets — FeederStatus, FeedControl, Environment, DynamicFeeding and SeasonBanner — for the ioBroker.automatic-feeder adapter, configurable by feeder instance and switch name
+
+---
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
+## Documentation
+
+- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
+- 🇷🇺 [Документация на русском](doc/ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](doc/nl/README.md)
+- 🇫🇷 [Documentation française](doc/fr/README.md)
+- 🇮🇹 [Documentazione italiana](doc/it/README.md)
+- 🇪🇸 [Documentación en español](doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
+- 🇵🇹 [Documentação portuguesa](doc/pt/README.md)
+- 🇺🇦 [Документація українською](doc/uk/README.md)
+- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
 
 ## License
 

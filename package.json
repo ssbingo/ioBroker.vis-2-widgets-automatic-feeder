@@ -34,6 +34,8 @@
     "files": [
         "admin/",
         "widgets/",
+        "img/",
+        "doc/",
         "io-package.json",
         "LICENSE",
         "src-widgets-ts/src/i18n/"
