@@ -25,12 +25,14 @@ updates:
           timezone: Europe/Berlin
       open-pull-requests-limit: 5
       versioning-strategy: increase
-
-    - package-ecosystem: npm
-      directory: '/src-widgets-js'
-      schedule:
-          interval: monthly
-          time: '04:00'
-          timezone: Europe/Berlin
-      open-pull-requests-limit: 5
-      versioning-strategy: increase
+      # the widget stack is pinned by @iobroker/adapter-react-v5 (React 18 / MUI 6);
+      # major upgrades of these break the widget build (npm ERESOLVE)
+      ignore:
+          - dependency-name: 'react'
+            update-types: ['version-update:semver-major']
+          - dependency-name: 'react-dom'
+            update-types: ['version-update:semver-major']
+          - dependency-name: '@mui/material'
+            update-types: ['version-update:semver-major']
+          - dependency-name: '@mui/icons-material'
+            update-types: ['version-update:semver-major']
