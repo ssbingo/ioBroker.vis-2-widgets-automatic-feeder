@@ -35,5 +35,7 @@
   "suspend_feeding": "Fütterung aussetzen",
   "suspend_feeding_hint": "Setzt sofort alle Fütterungen aus, bis wieder eingeschaltet.",
   "max_duration": "Max. Dauer (s)",
-  "show_pause": "Pause-Schalter anzeigen"
+  "show_pause": "Pause-Schalter anzeigen",
+  "feeder_instance": "Futterautomat-Instanz",
+  "switch": "Schalter"
 }

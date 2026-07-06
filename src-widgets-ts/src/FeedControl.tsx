@@ -4,11 +4,13 @@ import type { RxRenderWidgetProps, RxWidgetInfo, VisRxWidgetProps, VisRxWidgetSt
 import type VisRxWidget from '@iobroker/types-vis-2/visRxWidget';
 
 import { injectStyles } from './styles';
+import { channelOf, feederCommonGroup } from './common';
 
 const SUB_IDS = ['status.pauseManual', 'status.feedingActive'];
 
 interface FeedControlRxData {
-    channel: string;
+    instance: string;
+    switchId: string;
     accent: string;
     noCard: boolean;
     maxDuration: number;
@@ -49,12 +51,7 @@ export default class FeedControl extends (window.visRxWidget as typeof VisRxWidg
             visSet: 'vis-2-widgets-automatic-feeder',
             visName: 'FeedControl',
             visAttrs: [
-                {
-                    name: 'common',
-                    fields: [
-                        { name: 'channel', type: 'id', label: 'switch_channel', tooltip: 'switch_channel_tooltip' },
-                    ],
-                },
+                feederCommonGroup(),
                 {
                     name: 'style',
                     label: 'group_style',
@@ -104,7 +101,7 @@ export default class FeedControl extends (window.visRxWidget as typeof VisRxWidg
     }
 
     private channelIds(): string[] {
-        const ch = this.state.rxData.channel;
+        const ch = channelOf(this.state.rxData);
         return ch ? SUB_IDS.map(s => `${ch}.${s}`) : [];
     }
 
@@ -150,13 +147,13 @@ export default class FeedControl extends (window.visRxWidget as typeof VisRxWidg
         if (!this.mounted) {
             return;
         }
-        const ch = this.state.rxData.channel;
+        const ch = channelOf(this.state.rxData);
         const key = ch && id.startsWith(`${ch}.`) ? id.substring(ch.length + 1) : id;
         this.setState(s => ({ fv: { ...s.fv, [key]: state ? state.val : null } }));
     }
 
     private write(sub: string, val: ioBroker.StateValue): void {
-        const ch = this.state.rxData.channel;
+        const ch = channelOf(this.state.rxData);
         if (!ch) {
             return;
         }
@@ -194,7 +191,7 @@ export default class FeedControl extends (window.visRxWidget as typeof VisRxWidg
         const t = (k: string): string => FeedControl.t(k);
         const styleVars = { '--af-accent': accent } as React.CSSProperties;
 
-        if (!this.state.rxData.channel) {
+        if (!channelOf(this.state.rxData)) {
             return (
                 <div
                     className={`af-card${noCard ? '' : ' af-bg'}`}

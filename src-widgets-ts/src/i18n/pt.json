@@ -35,5 +35,7 @@
   "suspend_feeding": "Suspend feeding",
   "suspend_feeding_hint": "Immediately suspends all feeding until switched off again.",
   "max_duration": "Max. duration (s)",
-  "show_pause": "Show pause switch"
+  "show_pause": "Show pause switch",
+  "feeder_instance": "Feeder instance",
+  "switch": "Switch"
 }

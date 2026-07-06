@@ -4,6 +4,7 @@ import type { RxRenderWidgetProps, RxWidgetInfo, VisRxWidgetProps, VisRxWidgetSt
 import type VisRxWidget from '@iobroker/types-vis-2/visRxWidget';
 
 import { injectStyles } from './styles';
+import { channelOf, feederCommonGroup } from './common';
 
 // Sub-states (relative to the switch channel) this widget reads.
 const SUB_IDS = [
@@ -23,7 +24,8 @@ const SUB_IDS = [
 ];
 
 interface FeederStatusRxData {
-    channel: string;
+    instance: string;
+    switchId: string;
     accent: string;
     timerPosition: 'left' | 'right';
     animation: boolean;
@@ -62,17 +64,7 @@ export default class FeederStatus extends (window.visRxWidget as typeof VisRxWid
             visSetIcon: 'widgets/vis-2-widgets-automatic-feeder/img/vis-2-widgets-automatic-feeder.svg',
             visName: 'FeederStatus',
             visAttrs: [
-                {
-                    name: 'common',
-                    fields: [
-                        {
-                            name: 'channel',
-                            type: 'id',
-                            label: 'switch_channel',
-                            tooltip: 'switch_channel_tooltip',
-                        },
-                    ],
-                },
+                feederCommonGroup(),
                 {
                     name: 'style',
                     label: 'group_style',
@@ -133,7 +125,7 @@ export default class FeederStatus extends (window.visRxWidget as typeof VisRxWid
     }
 
     private channelIds(): string[] {
-        const ch = this.state.rxData.channel;
+        const ch = channelOf(this.state.rxData);
         return ch ? SUB_IDS.map(s => `${ch}.${s}`) : [];
     }
 
@@ -180,7 +172,7 @@ export default class FeederStatus extends (window.visRxWidget as typeof VisRxWid
         if (!this.mounted) {
             return;
         }
-        const ch = this.state.rxData.channel;
+        const ch = channelOf(this.state.rxData);
         const key = ch && id.startsWith(`${ch}.`) ? id.substring(ch.length + 1) : id;
         this.setState(s => ({ fv: { ...s.fv, [key]: state ? state.val : null } }));
     }
@@ -372,7 +364,7 @@ export default class FeederStatus extends (window.visRxWidget as typeof VisRxWid
         const noCard = this.state.rxData.noCard === true;
         const t = (k: string): string => FeederStatus.t(k);
 
-        if (!this.state.rxData.channel) {
+        if (!channelOf(this.state.rxData)) {
             return (
                 <div
                     className={`af-card${noCard ? '' : ' af-bg'}`}
