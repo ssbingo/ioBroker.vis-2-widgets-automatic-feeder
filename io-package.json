@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.0.5",
+        "version": "0.1.0",
         "news": {
-            "0.0.5": {
-                "en": "Internal: the package test now uses the standard @iobroker/testing test suite for adapter-checker compatibility.",
-                "de": "Intern: Der Package-Test nutzt jetzt die Standard-Testsuite von @iobroker/testing (Kompatibilität mit dem Adapter-Checker).",
-                "ru": "Внутреннее: тест пакета теперь использует стандартный набор тестов @iobroker/testing (совместимость с проверкой адаптеров).",
-                "pt": "Interno: o teste de pacote agora usa o conjunto de testes padrão do @iobroker/testing (compatibilidade com o verificador de adaptadores).",
-                "nl": "Intern: de pakkettest gebruikt nu de standaard testsuite van @iobroker/testing (compatibiliteit met de adapter-checker).",
-                "fr": "Interne : le test de paquet utilise désormais la suite de tests standard @iobroker/testing (compatibilité avec le vérificateur d'adaptateurs).",
-                "it": "Interno: il test del pacchetto ora usa la suite di test standard di @iobroker/testing (compatibilità con il controllo degli adapter).",
-                "es": "Interno: la prueba del paquete ahora usa el conjunto de pruebas estándar de @iobroker/testing (compatibilidad con el verificador de adaptadores).",
-                "pl": "Wewnętrzne: test pakietu korzysta teraz ze standardowego zestawu testów @iobroker/testing (zgodność ze sprawdzaniem adapterów).",
-                "uk": "Внутрішнє: тест пакета тепер використовує стандартний набір тестів @iobroker/testing (сумісність із перевіркою адаптерів).",
-                "zh-cn": "内部：软件包测试现在使用 @iobroker/testing 标准测试套件（与适配器检查器兼容）。"
+            "0.1.0": {
+                "en": "Fixed: the adapter icon is now shown in the ioBroker Developer Portal (extIcon and readme point to the real repository).",
+                "de": "Behoben: Das Adapter-Icon wird jetzt im ioBroker Developer Portal angezeigt (extIcon und readme zeigen auf das echte Repository).",
+                "ru": "Исправлено: значок адаптера теперь отображается в ioBroker Developer Portal (extIcon и readme указывают на настоящий репозиторий).",
+                "pt": "Corrigido: o ícone do adaptador agora é exibido no ioBroker Developer Portal (extIcon e readme apontam para o repositório real).",
+                "nl": "Opgelost: het adapterpictogram wordt nu weergegeven in het ioBroker Developer Portal (extIcon en readme verwijzen naar de echte repository).",
+                "fr": "Corrigé : l'icône de l'adaptateur s'affiche désormais dans le portail développeur ioBroker (extIcon et readme pointent vers le vrai dépôt).",
+                "it": "Corretto: l'icona dell'adapter ora viene mostrata nel Developer Portal di ioBroker (extIcon e readme puntano al repository reale).",
+                "es": "Corregido: el icono del adaptador ahora se muestra en el Developer Portal de ioBroker (extIcon y readme apuntan al repositorio real).",
+                "pl": "Naprawiono: ikona adaptera jest teraz wyświetlana w ioBroker Developer Portal (extIcon i readme wskazują na właściwe repozytorium).",
+                "uk": "Виправлено: іконка адаптера тепер відображається в ioBroker Developer Portal (extIcon і readme вказують на справжній репозиторій).",
+                "zh-cn": "修复：适配器图标现在会在 ioBroker 开发者门户中显示（extIcon 和 readme 指向真实的仓库）。"
             }
         },
         "titleLang": {
