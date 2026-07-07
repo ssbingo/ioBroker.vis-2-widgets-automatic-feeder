@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.2.0",
+        "version": "0.2.1",
         "news": {
-            "0.2.0": {
-                "en": "New sixth widget AnimatedFeeder: a large animated feeder (canvas) with falling pellets, a countdown ring and pause symbols (manual/time-based/winter); tap it to feed. New stylized adapter and widget-set icon.",
-                "de": "Neues sechstes Widget AnimatedFeeder: ein großer animierter Futterautomat (Canvas) mit fallenden Pellets, Countdown-Ring und Pausensymbolen (Hand/Zeit/Winter); zum Füttern antippen. Neues stilisiertes Adapter- und Widget-Set-Icon.",
-                "ru": "Новый шестой виджет AnimatedFeeder: большая анимированная кормушка (canvas) с падающими гранулами, кольцом обратного отсчёта и символами пауз (ручная/по времени/зимняя); нажмите, чтобы покормить. Новая стилизованная иконка адаптера и набора виджетов.",
-                "pt": "Novo sexto widget AnimatedFeeder: um alimentador animado grande (canvas) com ração a cair, um anel de contagem regressiva e símbolos de pausa (manual/por tempo/inverno); toque para alimentar. Novo ícone estilizado do adaptador e do conjunto de widgets.",
-                "nl": "Nieuw zesde widget AnimatedFeeder: een grote geanimeerde voederautomaat (canvas) met vallende korrels, een aftelring en pauzesymbolen (handmatig/tijd/winter); tik om te voeren. Nieuw gestileerd adapter- en widgetset-pictogram.",
-                "fr": "Nouveau sixième widget AnimatedFeeder : un grand distributeur animé (canvas) avec des granulés qui tombent, un anneau de compte à rebours et des symboles de pause (manuelle/horaire/hiver) ; touchez pour nourrir. Nouvelle icône stylisée de l'adaptateur et de l'ensemble de widgets.",
-                "it": "Nuovo sesto widget AnimatedFeeder: un grande alimentatore animato (canvas) con pellet che cadono, un anello di conto alla rovescia e simboli di pausa (manuale/a tempo/invernale); tocca per alimentare. Nuova icona stilizzata dell'adapter e del set di widget.",
-                "es": "Nuevo sexto widget AnimatedFeeder: un gran comedero animado (canvas) con pellets que caen, un anillo de cuenta atrás y símbolos de pausa (manual/por tiempo/invierno); toca para alimentar. Nuevo icono estilizado del adaptador y del conjunto de widgets.",
-                "pl": "Nowy szósty widget AnimatedFeeder: duży animowany karmnik (canvas) ze spadającymi granulkami, pierścieniem odliczania i symbolami pauzy (ręczna/czasowa/zimowa); dotknij, aby nakarmić. Nowa stylizowana ikona adaptera i zestawu widgetów.",
-                "uk": "Новий шостий віджет AnimatedFeeder: велика анімована годівниця (canvas) із гранулами, що падають, кільцем зворотного відліку та символами пауз (ручна/за часом/зимова); торкніться, щоб погодувати. Нова стилізована іконка адаптера та набору віджетів.",
-                "zh-cn": "新增第六个控件 AnimatedFeeder：大型动画喂食器（canvas），带有下落的饲料颗粒、倒计时环和暂停符号（手动/定时/冬季）；点按即可投喂。全新风格化的适配器与控件集图标。"
+            "0.2.1": {
+                "en": "AnimatedFeeder now renders in Firefox: the built-in image uses a base64 data URI and the canvas is initialised via a ref callback. A broken or zero-size custom image no longer blanks the widget.",
+                "de": "AnimatedFeeder wird jetzt auch in Firefox angezeigt: Das eingebaute Bild nutzt eine base64-Data-URI und der Canvas wird über einen ref-Callback initialisiert. Ein defektes oder größenloses Bild leert das Widget nicht mehr.",
+                "ru": "AnimatedFeeder теперь отображается в Firefox: встроенное изображение использует data-URI в base64, а canvas инициализируется через ref-обратный вызов. Повреждённое изображение больше не делает виджет пустым.",
+                "pt": "O AnimatedFeeder agora é exibido no Firefox: a imagem incorporada usa um data URI base64 e o canvas é inicializado por um callback de ref. Uma imagem com falha já não deixa o widget em branco.",
+                "nl": "AnimatedFeeder werkt nu ook in Firefox: de ingebouwde afbeelding gebruikt een base64 data-URI en het canvas wordt via een ref-callback geïnitialiseerd. Een kapotte afbeelding maakt de widget niet meer leeg.",
+                "fr": "AnimatedFeeder s'affiche désormais dans Firefox : l'image intégrée utilise une data URI base64 et le canevas est initialisé via un callback de ref. Une image défectueuse ne vide plus le widget.",
+                "it": "AnimatedFeeder ora viene visualizzato in Firefox: l'immagine integrata usa un data URI base64 e il canvas viene inizializzato tramite un callback ref. Un'immagine difettosa non svuota più il widget.",
+                "es": "AnimatedFeeder ahora se muestra en Firefox: la imagen integrada usa un data URI en base64 y el lienzo se inicializa mediante un callback de ref. Una imagen defectuosa ya no deja el widget en blanco.",
+                "pl": "AnimatedFeeder działa teraz w Firefoksie: wbudowany obraz używa identyfikatora data URI w base64, a płótno jest inicjowane przez wywołanie zwrotne ref. Uszkodzony obraz nie opróżnia już widżetu.",
+                "uk": "AnimatedFeeder тепер відображається у Firefox: вбудоване зображення використовує data-URI у base64, а canvas ініціалізується через ref-колбек. Пошкоджене зображення більше не робить віджет порожнім.",
+                "zh-cn": "AnimatedFeeder 现在可在 Firefox 中正常显示：内置图片改用 base64 数据 URI，画布通过 ref 回调初始化。损坏或尺寸为零的图片不再使小部件变空白。"
             }
         },
         "titleLang": {

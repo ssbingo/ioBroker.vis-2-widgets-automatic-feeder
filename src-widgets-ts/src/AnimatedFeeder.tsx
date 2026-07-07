@@ -21,7 +21,13 @@ const SPAWN_INTERVAL = 260;
 // fallback always loads regardless of how vis-2 serves widget assets. A custom
 // image (the "image" attribute) overrides it.
 const BUILT_IN_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 383 478" width="383" height="478"><defs><linearGradient id="lt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3e44"/><stop offset="0.55" stop-color="#26292e"/><stop offset="1" stop-color="#1b1d21"/></linearGradient><linearGradient id="lr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17191c"/><stop offset="0.5" stop-color="#2e3238"/><stop offset="1" stop-color="#131518"/></linearGradient><linearGradient id="bd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9dbdd"/><stop offset="0.18" stop-color="#f4f5f6"/><stop offset="0.45" stop-color="#ffffff"/><stop offset="0.75" stop-color="#eceeef"/><stop offset="1" stop-color="#cfd2d5"/></linearGradient><linearGradient id="bs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0.10"/><stop offset="0.25" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.06"/></linearGradient><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#33373d"/><stop offset="0.5" stop-color="#212429"/><stop offset="1" stop-color="#101215"/></linearGradient><linearGradient id="ou" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0e1013"/><stop offset="0.5" stop-color="#2b2f35"/><stop offset="1" stop-color="#0e1013"/></linearGradient></defs><g><rect x="250" y="352" width="96" height="30" rx="10" fill="url(#rg)"/><rect x="336" y="340" width="14" height="54" rx="5" fill="#1b1e22"/><rect x="338" y="344" width="4" height="46" rx="2" fill="#33373d" opacity="0.8"/></g><g><path d="M73 118 L309 118 L253 392 L129 392 Z" fill="url(#bd)" opacity="0.96"/><path d="M73 118 L309 118 L253 392 L129 392 Z" fill="url(#bs)"/><ellipse cx="191" cy="392" rx="62" ry="12" fill="#e4e6e8"/><ellipse cx="191" cy="392" rx="62" ry="12" fill="url(#bs)"/><path d="M92 130 L138 380" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0.55"/><path d="M84 172 Q191 190 298 172" fill="none" stroke="#c6c9cc" stroke-width="2" opacity="0.7"/></g><g><ellipse cx="191" cy="102" rx="152" ry="30" fill="url(#lr)"/><path d="M39 98 Q39 66 191 66 Q343 66 343 98 Q343 122 191 126 Q39 122 39 98 Z" fill="url(#lt)"/><ellipse cx="150" cy="84" rx="80" ry="10" fill="#fff" opacity="0.08"/><rect x="176" y="34" width="30" height="34" rx="9" fill="url(#lr)"/><path d="M158 46 Q191 30 224 46" fill="none" stroke="#26292e" stroke-width="12" stroke-linecap="round"/><rect x="182" y="38" width="6" height="24" rx="3" fill="#3f444b" opacity="0.7"/></g><g><path d="M118 358 Q191 344 264 358 L264 396 Q191 412 118 396 Z" fill="url(#rg)"/><path d="M118 358 Q191 344 264 358" fill="none" stroke="#454a52" stroke-width="3" opacity="0.9"/><circle cx="256" cy="378" r="5" fill="#0c0e10"/><circle cx="256" cy="378" r="2" fill="#3a3f46"/></g><g><path d="M158 400 L224 400 L216 446 L166 446 Z" fill="url(#ou)"/><ellipse cx="191" cy="446" rx="25" ry="7" fill="#050607"/><ellipse cx="191" cy="446" rx="17" ry="4.5" fill="#000"/><path d="M170 404 L176 442" stroke="#4a4f57" stroke-width="4" stroke-linecap="round" opacity="0.6"/></g></svg>`;
-const BUILT_IN_URL = `data:image/svg+xml;utf8,${encodeURIComponent(BUILT_IN_SVG)}`;
+// base64 (not ";utf8,"): the bare "utf8" token is non-standard and Firefox
+// refuses to load such data URIs, while base64 is accepted by every browser.
+// BUILT_IN_SVG is pure ASCII, so btoa() is safe.
+const BUILT_IN_URL =
+    typeof btoa === 'function'
+        ? `data:image/svg+xml;base64,${btoa(BUILT_IN_SVG)}`
+        : `data:image/svg+xml;charset=utf-8,${encodeURIComponent(BUILT_IN_SVG)}`;
 
 interface AnimatedFeederRxData extends FeederBaseRxData {
     accent: string;
@@ -51,7 +57,6 @@ type PauseMode = 'none' | 'manual' | 'time' | 'winter';
 export default class AnimatedFeeder extends FeederWidgetBase<AnimatedFeederRxData, FeederBaseState> {
     static adapter: string;
 
-    private canvasRef = React.createRef<HTMLCanvasElement>();
     private ctx: CanvasRenderingContext2D | null = null;
     private dpr = 1;
     private raf: number | null = null;
@@ -146,25 +151,46 @@ export default class AnimatedFeeder extends FeederWidgetBase<AnimatedFeederRxDat
     componentDidMount(): void {
         super.componentDidMount();
         injectStyles();
-        const canvas = this.canvasRef.current;
-        if (canvas) {
-            this.dpr = Math.min((typeof window !== 'undefined' && window.devicePixelRatio) || 1, 2);
-            canvas.width = W * this.dpr;
-            canvas.height = H * this.dpr;
-            const ctx = canvas.getContext('2d');
-            if (ctx) {
-                ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
-                ctx.imageSmoothingEnabled = true;
-                ctx.imageSmoothingQuality = 'high';
-                this.ctx = ctx;
-            }
-        }
-        this.loadImage();
         // one redraw per second keeps the countdown number ticking even when the
         // (pellet) animation loop is not running (reduced motion / animation off).
-        this.secondTimer = setInterval(() => this.fMounted && this.draw(false), 1000);
-        this.ensureLoop();
+        this.secondTimer = setInterval(() => this.ctx && this.draw(false), 1000);
+        // NOTE: the 2D context is set up in setupCanvas() (the <canvas> ref
+        // callback), NOT here. In the vis-2 runtime the canvas can mount AFTER
+        // componentDidMount — e.g. the first render shows the "select channel"
+        // card (no canvas) and the canvas only appears once the channel resolves.
+        // Doing the setup in the ref callback guarantees ctx is bound whenever the
+        // canvas actually attaches to the DOM.
     }
+
+    // Ref callback for the <canvas>: fires with the element on mount and with
+    // null on unmount. This is where the 2D context, DPR scaling, image and the
+    // draw loop are (re)initialised.
+    private setupCanvas = (canvas: HTMLCanvasElement | null): void => {
+        if (this.raf !== null) {
+            cancelAnimationFrame(this.raf);
+            this.raf = null;
+        }
+        this.running = false;
+        if (!canvas) {
+            this.ctx = null;
+            return;
+        }
+        this.dpr = Math.min((typeof window !== 'undefined' && window.devicePixelRatio) || 1, 2);
+        canvas.width = W * this.dpr;
+        canvas.height = H * this.dpr;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+            this.ctx = null;
+            return;
+        }
+        ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        this.ctx = ctx;
+        this.loadImage();
+        this.draw(false);
+        this.ensureLoop();
+    };
 
     componentWillUnmount(): void {
         if (this.raf !== null) {
@@ -210,6 +236,12 @@ export default class AnimatedFeeder extends FeederWidgetBase<AnimatedFeederRxDat
                 this.draw(false);
             }
         };
+        img.onerror = () => {
+            if (this.imgSrc === src) {
+                // failed / unreachable image: keep the widget working without it
+                this.imgReady = false;
+            }
+        };
         img.src = src;
         this.img = img;
     }
@@ -237,7 +269,7 @@ export default class AnimatedFeeder extends FeederWidgetBase<AnimatedFeederRxDat
     }
 
     private ensureLoop(): void {
-        if (!this.running && this.fMounted && this.ctx) {
+        if (!this.running && this.ctx) {
             this.running = true;
             this.raf = requestAnimationFrame(this.frame);
         }
@@ -245,7 +277,7 @@ export default class AnimatedFeeder extends FeederWidgetBase<AnimatedFeederRxDat
 
     private frame = (): void => {
         this.draw(true);
-        if (this.fMounted && this.shouldAnimate()) {
+        if (this.ctx && this.shouldAnimate()) {
             this.raf = requestAnimationFrame(this.frame);
         } else {
             this.running = false;
@@ -292,7 +324,14 @@ export default class AnimatedFeeder extends FeederWidgetBase<AnimatedFeederRxDat
 
         ctx.clearRect(0, 0, W, H);
         if (this.img && this.imgReady) {
-            ctx.drawImage(this.img, 0, IMG_TOP, W, IMG_H);
+            try {
+                ctx.drawImage(this.img, 0, IMG_TOP, W, IMG_H);
+            } catch {
+                // e.g. a custom viewBox-only SVG reports 0×0 intrinsic size in
+                // Firefox and drawImage throws — never let that blank the rest of
+                // the frame (ring / hint / pellets).
+                this.imgReady = false;
+            }
         }
 
         if (mode !== 'none') {
@@ -623,7 +662,7 @@ export default class AnimatedFeeder extends FeederWidgetBase<AnimatedFeederRxDat
                 style={{ '--af-accent': accent } as React.CSSProperties}
             >
                 <canvas
-                    ref={this.canvasRef}
+                    ref={this.setupCanvas}
                     width={W}
                     height={H}
                     className="af-anim-canvas"
