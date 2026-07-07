@@ -58,5 +58,19 @@
   "auto_active": "Automatisch actief — voedering verloopt volgens schema",
   "pause_manual_banner": "Voedering opgeschort — automatiek gestopt tot weer ingeschakeld",
   "pause_active_banner": "Voederpauze actief · tot",
-  "winter_active_banner": "Winterpauze actief — voedering rust seizoensgebonden"
+  "winter_active_banner": "Winterpauze actief — voedering rust seizoensgebonden",
+  "AnimatedFeeder": "Geanimeerde voederautomaat",
+  "animated_feeder": "Geanimeerde voederautomaat",
+  "group_behaviour": "Gedrag",
+  "click_to_feed": "Tikken om te voeren inschakelen",
+  "feed_duration": "Voederduur (s)",
+  "group_geometry": "Geometrie",
+  "image": "Afbeelding (optioneel)",
+  "spawn_x": "Uitlaat X (%)",
+  "spawn_y": "Uitlaat Y (%)",
+  "ring_x": "Aftelling X (%)",
+  "ring_y": "Aftelling Y (%)",
+  "ring_size": "Aftelling grootte (%)",
+  "seconds": "Seconden",
+  "tap_to_feed": "Tik om te voeren"
 }

@@ -32,6 +32,7 @@ Este documento é um manual completo. Se nunca usou estes widgets antes, leia-o 
    - [5.3 Environment](#53-environment)
    - [5.4 DynamicFeeding](#54-dynamicfeeding)
    - [5.5 SeasonBanner](#55-seasonbanner)
+   - [5.6 AnimatedFeeder](#56-animatedfeeder)
 6. [Configuração](#6-configuração)
 7. [Quais pontos de dados cada widget usa](#7-quais-pontos-de-dados-cada-widget-usa)
 8. [Resolução de problemas e FAQ](#8-resolução-de-problemas-e-faq)
@@ -40,7 +41,7 @@ Este documento é um manual completo. Se nunca usou estes widgets antes, leia-o 
 
 ## 1. O que você recebe
 
-Cinco widgets que, em conjunto, formam um painel completo do alimentador. Cada um é um cartão autónomo com um design escuro, adequado a tablets, e uma cor de destaque que você pode alterar.
+Seis widgets que, em conjunto, formam um painel completo do alimentador. Cada um é um cartão autónomo com um design escuro, adequado a tablets, e uma cor de destaque que você pode alterar.
 
 | Widget | O que mostra / faz |
 |--------|----------------------|
@@ -49,8 +50,9 @@ Cinco widgets que, em conjunto, formam um painel completo do alimentador. Cada u
 | **Environment** | Temperatura da água (superfície e profundidade), a estratificação térmica Δ, uma leitura de oxigénio (mostrada apenas se existir um sensor) e uma barra do dia com um marcador "agora" em tempo real entre o nascer e o pôr do sol. |
 | **DynamicFeeding** | O modelo de temperatura Q10 num relance: temperatura média, fator de taxa, intervalo e porção, além de qual sensor (água/ar) o controla. |
 | **SeasonBanner** | Uma única linha de estado codificada por cores com o estado atualmente mais importante (pausa manual → pausa por horário → pausa de inverno → automático ativo). |
+| **AnimatedFeeder** | Um grande gráfico animado do alimentador (canvas): grânulos de comida caem e um anel de contagem decrescente enche-se enquanto alimenta, símbolos de pausa (manual / por horário / inverno) caso contrário. Toque nele para disparar uma alimentação pontual. |
 
-Todos os cinco widgets são de **leitura e controlo**: FeederStatus, Environment, DynamicFeeding e SeasonBanner apenas *mostram* dados, enquanto o FeedControl também *escreve* (dispara uma alimentação, alterna a pausa). Nunca é escrito nada que você não tenha pedido explicitamente.
+Todos os seis widgets são de **leitura e controlo**: FeederStatus, Environment, DynamicFeeding e SeasonBanner apenas *mostram* dados, enquanto o FeedControl e o AnimatedFeeder também *escrevem* (dispara uma alimentação, alterna a pausa). Nunca é escrito nada que você não tenha pedido explicitamente.
 
 ---
 
@@ -60,6 +62,7 @@ Todos os cinco widgets são de **leitura e controlo**: FeederStatus, Environment
 - O adaptador **ioBroker.automatic-feeder**, instalado e configurado com pelo menos um switch:
   - **v1.4.0 ou mais recente** — obrigatório, para os carimbos de data/hora numéricos, o `blockReasonCode` e o comando `feedFor`.
   - **v1.5.0 ou mais recente** — recomendado, ativa adicionalmente a **contagem decrescente do tempo de funcionamento** em tempo real no FeederStatus (o ponto de dados `status.feedingEndsTs`).
+  - **v1.6.0 ou mais recente** — recomendado para o anel de contagem decrescente exato do widget **AnimatedFeeder** (o ponto de dados `status.feedingDurationSec`).
 
 Os widgets leem e escrevem apenas os pontos de dados `status.*` e `settings.*` do próprio switch, por isso você nunca tem de introduzir um ID de objeto manualmente.
 
@@ -162,6 +165,24 @@ Uma única linha de estado codificada por cores — ideal para o topo de uma vis
 
 Este widget **não** tem opções de aparência além das duas definições Geral.
 
+### 5.6 AnimatedFeeder
+
+![Widget AnimatedFeeder durante a alimentação](../../img/animatedfeeder.png)
+
+Um grande alimentador animado — a peça visual central de um painel de lago. Ele desenha o alimentador num canvas e reage em tempo real ao switch:
+
+- **Durante a alimentação:** grânulos de comida caem da saída e um **anel de contagem decrescente** com os segundos restantes enche o recipiente. O anel é exato quando o adaptador fornece `status.feedingDurationSec` (**v1.6.0+**); com adaptadores mais antigos, a duração total é derivada do momento em que a alimentação começa.
+- **Estados de pausa**, mostrados como um símbolo com uma cruz vermelha, na mesma prioridade que o SeasonBanner: **pausa manual** (mão de parar) → **pausa por horário** (relógio) → **pausa de inverno** (floco de neve).
+- **Inativo:** apenas o alimentador, com uma dica opcional *"Toque para alimentar"*.
+
+![Estados inativo e de pausa do AnimatedFeeder](../../img/animatedfeeder-states.png)
+
+**Toque para alimentar:** toque no widget uma vez para o armar (*Confirmar: N s?*), toque novamente para disparar uma alimentação pontual da duração configurada (através de `feedFor`). O toque é ignorado enquanto uma pausa está ativa e pode ser desativado com **Ativar toque para alimentar**.
+
+**Opções de aparência:** cor de destaque · uma **imagem** personalizada (deixe vazio para o gráfico do alimentador integrado; uma imagem personalizada pode ter uma proporção diferente) · **duração da alimentação** para a ação de toque · **animação** ligada/desligada (os grânulos a cair; automaticamente reduzida quando o sistema prefere movimento reduzido) · **sem fundo de cartão**.
+
+**Opções de geometria:** a saída dos grânulos (X/Y) e a contagem decrescente (X/Y/tamanho) são dadas em **%** do widget, para que a animação possa ser alinhada quando você usa a sua própria imagem.
+
 ---
 
 ## 6. Configuração
@@ -199,6 +220,7 @@ Para total transparência — os widgets subscrevem o canal do switch `automatic
 | **Environment** | `status.waterTemperature`, `status.waterTemperatureDeep`, `status.waterStratification`, `status.oxygen`, `status.sunrise(Ts)`, `status.sunset(Ts)`, `settings.o2Min` | — |
 | **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
+| **AnimatedFeeder** | `status.feedingActive`, `status.feedingEndsTs`, `status.feedingDurationSec`, `status.winterActive`, `status.pauseManual`, `status.pauseActive` | `feedFor` (toque para alimentar) |
 
 Consulte a [documentação do ioBroker.automatic-feeder](https://github.com/ssbingo/ioBroker.automatic-feeder) para o significado exato de cada ponto de dados.
 

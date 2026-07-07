@@ -58,5 +58,19 @@
   "auto_active": "Automatik aktiv — Fütterung läuft nach Plan",
   "pause_manual_banner": "Fütterung ausgesetzt — Automatik gestoppt, bis wieder eingeschaltet",
   "pause_active_banner": "Fütterungspause aktiv · bis",
-  "winter_active_banner": "Winterpause aktiv — Fütterung ruht saisonal"
+  "winter_active_banner": "Winterpause aktiv — Fütterung ruht saisonal",
+  "AnimatedFeeder": "Animierter Futterautomat",
+  "animated_feeder": "Animierter Futterautomat",
+  "group_behaviour": "Verhalten",
+  "click_to_feed": "Tippen zum Füttern aktivieren",
+  "feed_duration": "Fütterungsdauer (s)",
+  "group_geometry": "Geometrie",
+  "image": "Bild (optional)",
+  "spawn_x": "Auslass X (%)",
+  "spawn_y": "Auslass Y (%)",
+  "ring_x": "Countdown X (%)",
+  "ring_y": "Countdown Y (%)",
+  "ring_size": "Countdown-Größe (%)",
+  "seconds": "Sekunden",
+  "tap_to_feed": "Tippen zum Füttern"
 }

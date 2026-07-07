@@ -58,5 +58,19 @@
   "auto_active": "自动模式启用 — 喂食按计划运行",
   "pause_manual_banner": "喂食已暂停 — 自动模式已停止，直到再次开启",
   "pause_active_banner": "喂食暂停已启用 · 直到",
-  "winter_active_banner": "冬季暂停已启用 — 喂食按季节暂停"
+  "winter_active_banner": "冬季暂停已启用 — 喂食按季节暂停",
+  "AnimatedFeeder": "动画喂食器",
+  "animated_feeder": "动画喂食器",
+  "group_behaviour": "行为",
+  "click_to_feed": "启用点按投喂",
+  "feed_duration": "投喂时长（秒）",
+  "group_geometry": "几何",
+  "image": "图片（可选）",
+  "spawn_x": "出料口 X (%)",
+  "spawn_y": "出料口 Y (%)",
+  "ring_x": "倒计时 X (%)",
+  "ring_y": "倒计时 Y (%)",
+  "ring_size": "倒计时大小 (%)",
+  "seconds": "秒",
+  "tap_to_feed": "点按投喂"
 }

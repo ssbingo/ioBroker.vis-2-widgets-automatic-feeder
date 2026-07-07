@@ -32,6 +32,7 @@ Ten dokument to kompletny podręcznik. Jeśli nigdy wcześniej nie korzystałeś
    - [5.3 Environment](#53-environment)
    - [5.4 DynamicFeeding](#54-dynamicfeeding)
    - [5.5 SeasonBanner](#55-seasonbanner)
+   - [5.6 AnimatedFeeder](#56-animatedfeeder)
 6. [Konfiguracja](#6-konfiguracja)
 7. [Których punktów danych używa każdy widget](#7-których-punktów-danych-używa-każdy-widget)
 8. [Rozwiązywanie problemów i FAQ](#8-rozwiązywanie-problemów-i-faq)
@@ -40,7 +41,7 @@ Ten dokument to kompletny podręcznik. Jeśli nigdy wcześniej nie korzystałeś
 
 ## 1. Co otrzymujesz
 
-Pięć widgetów, które razem tworzą kompletny pulpit karmnika. Każdy z nich to samodzielna karta o ciemnym, dostosowanym do tabletów wyglądzie, z kolorem akcentu, który możesz zmienić.
+Sześć widgetów, które razem tworzą kompletny pulpit karmnika. Każdy z nich to samodzielna karta o ciemnym, dostosowanym do tabletów wyglądzie, z kolorem akcentu, który możesz zmienić.
 
 | Widget | Co pokazuje / robi |
 |--------|----------------------|
@@ -49,8 +50,9 @@ Pięć widgetów, które razem tworzą kompletny pulpit karmnika. Każdy z nich 
 | **Environment** | Temperatura wody (przy powierzchni i w głębi), termiczna stratyfikacja Δ, odczyt tlenu (pokazywany tylko, jeśli istnieje czujnik) oraz pasek dnia z aktualnym znacznikiem „teraz” pomiędzy wschodem a zachodem słońca. |
 | **DynamicFeeding** | Model temperaturowy Q10 w skrócie: średnia temperatura, współczynnik szybkości, interwał i porcja, a także informacja o tym, który czujnik (woda/powietrze) nim steruje. |
 | **SeasonBanner** | Pojedynczy, oznaczony kolorem wiersz stanu z aktualnie najważniejszym stanem (pauza ręczna → pauza wg harmonogramu → pauza zimowa → automatyka aktywna). |
+| **AnimatedFeeder** | Duża animowana grafika karmnika (canvas): podczas karmienia spadają granulki pokarmu i wypełnia się pierścień odliczania, a w przeciwnym razie wyświetlane są symbole pauzy (ręcznej / wg harmonogramu / zimowej). Dotknij, aby wyzwolić jednorazowe karmienie. |
 
-Wszystkie pięć widgetów działa w trybie **odczytu i sterowania**: FeederStatus, Environment, DynamicFeeding oraz SeasonBanner jedynie *wyświetlają* dane, natomiast FeedControl również *zapisuje* (wyzwala karmienie, przełącza pauzę). Nigdy nie jest zapisywane nic, o co wyraźnie nie poprosiłeś.
+Wszystkie sześć widgetów działa w trybie **odczytu i sterowania**: FeederStatus, Environment, DynamicFeeding oraz SeasonBanner jedynie *wyświetlają* dane, natomiast FeedControl i AnimatedFeeder również *zapisują* (wyzwala karmienie, przełącza pauzę). Nigdy nie jest zapisywane nic, o co wyraźnie nie poprosiłeś.
 
 ---
 
@@ -60,6 +62,7 @@ Wszystkie pięć widgetów działa w trybie **odczytu i sterowania**: FeederStat
 - Adapter **ioBroker.automatic-feeder**, zainstalowany i skonfigurowany z co najmniej jednym przełącznikiem:
   - **v1.4.0 lub nowszy** — wymagany, ze względu na numeryczne znaczniki czasu, `blockReasonCode` oraz polecenie `feedFor`.
   - **v1.5.0 lub nowszy** — zalecany, dodatkowo włącza w FeederStatus **odliczanie czasu pracy** na żywo (punkt danych `status.feedingEndsTs`).
+  - **v1.6.0 lub nowszy** — zalecany ze względu na dokładny pierścień odliczania widgetu **AnimatedFeeder** (punkt danych `status.feedingDurationSec`).
 
 Widgety odczytują i zapisują wyłącznie punkty danych `status.*` oraz `settings.*` samego przełącznika, więc nigdy nie musisz ręcznie wpisywać identyfikatora obiektu.
 
@@ -162,6 +165,24 @@ Pojedynczy, oznaczony kolorem wiersz stanu — idealny na górę widoku. Zawsze 
 
 Ten widget **nie** ma żadnych opcji wyglądu poza dwoma ustawieniami Ogólnymi.
 
+### 5.6 AnimatedFeeder
+
+![Widget AnimatedFeeder podczas karmienia](../../img/animatedfeeder.png)
+
+Duży, animowany karmnik — wizualny element centralny pulpitu stawu. Rysuje karmnik na kanwie (canvas) i reaguje na przełącznik na żywo:
+
+- **Podczas karmienia:** z wylotu spadają granulki pokarmu, a **pierścień odliczania** z pozostałymi sekundami wypełnia pojemnik. Pierścień jest dokładny, gdy adapter dostarcza `status.feedingDurationSec` (**v1.6.0+**); w przypadku starszych adapterów całkowity czas trwania jest wyliczany od momentu rozpoczęcia karmienia.
+- **Stany pauzy**, pokazywane jako symbol z czerwonym krzyżykiem, w tej samej kolejności priorytetów co w SeasonBanner: **pauza ręczna** (dłoń stop) → **pauza wg harmonogramu** (zegar) → **pauza zimowa** (płatek śniegu).
+- **Bezczynność:** sam karmnik, z opcjonalną wskazówką *„Dotknij, aby nakarmić”*.
+
+![AnimatedFeeder w stanie bezczynności i w stanach pauzy](../../img/animatedfeeder-states.png)
+
+**Dotknij, aby nakarmić:** dotknij widgetu raz, aby go uzbroić (*Potwierdź: N s?*), dotknij ponownie, aby wyzwolić jednorazowe karmienie o skonfigurowanym czasie trwania (za pomocą `feedFor`). Dotknięcie jest ignorowane, gdy aktywna jest pauza, i można je wyłączyć za pomocą **Włącz dotknij, aby nakarmić**.
+
+**Opcje wyglądu:** kolor akcentu · własny **obraz** (pozostaw puste, aby użyć wbudowanej grafiki karmnika; własny obraz może mieć inne proporcje) · **czas trwania karmienia** dla akcji dotknięcia · **animacja** wł./wył. (spadające granulki; automatycznie ograniczana, gdy system preferuje ograniczony ruch) · **bez tła karty**.
+
+**Opcje geometrii:** wylot granulek (X/Y) oraz odliczanie (X/Y/rozmiar) podawane są w **%** widgetu, dzięki czemu animację można wyrównać, gdy używasz własnego obrazu.
+
 ---
 
 ## 6. Konfiguracja
@@ -199,6 +220,7 @@ Dla pełnej przejrzystości — widgety subskrybują kanał przełącznika `auto
 | **Environment** | `status.waterTemperature`, `status.waterTemperatureDeep`, `status.waterStratification`, `status.oxygen`, `status.sunrise(Ts)`, `status.sunset(Ts)`, `settings.o2Min` | — |
 | **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
+| **AnimatedFeeder** | `status.feedingActive`, `status.feedingEndsTs`, `status.feedingDurationSec`, `status.winterActive`, `status.pauseManual`, `status.pauseActive` | `feedFor` (dotknij, aby nakarmić) |
 
 Zobacz [dokumentację ioBroker.automatic-feeder](https://github.com/ssbingo/ioBroker.automatic-feeder), aby poznać dokładne znaczenie każdego punktu danych.
 

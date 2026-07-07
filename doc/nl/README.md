@@ -37,6 +37,7 @@ in detail uit.
    - [5.3 Environment](#53-environment)
    - [5.4 DynamicFeeding](#54-dynamicfeeding)
    - [5.5 SeasonBanner](#55-seasonbanner)
+   - [5.6 AnimatedFeeder](#56-animatedfeeder)
 6. [Configuratie](#6-configuratie)
 7. [Welke datapunten elk widget gebruikt](#7-welke-datapunten-elk-widget-gebruikt)
 8. [Probleemoplossing & FAQ](#8-probleemoplossing--faq)
@@ -45,7 +46,7 @@ in detail uit.
 
 ## 1. Wat je krijgt
 
-Vijf widgets die samen een compleet voederautomaat-dashboard vormen. Elk widget is een op zichzelf staande kaart met een
+Zes widgets die samen een compleet voederautomaat-dashboard vormen. Elk widget is een op zichzelf staande kaart met een
 donker, tabletvriendelijk ontwerp en een accentkleur die je kunt aanpassen.
 
 | Widget | Wat het toont / doet |
@@ -55,9 +56,10 @@ donker, tabletvriendelijk ontwerp en een accentkleur die je kunt aanpassen.
 | **Environment** | Watertemperatuur (ondiep en diep), de thermische stratificatie Δ, een zuurstofmeting (alleen getoond als er een sensor aanwezig is) en een dagbalk met een live "nu"-markering tussen zonsopkomst en zonsondergang. |
 | **DynamicFeeding** | Het Q10-temperatuurmodel in één oogopslag: gemiddelde temperatuur, snelheidsfactor, interval en portie, plus welke sensor (water/lucht) het aanstuurt. |
 | **SeasonBanner** | Eén kleurgecodeerde statusregel met de op dit moment belangrijkste toestand (handmatige pauze → tijdgebonden pauze → winterpauze → automatisch actief). |
+| **AnimatedFeeder** | Een grote geanimeerde voederautomaat-afbeelding (canvas): tijdens het voeren vallen er voederkorrels en vult zich een aftelring, anders pauzesymbolen (handmatig / tijdgebonden / winter). Tik erop om een eenmalige voedering te starten. |
 
-Alle vijf de widgets zijn **lezen-en-besturen**: FeederStatus, Environment, DynamicFeeding en SeasonBanner *tonen* alleen
-gegevens, terwijl FeedControl ook *schrijft* (start een voedering, schakelt de pauze). Er wordt nooit iets geschreven
+Alle zes widgets zijn **lezen-en-besturen**: FeederStatus, Environment, DynamicFeeding en SeasonBanner *tonen* alleen
+gegevens, terwijl FeedControl en AnimatedFeeder ook *schrijven* (start een voedering, schakelt de pauze). Er wordt nooit iets geschreven
 waar je niet uitdrukkelijk om hebt gevraagd.
 
 ---
@@ -69,6 +71,8 @@ waar je niet uitdrukkelijk om hebt gevraagd.
   - **v1.4.0 of nieuwer** — vereist, voor de numerieke tijdstempels, de `blockReasonCode` en het `feedFor`-commando.
   - **v1.5.0 of nieuwer** — aanbevolen, schakelt daarnaast de live **looptijd-aftelling** in FeederStatus in
     (het datapunt `status.feedingEndsTs`).
+  - **v1.6.0 of nieuwer** — aanbevolen voor de exacte aftelring van het **AnimatedFeeder**-widget
+    (het datapunt `status.feedingDurationSec`).
 
 De widgets lezen en schrijven alleen de eigen `status.*`- en `settings.*`-datapunten van de switch, zodat je nooit met de
 hand een object-ID hoeft in te voeren.
@@ -192,6 +196,34 @@ toestand, in deze volgorde van prioriteit:
 
 Dit widget heeft **geen** weergaveopties naast de twee Algemeen-instellingen.
 
+### 5.6 AnimatedFeeder
+
+![AnimatedFeeder-widget tijdens het voeren](../../img/animatedfeeder.png)
+
+Een grote, geanimeerde voederautomaat — het visuele middelpunt van een vijverdashboard. De voederautomaat wordt op een
+canvas getekend en reageert live op de switch:
+
+- **Tijdens het voeren:** er vallen voederkorrels uit de uitlaat en een **aftelring** met de resterende seconden vult
+  de container. De ring is exact wanneer de adapter `status.feedingDurationSec` levert (**v1.6.0+**); bij oudere
+  adapters wordt de totale duur afgeleid van het moment waarop de voedering start.
+- **Pauzetoestanden**, getoond als een symbool met een rood kruis, in dezelfde prioriteit als de SeasonBanner:
+  **handmatige pauze** (stophand) → **tijdgebonden pauze** (klok) → **winterpauze** (sneeuwvlok).
+- **In rust:** alleen de voederautomaat, met een optionele hint *"Tik om te voeren"*.
+
+![AnimatedFeeder in rust en pauzetoestanden](../../img/animatedfeeder-states.png)
+
+**Tik om te voeren:** tik één keer op het widget om het te activeren (*Bevestigen: N s?*), tik nogmaals om een
+eenmalige voedering van de ingestelde duur te starten (via `feedFor`). Tikken wordt genegeerd terwijl een pauze actief
+is, en kan worden uitgeschakeld met **Tik-om-te-voeren inschakelen**.
+
+**Weergaveopties:** accentkleur · een eigen **afbeelding** (laat leeg voor de ingebouwde voederautomaat-afbeelding; een
+eigen afbeelding kan een andere beeldverhouding hebben) · **voederduur** voor de tik-actie · **animatie** aan/uit (de
+vallende korrels; wordt automatisch verminderd wanneer het systeem de voorkeur geeft aan verminderde beweging) ·
+**geen kaartachtergrond**.
+
+**Geometrie-opties:** de korreluitlaat (X/Y) en de aftelling (X/Y/grootte) worden opgegeven in **%** van het widget,
+zodat de animatie kan worden uitgelijnd wanneer je je eigen afbeelding gebruikt.
+
 ---
 
 ## 6. Configuratie
@@ -233,6 +265,7 @@ Voor volledige transparantie — de widgets abonneren zich op het switch-kanaal
 | **Environment** | `status.waterTemperature`, `status.waterTemperatureDeep`, `status.waterStratification`, `status.oxygen`, `status.sunrise(Ts)`, `status.sunset(Ts)`, `settings.o2Min` | — |
 | **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
+| **AnimatedFeeder** | `status.feedingActive`, `status.feedingEndsTs`, `status.feedingDurationSec`, `status.winterActive`, `status.pauseManual`, `status.pauseActive` | `feedFor` (tik-om-te-voeren) |
 
 Zie de [documentatie van ioBroker.automatic-feeder](https://github.com/ssbingo/ioBroker.automatic-feeder) voor de exacte
 betekenis van elk datapunt.

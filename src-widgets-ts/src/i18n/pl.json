@@ -58,5 +58,19 @@
   "auto_active": "Automatyka aktywna — karmienie działa zgodnie z planem",
   "pause_manual_banner": "Karmienie wstrzymane — automatyka zatrzymana do ponownego włączenia",
   "pause_active_banner": "Pauza karmienia aktywna · do",
-  "winter_active_banner": "Pauza zimowa aktywna — karmienie wstrzymane sezonowo"
+  "winter_active_banner": "Pauza zimowa aktywna — karmienie wstrzymane sezonowo",
+  "AnimatedFeeder": "Animowany karmnik",
+  "animated_feeder": "Animowany karmnik",
+  "group_behaviour": "Zachowanie",
+  "click_to_feed": "Włącz karmienie dotknięciem",
+  "feed_duration": "Czas karmienia (s)",
+  "group_geometry": "Geometria",
+  "image": "Obraz (opcjonalnie)",
+  "spawn_x": "Wylot X (%)",
+  "spawn_y": "Wylot Y (%)",
+  "ring_x": "Odliczanie X (%)",
+  "ring_y": "Odliczanie Y (%)",
+  "ring_size": "Rozmiar odliczania (%)",
+  "seconds": "Sekundy",
+  "tap_to_feed": "Dotknij, aby nakarmić"
 }

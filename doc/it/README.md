@@ -37,6 +37,7 @@ opzione.
    - [5.3 Environment](#53-environment)
    - [5.4 DynamicFeeding](#54-dynamicfeeding)
    - [5.5 SeasonBanner](#55-seasonbanner)
+   - [5.6 AnimatedFeeder](#56-animatedfeeder)
 6. [Configurazione](#6-configurazione)
 7. [Quali data point utilizza ciascun widget](#7-quali-data-point-utilizza-ciascun-widget)
 8. [Risoluzione dei problemi e FAQ](#8-risoluzione-dei-problemi-e-faq)
@@ -45,7 +46,7 @@ opzione.
 
 ## 1. Cosa ottieni
 
-Cinque widget che insieme formano una dashboard completa per l'alimentatore. Ognuno è una scheda autonoma con un design
+Sei widget che insieme formano una dashboard completa per l'alimentatore. Ognuno è una scheda autonoma con un design
 scuro, adatto ai tablet, e un colore d'accento che puoi modificare.
 
 | Widget | Cosa mostra / fa |
@@ -55,9 +56,10 @@ scuro, adatto ai tablet, e un colore d'accento che puoi modificare.
 | **Environment** | Temperatura dell'acqua (superficie e profondità), la stratificazione termica Δ, una lettura dell'ossigeno (mostrata solo se esiste un sensore) e una barra del giorno con un indicatore "adesso" in tempo reale tra alba e tramonto. |
 | **DynamicFeeding** | Il modello di temperatura Q10 a colpo d'occhio: temperatura media, fattore di velocità, intervallo e porzione, oltre a quale sensore (acqua/aria) lo determina. |
 | **SeasonBanner** | Un'unica riga di stato con codice colore che mostra lo stato attualmente più importante (pausa manuale → pausa temporizzata → pausa invernale → automatico attivo). |
+| **AnimatedFeeder** | Una grande grafica animata dell'alimentatore (canvas): durante l'erogazione cadono pellet di cibo e un anello di conto alla rovescia si riempie, altrimenti mostra i simboli di pausa (manuale / temporizzata / invernale). Toccalo per avviare un'erogazione una tantum. |
 
-Tutti e cinque i widget sono **di lettura e controllo**: FeederStatus, Environment, DynamicFeeding e SeasonBanner si
-limitano a *mostrare* i dati, mentre FeedControl *scrive* anche (avvia un'erogazione, commuta la pausa). Non viene mai
+Tutti e sei i widget sono **di lettura e controllo**: FeederStatus, Environment, DynamicFeeding e SeasonBanner si
+limitano a *mostrare* i dati, mentre FeedControl e AnimatedFeeder *scrivono* anche (avvia un'erogazione, commuta la pausa). Non viene mai
 scritto nulla che tu non abbia esplicitamente richiesto.
 
 ---
@@ -69,6 +71,8 @@ scritto nulla che tu non abbia esplicitamente richiesto.
   - **v1.4.0 o successiva** — obbligatoria, per i timestamp numerici, il `blockReasonCode` e il comando `feedFor`.
   - **v1.5.0 o successiva** — consigliata, abilita inoltre il **conto alla rovescia della durata** in tempo reale in
     FeederStatus (il data point `status.feedingEndsTs`).
+  - **v1.6.0 o successiva** — consigliata per l'anello di conto alla rovescia esatto del widget **AnimatedFeeder**
+    (il data point `status.feedingDurationSec`).
 
 I widget leggono e scrivono solo i data point `status.*` e `settings.*` propri dello switch, quindi non devi mai
 inserire manualmente un ID di oggetto.
@@ -194,6 +198,34 @@ importante**, in questo ordine di priorità:
 
 Questo widget **non** ha opzioni di aspetto oltre alle due impostazioni Generale.
 
+### 5.6 AnimatedFeeder
+
+![Widget AnimatedFeeder durante l'erogazione](../../img/animatedfeeder.png)
+
+Un grande alimentatore animato — il fulcro visivo di una dashboard per laghetto. Disegna l'alimentatore su un canvas e
+reagisce in tempo reale allo switch:
+
+- **Durante l'erogazione:** i pellet di cibo cadono dall'ugello e un **anello di conto alla rovescia** con i secondi
+  rimanenti riempie il contenitore. L'anello è esatto quando l'adattatore fornisce `status.feedingDurationSec`
+  (**v1.6.0+**); con gli adattatori più vecchi la durata totale viene ricavata dal momento in cui inizia l'erogazione.
+- **Stati di pausa**, mostrati come un simbolo con una croce rossa, con la stessa priorità del SeasonBanner:
+  **pausa manuale** (mano di stop) → **pausa temporizzata** (orologio) → **pausa invernale** (fiocco di neve).
+- **Inattivo:** solo l'alimentatore, con un suggerimento facoltativo *"Tocca per alimentare"*.
+
+![AnimatedFeeder negli stati inattivo e di pausa](../../img/animatedfeeder-states.png)
+
+**Tocca per alimentare:** tocca il widget una volta per armarlo (*Confermare: N s?*), tocca di nuovo per avviare
+un'erogazione una tantum della durata configurata (tramite `feedFor`). Il tocco viene ignorato mentre è attiva una
+pausa e può essere disattivato con **Abilita tocca-per-alimentare**.
+
+**Opzioni di aspetto:** colore d'accento · un'**immagine** personalizzata (lasciala vuota per la grafica
+dell'alimentatore integrata; un'immagine personalizzata può avere proporzioni diverse) · **durata dell'erogazione** per
+l'azione di tocco · **animazione** on/off (i pellet che cadono; ridotta automaticamente quando il sistema preferisce un
+movimento ridotto) · **nessuno sfondo della scheda**.
+
+**Opzioni di geometria:** l'ugello dei pellet (X/Y) e il conto alla rovescia (X/Y/dimensione) sono espressi in **%**
+del widget, in modo da poter allineare l'animazione quando usi una tua immagine.
+
 ---
 
 ## 6. Configurazione
@@ -235,6 +267,7 @@ Per la massima trasparenza — i widget si sottoscrivono al canale dello switch
 | **Environment** | `status.waterTemperature`, `status.waterTemperatureDeep`, `status.waterStratification`, `status.oxygen`, `status.sunrise(Ts)`, `status.sunset(Ts)`, `settings.o2Min` | — |
 | **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
+| **AnimatedFeeder** | `status.feedingActive`, `status.feedingEndsTs`, `status.feedingDurationSec`, `status.winterActive`, `status.pauseManual`, `status.pauseActive` | `feedFor` (tocca-per-alimentare) |
 
 Consulta la [documentazione di ioBroker.automatic-feeder](https://github.com/ssbingo/ioBroker.automatic-feeder) per il
 significato esatto di ciascun data point.

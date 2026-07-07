@@ -32,6 +32,7 @@
    - [5.3 Environment](#53-environment)
    - [5.4 DynamicFeeding](#54-dynamicfeeding)
    - [5.5 SeasonBanner](#55-seasonbanner)
+   - [5.6 AnimatedFeeder](#56-animatedfeeder)
 6. [配置](#6-配置)
 7. [每个控件使用的数据点](#7-每个控件使用的数据点)
 8. [故障排除与常见问题](#8-故障排除与常见问题)
@@ -40,7 +41,7 @@
 
 ## 1. 您将获得什么
 
-五个控件，它们共同构成一个完整的喂食器仪表盘。每个控件都是一张独立的卡片，采用适合平板的深色设计，并带有可自定义的强调色。
+六个控件，它们共同构成一个完整的喂食器仪表盘。每个控件都是一张独立的卡片，采用适合平板的深色设计，并带有可自定义的强调色。
 
 | 控件 | 显示 / 功能 |
 |--------|----------------------|
@@ -49,8 +50,9 @@
 | **Environment** | 水温（浅层和深层）、热分层 Δ、氧气读数（仅在存在传感器时显示），以及一条在日出与日落之间带有实时“当前”标记的日间进度条。 |
 | **DynamicFeeding** | 一目了然的 Q10 温度模型：平均温度、速率系数、间隔和份量，以及由哪个传感器（水温/气温）驱动。 |
 | **SeasonBanner** | 一行按颜色编码的状态栏，显示当前最重要的状态（手动暂停 → 定时暂停 → 冬季暂停 → 自动运行）。 |
+| **AnimatedFeeder** | 一个大型动画喂食器图形（canvas）：喂食时饲料颗粒落下，并有一个倒计时环逐渐填满；其余情况下显示暂停符号（手动 / 定时 / 冬季）。轻触即可触发一次性喂食。 |
 
-这五个控件都是**读取与控制**型：FeederStatus、Environment、DynamicFeeding 和 SeasonBanner 只*显示*数据，而 FeedControl 还会*写入*（触发喂食、切换暂停）。凡是您未明确请求的内容，绝不会被写入。
+这六个控件都是**读取与控制**型：FeederStatus、Environment、DynamicFeeding 和 SeasonBanner 只*显示*数据，而 FeedControl 和 AnimatedFeeder 还会*写入*（触发喂食、切换暂停）。凡是您未明确请求的内容，绝不会被写入。
 
 ---
 
@@ -60,6 +62,7 @@
 - 已安装并至少配置了一个开关的 **ioBroker.automatic-feeder** 适配器：
   - **v1.4.0 或更高版本**——必需，用于数字时间戳、`blockReasonCode` 和 `feedFor` 命令。
   - **v1.5.0 或更高版本**——推荐，可额外启用 FeederStatus 中的实时**运行倒计时**（`status.feedingEndsTs` 数据点）。
+  - **v1.6.0 或更高版本**——推荐，用于 **AnimatedFeeder** 控件的精确倒计时环（`status.feedingDurationSec` 数据点）。
 
 控件只读取和写入开关自身的 `status.*` 和 `settings.*` 数据点，因此您永远无需手动输入对象 ID。
 
@@ -162,6 +165,24 @@
 
 除了两个 General（常规）设置外，此控件**没有**其他外观选项。
 
+### 5.6 AnimatedFeeder
+
+![喂食中的 AnimatedFeeder 控件](../../img/animatedfeeder.png)
+
+一个大型的动画喂食器——池塘仪表盘的视觉核心。它在 canvas 上绘制喂食器，并实时对开关做出反应：
+
+- **喂食时：** 饲料颗粒从出料口落下，一个显示剩余秒数的**倒计时环**逐渐填满容器。当适配器提供 `status.feedingDurationSec`（**v1.6.0+**）时，该环是精确的；在较旧的适配器上，总时长则从喂食开始的时刻推算得出。
+- **暂停状态**，以带红色叉号的符号显示，其优先级与 SeasonBanner 相同：**手动暂停**（停止手势）→ **定时暂停**（时钟）→ **冬季暂停**（雪花）。
+- **空闲时：** 仅显示喂食器，并带有一个可选的 *“轻触喂食”* 提示。
+
+![AnimatedFeeder 的空闲与暂停状态](../../img/animatedfeeder-states.png)
+
+**轻触喂食：** 轻触控件一次将其激活（*确认：N 秒？*），再次轻触即可触发一次所配置时长的一次性喂食（通过 `feedFor`）。暂停激活期间轻触将被忽略，并且可通过 **Enable tap-to-feed** 将其关闭。
+
+**外观选项：** 强调色 · 自定义**图片**（留空则使用内置的喂食器图形；自定义图片的宽高比可能不同）· 轻触操作的**喂食时长** · **动画**开/关（落下的饲料颗粒；当系统偏好减少动态效果时会自动减弱）· **无卡片背景**。
+
+**几何选项：** 出料口（X/Y）与倒计时（X/Y/大小）均以控件的**百分比（%）**给出，因此在使用您自己的图片时可以对齐动画。
+
 ---
 
 ## 6. 配置
@@ -199,6 +220,7 @@
 | **Environment** | `status.waterTemperature`、`status.waterTemperatureDeep`、`status.waterStratification`、`status.oxygen`、`status.sunrise(Ts)`、`status.sunset(Ts)`、`settings.o2Min` | — |
 | **DynamicFeeding** | `settings.dynamicEnabled`、`settings.dynamicSource`、`status.dynamicAvgTemperature`、`status.dynamicRate`、`status.dynamicIntervalMin`、`status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`、`status.pauseActive`、`status.pauseActiveUntil`、`status.pauseManual`、`settings.winterWindow` | — |
+| **AnimatedFeeder** | `status.feedingActive`、`status.feedingEndsTs`、`status.feedingDurationSec`、`status.winterActive`、`status.pauseManual`、`status.pauseActive` | `feedFor`（轻触喂食） |
 
 有关每个数据点的确切含义，请参阅 [ioBroker.automatic-feeder 文档](https://github.com/ssbingo/ioBroker.automatic-feeder)。
 

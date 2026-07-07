@@ -58,5 +58,19 @@
   "auto_active": "Automatic active — feeding runs as scheduled",
   "pause_manual_banner": "Feeding suspended — automatic stopped until switched on again",
   "pause_active_banner": "Feeding pause active · until",
-  "winter_active_banner": "Winter pause active — feeding paused seasonally"
+  "winter_active_banner": "Winter pause active — feeding paused seasonally",
+  "AnimatedFeeder": "Animated Feeder",
+  "animated_feeder": "Animated feeder",
+  "group_behaviour": "Behaviour",
+  "click_to_feed": "Enable tap-to-feed",
+  "feed_duration": "Feed duration (s)",
+  "group_geometry": "Geometry",
+  "image": "Image (optional)",
+  "spawn_x": "Pellet outlet X (%)",
+  "spawn_y": "Pellet outlet Y (%)",
+  "ring_x": "Countdown X (%)",
+  "ring_y": "Countdown Y (%)",
+  "ring_size": "Countdown size (%)",
+  "seconds": "Seconds",
+  "tap_to_feed": "Tap to feed"
 }

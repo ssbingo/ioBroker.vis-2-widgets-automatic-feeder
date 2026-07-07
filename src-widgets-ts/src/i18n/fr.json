@@ -58,5 +58,19 @@
   "auto_active": "Automatique actif — le nourrissage suit la planification",
   "pause_manual_banner": "Nourrissage suspendu — automatique arrêté jusqu'à réactivation",
   "pause_active_banner": "Pause de nourrissage active · jusqu'à",
-  "winter_active_banner": "Pause hivernale active — nourrissage suspendu selon la saison"
+  "winter_active_banner": "Pause hivernale active — nourrissage suspendu selon la saison",
+  "AnimatedFeeder": "Distributeur animé",
+  "animated_feeder": "Distributeur animé",
+  "group_behaviour": "Comportement",
+  "click_to_feed": "Activer le tap pour nourrir",
+  "feed_duration": "Durée de distribution (s)",
+  "group_geometry": "Géométrie",
+  "image": "Image (facultative)",
+  "spawn_x": "Sortie X (%)",
+  "spawn_y": "Sortie Y (%)",
+  "ring_x": "Compte à rebours X (%)",
+  "ring_y": "Compte à rebours Y (%)",
+  "ring_size": "Taille du compte à rebours (%)",
+  "seconds": "Secondes",
+  "tap_to_feed": "Toucher pour nourrir"
 }

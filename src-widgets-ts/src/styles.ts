@@ -65,6 +65,9 @@ const CSS = `
 .af-banner--crit .dot{background:#f44336;box-shadow:0 0 8px #f44336}
 .af-banner--info{border-color:rgba(130,177,255,.4)}
 .af-banner--info .dot{background:#82b1ff;box-shadow:0 0 8px #82b1ff}
+.af-animcard{box-sizing:border-box;height:100%;width:100%;border-radius:15px;overflow:hidden;padding:0}
+.af-animcard.af-bg{background:#1c2128;box-shadow:0 0 10px #000}
+.af-anim-canvas{display:block;width:100%;height:100%;object-fit:contain}
 `;
 
 /** Injects the shared widget CSS (keyframes + classes) once per page. */

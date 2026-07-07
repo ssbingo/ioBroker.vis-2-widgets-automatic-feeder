@@ -32,6 +32,7 @@ Dieses Dokument ist ein vollständiges Handbuch. Wenn du diese Widgets noch nie 
    - [5.3 Environment](#53-environment)
    - [5.4 DynamicFeeding](#54-dynamicfeeding)
    - [5.5 SeasonBanner](#55-seasonbanner)
+   - [5.6 AnimatedFeeder](#56-animatedfeeder)
 6. [Konfiguration](#6-konfiguration)
 7. [Welche Datenpunkte jedes Widget nutzt](#7-welche-datenpunkte-jedes-widget-nutzt)
 8. [Fehlerbehebung & FAQ](#8-fehlerbehebung--faq)
@@ -40,7 +41,7 @@ Dieses Dokument ist ein vollständiges Handbuch. Wenn du diese Widgets noch nie 
 
 ## 1. Was du bekommst
 
-Fünf Widgets, die zusammen ein vollständiges Futterautomat-Dashboard bilden. Jedes ist eine eigenständige Karte mit dunklem, tablet-freundlichem Design und einer Akzentfarbe, die du ändern kannst.
+Sechs Widgets, die zusammen ein vollständiges Futterautomat-Dashboard bilden. Jedes ist eine eigenständige Karte mit dunklem, tablet-freundlichem Design und einer Akzentfarbe, die du ändern kannst.
 
 | Widget | Was es anzeigt / tut |
 |--------|----------------------|
@@ -49,8 +50,9 @@ Fünf Widgets, die zusammen ein vollständiges Futterautomat-Dashboard bilden. J
 | **Environment** | Wassertemperatur (flach und tief), die thermische Schichtung Δ, ein Sauerstoffwert (nur angezeigt, wenn ein Sensor vorhanden ist) und ein Tagesbalken mit einer Live-Markierung „Jetzt" zwischen Sonnenauf- und Sonnenuntergang. |
 | **DynamicFeeding** | Das Q10-Temperaturmodell auf einen Blick: Durchschnittstemperatur, Ratenfaktor, Intervall und Portion sowie welcher Sensor (Wasser/Luft) es steuert. |
 | **SeasonBanner** | Eine einzelne, farbcodierte Statuszeile mit dem aktuell wichtigsten Zustand (manuelle Pause → zeitbasierte Pause → Winterpause → Automatik aktiv). |
+| **AnimatedFeeder** | Eine große animierte Futterautomat-Grafik (Canvas): Während der Fütterung fallen Futterpellets und ein Countdown-Ring füllt sich, ansonsten werden Pause-Symbole (manuell / zeitbasiert / Winter) angezeigt. Tippe darauf, um eine einmalige Fütterung auszulösen. |
 
-Alle fünf Widgets sind **Lesen-und-Steuern**: FeederStatus, Environment, DynamicFeeding und SeasonBanner *zeigen* nur Daten an, während FeedControl auch *schreibt* (löst eine Fütterung aus, schaltet die Pause um). Es wird niemals etwas geschrieben, worum du nicht ausdrücklich gebeten hast.
+Alle sechs Widgets sind **Lesen-und-Steuern**: FeederStatus, Environment, DynamicFeeding und SeasonBanner *zeigen* nur Daten an, während FeedControl und AnimatedFeeder auch *schreiben* (löst eine Fütterung aus, schaltet die Pause um). Es wird niemals etwas geschrieben, worum du nicht ausdrücklich gebeten hast.
 
 ---
 
@@ -60,6 +62,7 @@ Alle fünf Widgets sind **Lesen-und-Steuern**: FeederStatus, Environment, Dynami
 - Der Adapter **ioBroker.automatic-feeder**, installiert und mit mindestens einem Schalter konfiguriert:
   - **v1.4.0 oder neuer** — erforderlich, für die numerischen Zeitstempel, den `blockReasonCode` und den Befehl `feedFor`.
   - **v1.5.0 oder neuer** — empfohlen, aktiviert zusätzlich den Live-**Laufzeit-Countdown** in FeederStatus (den Datenpunkt `status.feedingEndsTs`).
+  - **v1.6.0 oder neuer** — empfohlen für den exakten Countdown-Ring des Widgets **AnimatedFeeder** (den Datenpunkt `status.feedingDurationSec`).
 
 Die Widgets lesen und schreiben nur die `status.*`- und `settings.*`-Datenpunkte des jeweiligen Schalters, sodass du niemals eine Objekt-ID von Hand eingeben musst.
 
@@ -162,6 +165,24 @@ Eine einzelne, farbcodierte Statuszeile — ideal für den oberen Rand einer Vie
 
 Dieses Widget hat **keine** Darstellungsoptionen außer den beiden Allgemein-Einstellungen.
 
+### 5.6 AnimatedFeeder
+
+![AnimatedFeeder-Widget während der Fütterung](../../img/animatedfeeder.png)
+
+Ein großer, animierter Futterautomat — das visuelle Herzstück eines Teich-Dashboards. Er zeichnet den Futterautomaten auf einem Canvas und reagiert live auf den Schalter:
+
+- **Während der Fütterung:** Futterpellets fallen aus dem Auslass und ein **Countdown-Ring** mit den verbleibenden Sekunden füllt den Behälter. Der Ring ist exakt, wenn der Adapter `status.feedingDurationSec` liefert (**v1.6.0+**); bei älteren Adaptern wird die Gesamtdauer aus dem Startzeitpunkt der Fütterung abgeleitet.
+- **Pause-Zustände**, dargestellt als Symbol mit einem roten Kreuz, in derselben Priorität wie beim SeasonBanner: **manuelle Pause** (Stopp-Hand) → **zeitbasierte Pause** (Uhr) → **Winterpause** (Schneeflocke).
+- **Untätig:** nur der Futterautomat, mit einem optionalen Hinweis *„Zum Füttern tippen"*.
+
+![AnimatedFeeder im Ruhe- und Pausenzustand](../../img/animatedfeeder-states.png)
+
+**Zum Füttern tippen:** Tippe einmal auf das Widget, um es zu schärfen (*Bestätigen: N s?*), tippe erneut, um eine einmalige Fütterung mit der konfigurierten Dauer auszulösen (über `feedFor`). Das Tippen wird ignoriert, solange eine Pause aktiv ist, und kann mit **Zum-Füttern-Tippen aktivieren** abgeschaltet werden.
+
+**Darstellungsoptionen:** Akzentfarbe · ein eigenes **Bild** (leer lassen für die eingebaute Futterautomat-Grafik; ein eigenes Bild kann ein anderes Seitenverhältnis haben) · **Fütterungsdauer** für die Tipp-Aktion · **Animation** ein/aus (die fallenden Pellets; automatisch reduziert, wenn das System reduzierte Bewegung bevorzugt) · **Ohne Kartenhintergrund**.
+
+**Geometrie-Optionen:** Der Pellet-Auslass (X/Y) und der Countdown (X/Y/Größe) werden in **%** des Widgets angegeben, sodass die Animation ausgerichtet werden kann, wenn du dein eigenes Bild verwendest.
+
 ---
 
 ## 6. Konfiguration
@@ -199,6 +220,7 @@ Zur vollständigen Transparenz — die Widgets abonnieren den Schalter-Kanal `au
 | **Environment** | `status.waterTemperature`, `status.waterTemperatureDeep`, `status.waterStratification`, `status.oxygen`, `status.sunrise(Ts)`, `status.sunset(Ts)`, `settings.o2Min` | — |
 | **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
+| **AnimatedFeeder** | `status.feedingActive`, `status.feedingEndsTs`, `status.feedingDurationSec`, `status.winterActive`, `status.pauseManual`, `status.pauseActive` | `feedFor` (Zum-Füttern-Tippen) |
 
 Die genaue Bedeutung jedes Datenpunkts findest du in der [Dokumentation von ioBroker.automatic-feeder](https://github.com/ssbingo/ioBroker.automatic-feeder).
 

@@ -43,6 +43,7 @@ in detail.
    - [5.3 Environment](#53-environment)
    - [5.4 DynamicFeeding](#54-dynamicfeeding)
    - [5.5 SeasonBanner](#55-seasonbanner)
+   - [5.6 AnimatedFeeder](#56-animatedfeeder)
 6. [Configuration](#6-configuration)
 7. [Which data points each widget uses](#7-which-data-points-each-widget-uses)
 8. [Troubleshooting & FAQ](#8-troubleshooting--faq)
@@ -51,7 +52,7 @@ in detail.
 
 ## 1. What you get
 
-Five widgets that together form a complete feeder dashboard. Each one is a self-contained card with a dark,
+Six widgets that together form a complete feeder dashboard. Each one is a self-contained card with a dark,
 tablet-friendly design and an accent colour you can change.
 
 | Widget | What it shows / does |
@@ -61,9 +62,10 @@ tablet-friendly design and an accent colour you can change.
 | **Environment** | Water temperature (shallow and deep), the thermal stratification Δ, an oxygen reading (shown only if a sensor exists) and a day bar with a live "now" marker between sunrise and sunset. |
 | **DynamicFeeding** | The Q10 temperature model at a glance: average temperature, rate factor, interval and portion, plus which sensor (water/air) drives it. |
 | **SeasonBanner** | A single, colour-coded status line with the currently most important state (manual pause → time-based pause → winter pause → automatic active). |
+| **AnimatedFeeder** | A large animated feeder graphic (canvas): food pellets fall and a countdown ring fills while feeding, pause symbols (manual / time-based / winter) otherwise. Tap it to trigger a one-off feeding. |
 
-All five widgets are **read-and-control**: FeederStatus, Environment, DynamicFeeding and SeasonBanner only *display*
-data, while FeedControl also *writes* (triggers a feeding, toggles the pause). Nothing is ever written that you did
+All six widgets are **read-and-control**: FeederStatus, Environment, DynamicFeeding and SeasonBanner only *display*
+data, while FeedControl and AnimatedFeeder also *write* (trigger a feeding, toggle the pause). Nothing is ever written that you did
 not explicitly ask for.
 
 ---
@@ -75,6 +77,8 @@ not explicitly ask for.
   - **v1.4.0 or newer** — required, for the numeric timestamps, the `blockReasonCode` and the `feedFor` command.
   - **v1.5.0 or newer** — recommended, additionally enables the live **runtime countdown** in FeederStatus
     (the `status.feedingEndsTs` data point).
+  - **v1.6.0 or newer** — recommended for the exact countdown ring of the **AnimatedFeeder** widget
+    (the `status.feedingDurationSec` data point).
 
 The widgets only read and write the switch's own `status.*` and `settings.*` data points, so you never have to enter
 an object ID by hand.
@@ -197,6 +201,33 @@ state, in this order of priority:
 
 This widget has **no** appearance options beyond the two General settings.
 
+### 5.6 AnimatedFeeder
+
+![AnimatedFeeder widget while feeding](img/animatedfeeder.png)
+
+A large, animated feeder — the visual centrepiece of a pond dashboard. It draws the feeder on a canvas and reacts
+live to the switch:
+
+- **While feeding:** food pellets fall from the outlet and a **countdown ring** with the remaining seconds fills the
+  container. The ring is exact when the adapter provides `status.feedingDurationSec` (**v1.6.0+**); with older
+  adapters the total duration is derived from the moment the feeding starts.
+- **Pause states**, shown as a symbol with a red cross, in the same priority as the SeasonBanner:
+  **manual pause** (stop hand) → **time-based pause** (clock) → **winter pause** (snowflake).
+- **Idle:** just the feeder, with an optional *"Tap to feed"* hint.
+
+![AnimatedFeeder idle and pause states](img/animatedfeeder-states.png)
+
+**Tap to feed:** tap the widget once to arm it (*Confirm: N s?*), tap again to trigger a one-off feeding of the
+configured duration (via `feedFor`). Tapping is ignored while a pause is active, and can be turned off with
+**Enable tap-to-feed**.
+
+**Appearance options:** accent colour · a custom **image** (leave empty for the built-in feeder graphic; a custom
+image may have a different aspect ratio) · **feed duration** for the tap action · **animation** on/off (the falling
+pellets; automatically reduced when the system prefers reduced motion) · **no card background**.
+
+**Geometry options:** the pellet outlet (X/Y) and the countdown (X/Y/size) are given in **%** of the widget, so the
+animation can be aligned when you use your own image.
+
 ---
 
 ## 6. Configuration
@@ -236,6 +267,7 @@ For full transparency — the widgets subscribe to the switch channel
 | **Environment** | `status.waterTemperature`, `status.waterTemperatureDeep`, `status.waterStratification`, `status.oxygen`, `status.sunrise(Ts)`, `status.sunset(Ts)`, `settings.o2Min` | — |
 | **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
+| **AnimatedFeeder** | `status.feedingActive`, `status.feedingEndsTs`, `status.feedingDurationSec`, `status.winterActive`, `status.pauseManual`, `status.pauseActive` | `feedFor` (tap-to-feed) |
 
 See the [ioBroker.automatic-feeder documentation](https://github.com/ssbingo/ioBroker.automatic-feeder) for the exact
 meaning of each data point.
@@ -275,6 +307,10 @@ No. These are only the dashboard widgets. All scheduling, temperature logic and 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2026-07-07)
+* (ssbingo) New sixth widget **AnimatedFeeder**: a large animated feeder (canvas) with falling pellets, a countdown ring and pause symbols (manual / time-based / winter); tap it to trigger a one-off feeding. The exact countdown ring uses the adapter's new `status.feedingDurationSec` (**automatic-feeder v1.6.0+**)
+* (ssbingo) New stylized adapter and widget-set icon (feeder on a light grey tile)
+
 ### 0.1.0 (2026-07-07)
 * (ssbingo) Fixed the adapter icon not showing in the ioBroker Developer Portal — `extIcon` and `readme` now point to the real repository instead of the template placeholder
 

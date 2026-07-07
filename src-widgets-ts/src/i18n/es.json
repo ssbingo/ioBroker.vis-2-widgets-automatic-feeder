@@ -58,5 +58,19 @@
   "auto_active": "Automático activo — la alimentación se ejecuta según lo programado",
   "pause_manual_banner": "Alimentación suspendida — automático detenido hasta que se active de nuevo",
   "pause_active_banner": "Pausa de alimentación activa · hasta",
-  "winter_active_banner": "Pausa de invierno activa — alimentación en pausa por temporada"
+  "winter_active_banner": "Pausa de invierno activa — alimentación en pausa por temporada",
+  "AnimatedFeeder": "Comedero animado",
+  "animated_feeder": "Comedero animado",
+  "group_behaviour": "Comportamiento",
+  "click_to_feed": "Activar tocar para alimentar",
+  "feed_duration": "Duración de alimentación (s)",
+  "group_geometry": "Geometría",
+  "image": "Imagen (opcional)",
+  "spawn_x": "Salida X (%)",
+  "spawn_y": "Salida Y (%)",
+  "ring_x": "Cuenta atrás X (%)",
+  "ring_y": "Cuenta atrás Y (%)",
+  "ring_size": "Tamaño de cuenta atrás (%)",
+  "seconds": "Segundos",
+  "tap_to_feed": "Toca para alimentar"
 }

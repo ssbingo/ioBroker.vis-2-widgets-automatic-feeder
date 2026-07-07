@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.1.0",
+        "version": "0.2.0",
         "news": {
-            "0.1.0": {
-                "en": "Fixed: the adapter icon is now shown in the ioBroker Developer Portal (extIcon and readme point to the real repository).",
-                "de": "Behoben: Das Adapter-Icon wird jetzt im ioBroker Developer Portal angezeigt (extIcon und readme zeigen auf das echte Repository).",
-                "ru": "Исправлено: значок адаптера теперь отображается в ioBroker Developer Portal (extIcon и readme указывают на настоящий репозиторий).",
-                "pt": "Corrigido: o ícone do adaptador agora é exibido no ioBroker Developer Portal (extIcon e readme apontam para o repositório real).",
-                "nl": "Opgelost: het adapterpictogram wordt nu weergegeven in het ioBroker Developer Portal (extIcon en readme verwijzen naar de echte repository).",
-                "fr": "Corrigé : l'icône de l'adaptateur s'affiche désormais dans le portail développeur ioBroker (extIcon et readme pointent vers le vrai dépôt).",
-                "it": "Corretto: l'icona dell'adapter ora viene mostrata nel Developer Portal di ioBroker (extIcon e readme puntano al repository reale).",
-                "es": "Corregido: el icono del adaptador ahora se muestra en el Developer Portal de ioBroker (extIcon y readme apuntan al repositorio real).",
-                "pl": "Naprawiono: ikona adaptera jest teraz wyświetlana w ioBroker Developer Portal (extIcon i readme wskazują na właściwe repozytorium).",
-                "uk": "Виправлено: іконка адаптера тепер відображається в ioBroker Developer Portal (extIcon і readme вказують на справжній репозиторій).",
-                "zh-cn": "修复：适配器图标现在会在 ioBroker 开发者门户中显示（extIcon 和 readme 指向真实的仓库）。"
+            "0.2.0": {
+                "en": "New sixth widget AnimatedFeeder: a large animated feeder (canvas) with falling pellets, a countdown ring and pause symbols (manual/time-based/winter); tap it to feed. New stylized adapter and widget-set icon.",
+                "de": "Neues sechstes Widget AnimatedFeeder: ein großer animierter Futterautomat (Canvas) mit fallenden Pellets, Countdown-Ring und Pausensymbolen (Hand/Zeit/Winter); zum Füttern antippen. Neues stilisiertes Adapter- und Widget-Set-Icon.",
+                "ru": "Новый шестой виджет AnimatedFeeder: большая анимированная кормушка (canvas) с падающими гранулами, кольцом обратного отсчёта и символами пауз (ручная/по времени/зимняя); нажмите, чтобы покормить. Новая стилизованная иконка адаптера и набора виджетов.",
+                "pt": "Novo sexto widget AnimatedFeeder: um alimentador animado grande (canvas) com ração a cair, um anel de contagem regressiva e símbolos de pausa (manual/por tempo/inverno); toque para alimentar. Novo ícone estilizado do adaptador e do conjunto de widgets.",
+                "nl": "Nieuw zesde widget AnimatedFeeder: een grote geanimeerde voederautomaat (canvas) met vallende korrels, een aftelring en pauzesymbolen (handmatig/tijd/winter); tik om te voeren. Nieuw gestileerd adapter- en widgetset-pictogram.",
+                "fr": "Nouveau sixième widget AnimatedFeeder : un grand distributeur animé (canvas) avec des granulés qui tombent, un anneau de compte à rebours et des symboles de pause (manuelle/horaire/hiver) ; touchez pour nourrir. Nouvelle icône stylisée de l'adaptateur et de l'ensemble de widgets.",
+                "it": "Nuovo sesto widget AnimatedFeeder: un grande alimentatore animato (canvas) con pellet che cadono, un anello di conto alla rovescia e simboli di pausa (manuale/a tempo/invernale); tocca per alimentare. Nuova icona stilizzata dell'adapter e del set di widget.",
+                "es": "Nuevo sexto widget AnimatedFeeder: un gran comedero animado (canvas) con pellets que caen, un anillo de cuenta atrás y símbolos de pausa (manual/por tiempo/invierno); toca para alimentar. Nuevo icono estilizado del adaptador y del conjunto de widgets.",
+                "pl": "Nowy szósty widget AnimatedFeeder: duży animowany karmnik (canvas) ze spadającymi granulkami, pierścieniem odliczania i symbolami pauzy (ręczna/czasowa/zimowa); dotknij, aby nakarmić. Nowa stylizowana ikona adaptera i zestawu widgetów.",
+                "uk": "Новий шостий віджет AnimatedFeeder: велика анімована годівниця (canvas) із гранулами, що падають, кільцем зворотного відліку та символами пауз (ручна/за часом/зимова); торкніться, щоб погодувати. Нова стилізована іконка адаптера та набору віджетів.",
+                "zh-cn": "新增第六个控件 AnimatedFeeder：大型动画喂食器（canvas），带有下落的饲料颗粒、倒计时环和暂停符号（手动/定时/冬季）；点按即可投喂。全新风格化的适配器与控件集图标。"
             }
         },
         "titleLang": {
@@ -79,7 +79,8 @@
                     "FeedControl",
                     "Environment",
                     "DynamicFeeding",
-                    "SeasonBanner"
+                    "SeasonBanner",
+                    "AnimatedFeeder"
                 ]
             }
         },

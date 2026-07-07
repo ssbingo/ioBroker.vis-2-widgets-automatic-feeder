@@ -36,6 +36,7 @@ un panel funcional en un par de minutos, y el resto explica en detalle cada widg
    - [5.3 Environment](#53-environment)
    - [5.4 DynamicFeeding](#54-dynamicfeeding)
    - [5.5 SeasonBanner](#55-seasonbanner)
+   - [5.6 AnimatedFeeder](#56-animatedfeeder)
 6. [Configuración](#6-configuración)
 7. [Qué puntos de datos usa cada widget](#7-qué-puntos-de-datos-usa-cada-widget)
 8. [Solución de problemas y preguntas frecuentes](#8-solución-de-problemas-y-preguntas-frecuentes)
@@ -44,7 +45,7 @@ un panel funcional en un par de minutos, y el resto explica en detalle cada widg
 
 ## 1. Qué obtienes
 
-Cinco widgets que juntos forman un panel completo del comedero. Cada uno es una tarjeta independiente con un diseño
+Seis widgets que juntos forman un panel completo del comedero. Cada uno es una tarjeta independiente con un diseño
 oscuro, pensado para tabletas, y un color de acento que puedes cambiar.
 
 | Widget | Qué muestra / hace |
@@ -54,9 +55,10 @@ oscuro, pensado para tabletas, y un color de acento que puedes cambiar.
 | **Environment** | Temperatura del agua (superficial y profunda), la estratificación térmica Δ, una lectura de oxígeno (solo se muestra si existe un sensor) y una barra del día con un marcador «ahora» en vivo entre el amanecer y el atardecer. |
 | **DynamicFeeding** | El modelo de temperatura Q10 de un vistazo: temperatura media, factor de tasa, intervalo y porción, además de qué sensor (agua/aire) lo controla. |
 | **SeasonBanner** | Una única línea de estado con código de color que muestra el estado más importante en cada momento (pausa manual → pausa por horario → pausa de invierno → automático activo). |
+| **AnimatedFeeder** | Un gran gráfico animado del comedero (canvas): mientras alimenta caen gránulos de comida y se llena un anillo de cuenta atrás; en caso contrario, símbolos de pausa (manual / por horario / invierno). Tócalo para disparar una alimentación puntual. |
 
-Los cinco widgets son de **lectura y control**: FeederStatus, Environment, DynamicFeeding y SeasonBanner solo *muestran*
-datos, mientras que FeedControl además *escribe* (dispara una alimentación, activa o desactiva la pausa). Nunca se escribe
+Los seis widgets son de **lectura y control**: FeederStatus, Environment, DynamicFeeding y SeasonBanner solo *muestran*
+datos, mientras que FeedControl y AnimatedFeeder además *escriben* (dispara una alimentación, activa o desactiva la pausa). Nunca se escribe
 nada que no hayas solicitado explícitamente.
 
 ---
@@ -68,6 +70,8 @@ nada que no hayas solicitado explícitamente.
   - **v1.4.0 o posterior** — obligatorio, para las marcas de tiempo numéricas, el `blockReasonCode` y el comando `feedFor`.
   - **v1.5.0 o posterior** — recomendado, habilita además la **cuenta atrás del tiempo de funcionamiento** en vivo en
     FeederStatus (el punto de datos `status.feedingEndsTs`).
+  - **v1.6.0 o posterior** — recomendado para el anillo de cuenta atrás exacto del widget **AnimatedFeeder** (el punto
+    de datos `status.feedingDurationSec`).
 
 Los widgets solo leen y escriben los propios puntos de datos `status.*` y `settings.*` del interruptor, por lo que nunca
 tienes que introducir un ID de objeto a mano.
@@ -193,6 +197,34 @@ actual **más importante**, en este orden de prioridad:
 
 Este widget **no** tiene opciones de apariencia más allá de los dos ajustes General.
 
+### 5.6 AnimatedFeeder
+
+![Widget AnimatedFeeder mientras alimenta](../../img/animatedfeeder.png)
+
+Un comedero grande y animado: el elemento visual central de un panel de estanque. Dibuja el comedero en un canvas y
+reacciona en vivo al interruptor:
+
+- **Mientras alimenta:** caen gránulos de comida por la salida y un **anillo de cuenta atrás** con los segundos
+  restantes llena el recipiente. El anillo es exacto cuando el adaptador proporciona `status.feedingDurationSec`
+  (**v1.6.0+**); con adaptadores más antiguos, la duración total se deduce del momento en que comienza la alimentación.
+- **Estados de pausa**, mostrados como un símbolo con una cruz roja, con la misma prioridad que el SeasonBanner:
+  **pausa manual** (mano de stop) → **pausa por horario** (reloj) → **pausa de invierno** (copo de nieve).
+- **Inactivo:** solo el comedero, con una indicación opcional *«Toca para alimentar»*.
+
+![AnimatedFeeder inactivo y estados de pausa](../../img/animatedfeeder-states.png)
+
+**Toca para alimentar:** toca el widget una vez para armarlo (*¿Confirmar: N s?*), toca de nuevo para disparar una
+alimentación puntual de la duración configurada (mediante `feedFor`). El toque se ignora mientras hay una pausa activa
+y puede desactivarse con **Activar toque para alimentar**.
+
+**Opciones de apariencia:** color de acento · una **imagen** personalizada (déjala vacía para el gráfico de comedero
+integrado; una imagen personalizada puede tener una relación de aspecto diferente) · **duración de alimentación** para
+la acción del toque · **animación** activada/desactivada (los gránulos que caen; se reduce automáticamente cuando el
+sistema prefiere el movimiento reducido) · **sin fondo de tarjeta**.
+
+**Opciones de geometría:** la salida de los gránulos (X/Y) y la cuenta atrás (X/Y/tamaño) se indican en **%** del
+widget, para poder alinear la animación cuando usas tu propia imagen.
+
 ---
 
 ## 6. Configuración
@@ -234,6 +266,7 @@ Para total transparencia: los widgets se suscriben al canal del interruptor
 | **Environment** | `status.waterTemperature`, `status.waterTemperatureDeep`, `status.waterStratification`, `status.oxygen`, `status.sunrise(Ts)`, `status.sunset(Ts)`, `settings.o2Min` | — |
 | **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
+| **AnimatedFeeder** | `status.feedingActive`, `status.feedingEndsTs`, `status.feedingDurationSec`, `status.winterActive`, `status.pauseManual`, `status.pauseActive` | `feedFor` (toque para alimentar) |
 
 Consulta la [documentación de ioBroker.automatic-feeder](https://github.com/ssbingo/ioBroker.automatic-feeder) para
 conocer el significado exacto de cada punto de datos.
