@@ -382,7 +382,7 @@ and **Module Federation** into a single `customWidgets.js` that vis-2 loads at r
 
 | File | Widget / role |
 |------|---------------|
-| `FeederWidgetBase.tsx` | Shared base class: resolves the switch channel, subscribes to the sub-states, keeps values in state, and offers read/write/format helpers. |
+| `FeederWidgetBase.tsx` | Shared base class used by **four** of the widgets (Environment, DynamicFeeding, SeasonBanner, AnimatedFeeder): resolves the switch channel, subscribes to the sub-states, keeps values in state, and offers read/write/format helpers. FeederStatus and FeedControl extend `window.visRxWidget` directly and do their own subscribe/seed. |
 | `common.tsx` | The shared *common* attribute group (instance picker + the "switch by name" dropdown) and the `channelOf()` helper. |
 | `FeederStatus.tsx`, `FeedControl.tsx`, `Environment.tsx`, `DynamicFeeding.tsx`, `SeasonBanner.tsx`, `AnimatedFeeder.tsx` | The six widgets. |
 | `styles.ts` | The injected CSS for the card design. |
