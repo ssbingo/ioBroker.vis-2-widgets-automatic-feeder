@@ -1,56 +1,64 @@
+# Dependabot configuration
+# Cooldown delays updating normal npm dependencies by 7 days but allows security updates to be processed immediately.
+# Note: Cooldown is not supported for the github-actions ecosystem.
+# Reference: https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference
 version: 2
 updates:
-    - package-ecosystem: github-actions
-      directory: '/'
-      schedule:
-          # custom cron (distributes load vs. a fixed monthly time); times are Europe/Berlin
-          interval: cron
-          cronjob: '17 3 6 * *'
-          timezone: Europe/Berlin
-      open-pull-requests-limit: 15
-      cooldown:
-          default-days: 7
 
-    - package-ecosystem: npm
-      directory: '/'
-      schedule:
-          # custom cron (distributes load vs. a fixed monthly time); times are Europe/Berlin
-          interval: cron
-          cronjob: '23 3 6 * *'
-          timezone: Europe/Berlin
-      open-pull-requests-limit: 15
-      versioning-strategy: increase
-      cooldown:
-          default-days: 7
-      ignore:
-          - dependency-name: '@types/node'
-            update-types: ['version-update:semver-major']
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'cron'
+      cronjob: '17 3 6 * *'
+      timezone: 'Europe/Berlin'
+    open-pull-requests-limit: 15
+    cooldown:
+      default-days: 7
 
-    - package-ecosystem: npm
-      directory: '/src-widgets-ts'
-      schedule:
-          # custom cron (distributes load vs. a fixed monthly time); times are Europe/Berlin
-          interval: cron
-          cronjob: '31 3 6 * *'
-          timezone: Europe/Berlin
-      open-pull-requests-limit: 15
-      versioning-strategy: increase
-      cooldown:
-          default-days: 7
-      # the widget stack is pinned by @iobroker/adapter-react-v5 (React 18 / MUI 6);
-      # major upgrades of these break the widget build (npm ERESOLVE)
-      ignore:
-          - dependency-name: 'react'
-            update-types: ['version-update:semver-major']
-          - dependency-name: 'react-dom'
-            update-types: ['version-update:semver-major']
-          - dependency-name: '@mui/material'
-            update-types: ['version-update:semver-major']
-          - dependency-name: '@mui/icons-material'
-            update-types: ['version-update:semver-major']
-          - dependency-name: 'vite'
-            update-types: ['version-update:semver-major']
-          - dependency-name: '@vitejs/plugin-react'
-            update-types: ['version-update:semver-major']
-          - dependency-name: 'typescript'
-            update-types: ['version-update:semver-major']
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'cron'
+      cronjob: '23 3 6 * *'
+      timezone: 'Europe/Berlin'
+    open-pull-requests-limit: 15
+    versioning-strategy: 'increase'
+    cooldown:
+      default-days: 7
+    ignore:
+      - dependency-name: '@types/node'
+        update-types:
+          - 'version-update:semver-major'
+
+  - package-ecosystem: 'npm'
+    directory: '/src-widgets-ts'
+    schedule:
+      interval: 'cron'
+      cronjob: '31 3 6 * *'
+      timezone: 'Europe/Berlin'
+    open-pull-requests-limit: 15
+    versioning-strategy: 'increase'
+    cooldown:
+      default-days: 7
+    ignore:
+      - dependency-name: 'react'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: 'react-dom'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: '@mui/material'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: '@mui/icons-material'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: 'vite'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: '@vitejs/plugin-react'
+        update-types:
+          - 'version-update:semver-major'
+      - dependency-name: 'typescript'
+        update-types:
+          - 'version-update:semver-major'
