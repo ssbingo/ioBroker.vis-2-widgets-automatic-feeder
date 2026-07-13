@@ -40,6 +40,8 @@ updates:
     versioning-strategy: 'increase'
     cooldown:
       default-days: 7
+    # the widget stack is pinned by @iobroker/adapter-react-v5 (React 18 / MUI 6);
+    # major upgrades of these break the widget build (npm ERESOLVE)
     ignore:
       - dependency-name: 'react'
         update-types:
