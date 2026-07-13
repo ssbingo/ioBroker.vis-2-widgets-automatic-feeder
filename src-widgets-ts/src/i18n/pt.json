@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "Alimentador automático",
   "FeederStatus": "Estado do alimentador",
-  "switch_channel": "Canal do interruptor",
-  "switch_channel_tooltip": "O canal do interruptor do alimentador, p. ex. automatic-feeder.0.switches.sw-0",
   "group_style": "Aparência",
   "accent": "Cor de destaque",
   "timer_position": "Posição do temporizador",

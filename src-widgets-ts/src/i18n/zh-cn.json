@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "自动喂食器",
   "FeederStatus": "喂食器状态",
-  "switch_channel": "开关通道",
-  "switch_channel_tooltip": "喂食器开关通道，例如 automatic-feeder.0.switches.sw-0",
   "group_style": "外观",
   "accent": "强调色",
   "timer_position": "运行计时器位置",

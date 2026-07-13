@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "Alimentatore automatico",
   "FeederStatus": "Stato alimentatore",
-  "switch_channel": "Canale interruttore",
-  "switch_channel_tooltip": "Il canale interruttore dell'alimentatore, ad es. automatic-feeder.0.switches.sw-0",
   "group_style": "Aspetto",
   "accent": "Colore d'accento",
   "timer_position": "Posizione del timer di conteggio",

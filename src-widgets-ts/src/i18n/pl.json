@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "Automatyczny karmnik",
   "FeederStatus": "Status karmnika",
-  "switch_channel": "Kanał przełącznika",
-  "switch_channel_tooltip": "Kanał przełącznika karmnika, np. automatic-feeder.0.switches.sw-0",
   "group_style": "Wygląd",
   "accent": "Kolor akcentu",
   "timer_position": "Pozycja licznika czasu",

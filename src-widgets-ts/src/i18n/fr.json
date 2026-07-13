@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "Distributeur automatique",
   "FeederStatus": "Statut du distributeur",
-  "switch_channel": "Canal de l'interrupteur",
-  "switch_channel_tooltip": "Le canal de l'interrupteur du distributeur, p. ex. automatic-feeder.0.switches.sw-0",
   "group_style": "Apparence",
   "accent": "Couleur d'accentuation",
   "timer_position": "Position du minuteur d'exécution",

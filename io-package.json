@@ -66,8 +66,8 @@
         },
         "tier": 3,
         "type": "visualization-widgets",
-        "connectionType": "cloud",
-        "dataSource": "poll",
+        "connectionType": "none",
+        "dataSource": "none",
         "visWidgets": {
             "vis2AutomaticFeeder": {
                 "i18n": "component",

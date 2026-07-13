@@ -53,7 +53,7 @@
         "release-major": "release-script major --yes",
         "test": "npm run test:package",
         "test:package": "mocha test/package --exit",
-        "update-packages": "npx -y npm-check-updates --upgrade && cd src-widgets-js && npx -y npm-check-updates --upgrade && cd ../src-widgets-ts && npx -y npm-check-updates --upgrade",
+        "update-packages": "npx -y npm-check-updates --upgrade && cd src-widgets-ts && npx -y npm-check-updates --upgrade",
         "npm": "npm i -f && cd src-widgets-ts && npm i -f"
     },
     "bugs": {

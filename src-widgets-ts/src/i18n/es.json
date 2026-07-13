@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "Comedero automático",
   "FeederStatus": "Estado del comedero",
-  "switch_channel": "Canal del interruptor",
-  "switch_channel_tooltip": "El canal del interruptor del comedero, p. ej. automatic-feeder.0.switches.sw-0",
   "group_style": "Apariencia",
   "accent": "Color de acento",
   "timer_position": "Posición del temporizador de ejecución",

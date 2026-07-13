@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "Automatische voederautomaat",
   "FeederStatus": "Voederstatus",
-  "switch_channel": "Schakelaarkanaal",
-  "switch_channel_tooltip": "Het schakelaarkanaal van de voederautomaat, bijv. automatic-feeder.0.switches.sw-0",
   "group_style": "Weergave",
   "accent": "Accentkleur",
   "timer_position": "Positie van de looptijdtimer",

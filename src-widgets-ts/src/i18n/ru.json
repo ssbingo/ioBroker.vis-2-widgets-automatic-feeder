@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "Автоматическая кормушка",
   "FeederStatus": "Статус кормушки",
-  "switch_channel": "Канал переключателя",
-  "switch_channel_tooltip": "Канал переключателя кормушки, напр. automatic-feeder.0.switches.sw-0",
   "group_style": "Внешний вид",
   "accent": "Акцентный цвет",
   "timer_position": "Положение таймера обратного отсчёта",

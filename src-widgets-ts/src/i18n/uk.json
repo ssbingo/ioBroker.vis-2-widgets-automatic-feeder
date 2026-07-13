@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "Автоматична годівниця",
   "FeederStatus": "Стан годівниці",
-  "switch_channel": "Канал перемикача",
-  "switch_channel_tooltip": "Канал перемикача годівниці, напр. automatic-feeder.0.switches.sw-0",
   "group_style": "Вигляд",
   "accent": "Акцентний колір",
   "timer_position": "Позиція таймера зворотного відліку",

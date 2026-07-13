@@ -1,8 +1,6 @@
 {
   "vis2_automatic_feeder": "Automatischer Futterautomat",
   "FeederStatus": "Feeder-Status",
-  "switch_channel": "Schalter-Kanal",
-  "switch_channel_tooltip": "Der Schalter-Kanal des Futterautomaten, z. B. automatic-feeder.0.switches.sw-0",
   "group_style": "Darstellung",
   "accent": "Akzentfarbe",
   "timer_position": "Position des Laufzeit-Timers",
