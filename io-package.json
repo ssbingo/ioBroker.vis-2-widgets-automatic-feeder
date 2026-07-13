@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.2.2",
+        "version": "0.2.3",
         "news": {
+            "0.2.3": {
+                "en": "Maintenance release: pinned the CI release workflow's deploy action (ioBroker/testing-action-deploy) to v1.5.1. No changes to the widgets themselves.",
+                "de": "Wartungsrelease: Die Deploy-Action des CI-Release-Workflows (ioBroker/testing-action-deploy) auf v1.5.1 festgepinnt. Keine Änderungen an den Widgets selbst.",
+                "ru": "Сервисный релиз: action развёртывания в CI-workflow (ioBroker/testing-action-deploy) зафиксирован на версии v1.5.1. Сами виджеты не изменялись.",
+                "pt": "Versão de manutenção: a action de deploy do workflow de CI (ioBroker/testing-action-deploy) foi fixada na v1.5.1. Sem alterações nos widgets em si.",
+                "nl": "Onderhoudsrelease: de deploy-action van de CI-releaseworkflow (ioBroker/testing-action-deploy) vastgezet op v1.5.1. Geen wijzigingen aan de widgets zelf.",
+                "fr": "Version de maintenance : l'action de déploiement du workflow CI (ioBroker/testing-action-deploy) est désormais épinglée à la v1.5.1. Aucune modification des widgets eux-mêmes.",
+                "it": "Versione di manutenzione: l'action di deploy del workflow CI (ioBroker/testing-action-deploy) è stata fissata alla v1.5.1. Nessuna modifica ai widget stessi.",
+                "es": "Versión de mantenimiento: se fijó la action de despliegue del flujo de trabajo de CI (ioBroker/testing-action-deploy) a la v1.5.1. Sin cambios en los widgets.",
+                "pl": "Wydanie konserwacyjne: przypięto akcję wdrożeniową workflow CI (ioBroker/testing-action-deploy) do wersji v1.5.1. Bez zmian w samych widżetach.",
+                "uk": "Реліз обслуговування: action розгортання в CI-workflow (ioBroker/testing-action-deploy) зафіксовано на версії v1.5.1. Самі віджети не змінювалися.",
+                "zh-cn": "维护版本：将 CI 发布工作流的部署 action（ioBroker/testing-action-deploy）固定到 v1.5.1。小部件本身没有变化。"
+            },
             "0.2.2": {
                 "en": "Maintenance release: corrected the adapter metadata (connectionType/dataSource now \"none\" for this onlyWWW widget set), removed unused translation keys and build-script leftovers, and refreshed the repository/CI configuration. No changes to the widgets themselves.",
                 "de": "Wartungsrelease: Adapter-Metadaten korrigiert (connectionType/dataSource jetzt \"none\" für dieses onlyWWW-Widget-Set), ungenutzte Übersetzungsschlüssel und Build-Skript-Reste entfernt sowie die Repository-/CI-Konfiguration aufgefrischt. Keine Änderungen an den Widgets selbst.",
