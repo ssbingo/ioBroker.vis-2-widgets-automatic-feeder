@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "news": {
+            "0.2.2": {
+                "en": "Maintenance release: corrected the adapter metadata (connectionType/dataSource now \"none\" for this onlyWWW widget set), removed unused translation keys and build-script leftovers, and refreshed the repository/CI configuration. No changes to the widgets themselves.",
+                "de": "Wartungsrelease: Adapter-Metadaten korrigiert (connectionType/dataSource jetzt \"none\" für dieses onlyWWW-Widget-Set), ungenutzte Übersetzungsschlüssel und Build-Skript-Reste entfernt sowie die Repository-/CI-Konfiguration aufgefrischt. Keine Änderungen an den Widgets selbst.",
+                "ru": "Сервисный релиз: исправлены метаданные адаптера (connectionType/dataSource теперь \"none\" для этого onlyWWW-набора виджетов), удалены неиспользуемые ключи перевода и остатки build-скриптов, обновлена конфигурация репозитория/CI. Сами виджеты не изменялись.",
+                "pt": "Versão de manutenção: metadados do adaptador corrigidos (connectionType/dataSource agora \"none\" para este conjunto de widgets onlyWWW), removidas chaves de tradução não utilizadas e restos de scripts de build, e atualizada a configuração do repositório/CI. Sem alterações nos widgets em si.",
+                "nl": "Onderhoudsrelease: adaptermetadata gecorrigeerd (connectionType/dataSource nu \"none\" voor deze onlyWWW-widgetset), ongebruikte vertaalsleutels en build-scriptresten verwijderd en de repository-/CI-configuratie ververst. Geen wijzigingen aan de widgets zelf.",
+                "fr": "Version de maintenance : métadonnées de l'adaptateur corrigées (connectionType/dataSource désormais « none » pour cet ensemble de widgets onlyWWW), suppression des clés de traduction inutilisées et des restes de scripts de build, et rafraîchissement de la configuration du dépôt/CI. Aucune modification des widgets eux-mêmes.",
+                "it": "Versione di manutenzione: corretti i metadati dell'adattatore (connectionType/dataSource ora \"none\" per questo set di widget onlyWWW), rimosse chiavi di traduzione inutilizzate e residui degli script di build e aggiornata la configurazione del repository/CI. Nessuna modifica ai widget stessi.",
+                "es": "Versión de mantenimiento: se corrigieron los metadatos del adaptador (connectionType/dataSource ahora \"none\" para este conjunto de widgets onlyWWW), se eliminaron claves de traducción sin usar y restos de scripts de compilación, y se actualizó la configuración del repositorio/CI. Sin cambios en los widgets.",
+                "pl": "Wydanie konserwacyjne: poprawiono metadane adaptera (connectionType/dataSource teraz \"none\" dla tego zestawu widżetów onlyWWW), usunięto nieużywane klucze tłumaczeń i pozostałości skryptów budowania oraz odświeżono konfigurację repozytorium/CI. Bez zmian w samych widżetach.",
+                "uk": "Реліз обслуговування: виправлено метадані адаптера (connectionType/dataSource тепер \"none\" для цього набору віджетів onlyWWW), видалено невикористовувані ключі перекладу та залишки build-скриптів, оновлено конфігурацію репозиторію/CI. Самі віджети не змінювалися.",
+                "zh-cn": "维护版本：修正了适配器元数据（connectionType/dataSource 现为 \"none\"，适用于此 onlyWWW 小部件集），移除了未使用的翻译键和构建脚本残留，并刷新了仓库/CI 配置。小部件本身没有变化。"
+            },
             "0.2.1": {
                 "en": "AnimatedFeeder now renders in Firefox: the built-in image uses a base64 data URI and the canvas is initialised via a ref callback. A broken or zero-size custom image no longer blanks the widget.",
                 "de": "AnimatedFeeder wird jetzt auch in Firefox angezeigt: Das eingebaute Bild nutzt eine base64-Data-URI und der Canvas wird über einen ref-Callback initialisiert. Ein defektes oder größenloses Bild leert das Widget nicht mehr.",
