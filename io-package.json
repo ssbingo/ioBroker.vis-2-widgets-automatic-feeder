@@ -132,6 +132,16 @@
         },
         "restartAdapters": [
             "vis-2"
+        ],
+        "dependencies": [
+            {
+                "js-controller": ">=6.0.11"
+            }
+        ],
+        "globalDependencies": [
+            {
+                "admin": ">=8.0.0"
+            }
         ]
     },
     "native": {},

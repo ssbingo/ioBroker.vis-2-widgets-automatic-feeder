@@ -8,6 +8,9 @@
     ],
     "homepage": "https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder",
     "license": "MIT",
+    "engines": {
+        "node": ">=22"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder"
