@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.2.3",
+        "version": "0.2.4",
         "news": {
+            "0.2.4": {
+                "en": "Declared the adapter's minimum platform requirements: js-controller >= 6.0.11, admin >= 8.0.0 and Node.js >= 22. No changes to the widgets themselves.",
+                "de": "Mindestanforderungen des Adapters festgelegt: js-controller >= 6.0.11, admin >= 8.0.0 und Node.js >= 22. Keine Änderungen an den Widgets selbst.",
+                "ru": "Заданы минимальные требования адаптера: js-controller >= 6.0.11, admin >= 8.0.0 и Node.js >= 22. Сами виджеты не изменялись.",
+                "pt": "Definidos os requisitos mínimos do adaptador: js-controller >= 6.0.11, admin >= 8.0.0 e Node.js >= 22. Sem alterações nos widgets em si.",
+                "nl": "Minimale vereisten van de adapter vastgelegd: js-controller >= 6.0.11, admin >= 8.0.0 en Node.js >= 22. Geen wijzigingen aan de widgets zelf.",
+                "fr": "Exigences minimales de l'adaptateur définies : js-controller >= 6.0.11, admin >= 8.0.0 et Node.js >= 22. Aucune modification des widgets eux-mêmes.",
+                "it": "Definiti i requisiti minimi dell'adattatore: js-controller >= 6.0.11, admin >= 8.0.0 e Node.js >= 22. Nessuna modifica ai widget stessi.",
+                "es": "Se definieron los requisitos mínimos del adaptador: js-controller >= 6.0.11, admin >= 8.0.0 y Node.js >= 22. Sin cambios en los widgets.",
+                "pl": "Określono minimalne wymagania adaptera: js-controller >= 6.0.11, admin >= 8.0.0 oraz Node.js >= 22. Bez zmian w samych widżetach.",
+                "uk": "Визначено мінімальні вимоги адаптера: js-controller >= 6.0.11, admin >= 8.0.0 та Node.js >= 22. Самі віджети не змінювалися.",
+                "zh-cn": "定义了适配器的最低平台要求：js-controller >= 6.0.11、admin >= 8.0.0 和 Node.js >= 22。小部件本身没有变化。"
+            },
             "0.2.3": {
                 "en": "Maintenance release: pinned the CI release workflow's deploy action (ioBroker/testing-action-deploy) to v1.5.1. No changes to the widgets themselves.",
                 "de": "Wartungsrelease: Die Deploy-Action des CI-Release-Workflows (ioBroker/testing-action-deploy) auf v1.5.1 festgepinnt. Keine Änderungen an den Widgets selbst.",
