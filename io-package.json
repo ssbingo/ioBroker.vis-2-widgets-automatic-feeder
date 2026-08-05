@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.2.4",
+        "version": "0.2.5",
         "news": {
+            "0.2.5": {
+                "en": "Internal maintenance release: updated development/CI tooling and widget build dependencies (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). No changes to the widgets themselves.",
+                "de": "Interne Wartungsversion: Entwicklungs-/CI-Tooling und Build-Abhängigkeiten der Widgets aktualisiert (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Keine Änderungen an den Widgets selbst.",
+                "ru": "Внутренний сервисный релиз: обновлены инструменты разработки/CI и сборочные зависимости виджетов (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Сами виджеты не изменялись.",
+                "pt": "Versão de manutenção interna: ferramentas de desenvolvimento/CI e dependências de build dos widgets atualizadas (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Sem alterações nos widgets em si.",
+                "nl": "Interne onderhoudsrelease: ontwikkel-/CI-tooling en build-afhankelijkheden van de widgets bijgewerkt (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Geen wijzigingen aan de widgets zelf.",
+                "fr": "Version de maintenance interne : outils de développement/CI et dépendances de build des widgets mis à jour (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Aucune modification des widgets eux-mêmes.",
+                "it": "Versione di manutenzione interna: aggiornati gli strumenti di sviluppo/CI e le dipendenze di build dei widget (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Nessuna modifica ai widget stessi.",
+                "es": "Versión de mantenimiento interno: se actualizaron las herramientas de desarrollo/CI y las dependencias de compilación de los widgets (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Sin cambios en los widgets.",
+                "pl": "Wewnętrzne wydanie konserwacyjne: zaktualizowano narzędzia deweloperskie/CI oraz zależności budowania widżetów (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Bez zmian w samych widżetach.",
+                "uk": "Внутрішній реліз обслуговування: оновлено інструменти розробки/CI та збіркові залежності віджетів (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Самі віджети не змінювалися.",
+                "zh-cn": "内部维护版本：更新了开发/CI 工具和小部件构建依赖（@iobroker/adapter-react-v5、@module-federation/vite、@iobroker/testing、GitHub Actions）。小部件本身没有变化。"
+            },
             "0.2.4": {
                 "en": "Declared the adapter's minimum platform requirements: js-controller >= 6.0.11, admin >= 8.0.0 and Node.js >= 22. No changes to the widgets themselves.",
                 "de": "Mindestanforderungen des Adapters festgelegt: js-controller >= 6.0.11, admin >= 8.0.0 und Node.js >= 22. Keine Änderungen an den Widgets selbst.",
