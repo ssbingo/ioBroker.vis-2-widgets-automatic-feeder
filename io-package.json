@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.2.5",
+        "version": "0.2.6",
         "news": {
+            "0.2.6": {
+                "en": "Set the admin dependency to >= 7.8.23 to match the current ioBroker stable repository (fixes repochecker error E4033). No changes to the widgets themselves.",
+                "de": "admin-Abhängigkeit auf >= 7.8.23 gesetzt, passend zum aktuellen ioBroker-Stable-Repository (behebt Repochecker-Fehler E4033). Keine Änderungen an den Widgets selbst.",
+                "ru": "Зависимость admin установлена на >= 7.8.23 в соответствии с текущим стабильным репозиторием ioBroker (исправляет ошибку repochecker E4033). Сами виджеты не изменялись.",
+                "pt": "Dependência do admin definida para >= 7.8.23 para corresponder ao repositório estável atual do ioBroker (corrige o erro E4033 do repochecker). Sem alterações nos widgets em si.",
+                "nl": "admin-afhankelijkheid ingesteld op >= 7.8.23 om overeen te komen met het huidige ioBroker-stable-repository (lost repochecker-fout E4033 op). Geen wijzigingen aan de widgets zelf.",
+                "fr": "Dépendance admin définie sur >= 7.8.23 pour correspondre au dépôt stable actuel d'ioBroker (corrige l'erreur E4033 du repochecker). Aucune modification des widgets eux-mêmes.",
+                "it": "Dipendenza admin impostata su >= 7.8.23 per allinearsi al repository stabile attuale di ioBroker (corregge l'errore E4033 del repochecker). Nessuna modifica ai widget stessi.",
+                "es": "Dependencia de admin establecida en >= 7.8.23 para coincidir con el repositorio estable actual de ioBroker (corrige el error E4033 del repochecker). Sin cambios en los widgets.",
+                "pl": "Zależność admin ustawiona na >= 7.8.23, zgodnie z aktualnym stabilnym repozytorium ioBroker (naprawia błąd repochecker E4033). Bez zmian w samych widżetach.",
+                "uk": "Залежність admin встановлено на >= 7.8.23 відповідно до поточного стабільного репозиторію ioBroker (виправляє помилку repochecker E4033). Самі віджети не змінювалися.",
+                "zh-cn": "将 admin 依赖设置为 >= 7.8.23，以匹配当前的 ioBroker 稳定仓库（修复 repochecker 错误 E4033）。小部件本身没有变化。"
+            },
             "0.2.5": {
                 "en": "Internal maintenance release: updated development/CI tooling and widget build dependencies (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). No changes to the widgets themselves.",
                 "de": "Interne Wartungsversion: Entwicklungs-/CI-Tooling und Build-Abhängigkeiten der Widgets aktualisiert (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Keine Änderungen an den Widgets selbst.",
@@ -166,7 +179,7 @@
         ],
         "globalDependencies": [
             {
-                "admin": ">=8.0.0"
+                "admin": ">=7.8.23"
             }
         ]
     },
