@@ -145,7 +145,8 @@
                     "Environment",
                     "DynamicFeeding",
                     "SeasonBanner",
-                    "AnimatedFeeder"
+                    "AnimatedFeeder",
+                    "FeedingAmount"
                 ]
             }
         },

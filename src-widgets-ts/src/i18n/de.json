@@ -70,5 +70,18 @@
   "ring_y": "Countdown Y (%)",
   "ring_size": "Countdown-Größe (%)",
   "seconds": "Sekunden",
-  "tap_to_feed": "Tippen zum Füttern"
+  "tap_to_feed": "Tippen zum Füttern",
+  "FeedingAmount": "Futtermenge",
+  "feeding_amount": "Futtermengen-Modell",
+  "amount_model_off": "Futtermengen-Modell ist für diesen Schalter aus.",
+  "advisory": "Empfehlung",
+  "controls_feeding": "Steuert Fütterung",
+  "per_day": "/ Tag",
+  "next_portion": "Nächste Portion",
+  "duration_each": "Dauer/Fütterung",
+  "rate_today": "Rate heute",
+  "runtime_day": "Laufzeit/Tag",
+  "total_weight": "Gesamtgewicht",
+  "water_temp_unknown": "Wassertemperatur unbekannt — keine Empfehlung.",
+  "rate_not_calibrated": "Dosierrate nicht kalibriert (0 g/s)."
 }

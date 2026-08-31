@@ -70,5 +70,18 @@
   "ring_y": "Aftelling Y (%)",
   "ring_size": "Aftelling grootte (%)",
   "seconds": "Seconden",
-  "tap_to_feed": "Tik om te voeren"
+  "tap_to_feed": "Tik om te voeren",
+  "FeedingAmount": "Voerhoeveelheid",
+  "feeding_amount": "Voerhoeveelheid-model",
+  "amount_model_off": "Voerhoeveelheid-model staat uit voor deze schakelaar.",
+  "advisory": "Advies",
+  "controls_feeding": "Stuurt voeren",
+  "per_day": "/ dag",
+  "next_portion": "Volgende portie",
+  "duration_each": "Per voerbeurt",
+  "rate_today": "Tarief vandaag",
+  "runtime_day": "Looptijd/dag",
+  "total_weight": "Totaalgewicht",
+  "water_temp_unknown": "Watertemperatuur onbekend — geen advies.",
+  "rate_not_calibrated": "Doseersnelheid niet gekalibreerd (0 g/s)."
 }

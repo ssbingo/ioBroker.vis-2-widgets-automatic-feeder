@@ -70,5 +70,18 @@
   "ring_y": "Contagem Y (%)",
   "ring_size": "Tamanho da contagem (%)",
   "seconds": "Segundos",
-  "tap_to_feed": "Toque para alimentar"
+  "tap_to_feed": "Toque para alimentar",
+  "FeedingAmount": "Quantidade de ração",
+  "feeding_amount": "Modelo de quantidade de ração",
+  "amount_model_off": "O modelo de quantidade de ração está desligado para este interruptor.",
+  "advisory": "Recomendação",
+  "controls_feeding": "Controla a alimentação",
+  "per_day": "/ dia",
+  "next_portion": "Próxima porção",
+  "duration_each": "Por alimentação",
+  "rate_today": "Taxa hoje",
+  "runtime_day": "Tempo de func./dia",
+  "total_weight": "Peso total",
+  "water_temp_unknown": "Temperatura da água desconhecida — sem recomendação.",
+  "rate_not_calibrated": "Taxa de dispensa não calibrada (0 g/s)."
 }

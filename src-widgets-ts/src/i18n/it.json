@@ -70,5 +70,18 @@
   "ring_y": "Conto alla rovescia Y (%)",
   "ring_size": "Dimensione conto alla rovescia (%)",
   "seconds": "Secondi",
-  "tap_to_feed": "Tocca per alimentare"
+  "tap_to_feed": "Tocca per alimentare",
+  "FeedingAmount": "Quantità di mangime",
+  "feeding_amount": "Modello quantità di mangime",
+  "amount_model_off": "Il modello quantità di mangime è disattivato per questo interruttore.",
+  "advisory": "Raccomandazione",
+  "controls_feeding": "Controlla l'alimentazione",
+  "per_day": "/ giorno",
+  "next_portion": "Prossima porzione",
+  "duration_each": "Per pasto",
+  "rate_today": "Tasso oggi",
+  "runtime_day": "Durata/giorno",
+  "total_weight": "Peso totale",
+  "water_temp_unknown": "Temperatura dell'acqua sconosciuta — nessuna raccomandazione.",
+  "rate_not_calibrated": "Portata di erogazione non calibrata (0 g/s)."
 }

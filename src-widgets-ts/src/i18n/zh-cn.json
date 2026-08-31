@@ -70,5 +70,18 @@
   "ring_y": "倒计时 Y (%)",
   "ring_size": "倒计时大小 (%)",
   "seconds": "秒",
-  "tap_to_feed": "点按投喂"
+  "tap_to_feed": "点按投喂",
+  "FeedingAmount": "投喂量",
+  "feeding_amount": "投喂量模型",
+  "amount_model_off": "此开关的投喂量模型已关闭。",
+  "advisory": "建议",
+  "controls_feeding": "控制投喂",
+  "per_day": "/ 天",
+  "next_portion": "下一份",
+  "duration_each": "每次投喂",
+  "rate_today": "今日比例",
+  "runtime_day": "每日运行",
+  "total_weight": "总重量",
+  "water_temp_unknown": "水温未知 — 无建议。",
+  "rate_not_calibrated": "投料速率未校准（0 g/s）。"
 }

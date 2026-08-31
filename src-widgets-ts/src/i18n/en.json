@@ -70,5 +70,18 @@
   "ring_y": "Countdown Y (%)",
   "ring_size": "Countdown size (%)",
   "seconds": "Seconds",
-  "tap_to_feed": "Tap to feed"
+  "tap_to_feed": "Tap to feed",
+  "FeedingAmount": "Feeding amount",
+  "feeding_amount": "Feeding-amount model",
+  "amount_model_off": "Feeding-amount model is off for this switch.",
+  "advisory": "Advisory",
+  "controls_feeding": "Controls feeding",
+  "per_day": "/ day",
+  "next_portion": "Next portion",
+  "duration_each": "Per feeding",
+  "rate_today": "Rate today",
+  "runtime_day": "Runtime/day",
+  "total_weight": "Total weight",
+  "water_temp_unknown": "Water temperature unknown — no recommendation.",
+  "rate_not_calibrated": "Dispense rate not calibrated (0 g/s)."
 }

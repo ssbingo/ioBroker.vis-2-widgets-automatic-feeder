@@ -70,5 +70,18 @@
   "ring_y": "Compte à rebours Y (%)",
   "ring_size": "Taille du compte à rebours (%)",
   "seconds": "Secondes",
-  "tap_to_feed": "Toucher pour nourrir"
+  "tap_to_feed": "Toucher pour nourrir",
+  "FeedingAmount": "Quantité de nourriture",
+  "feeding_amount": "Modèle de quantité de nourriture",
+  "amount_model_off": "Le modèle de quantité de nourriture est désactivé pour cet interrupteur.",
+  "advisory": "Recommandation",
+  "controls_feeding": "Pilote l'alimentation",
+  "per_day": "/ jour",
+  "next_portion": "Prochaine portion",
+  "duration_each": "Par repas",
+  "rate_today": "Taux aujourd'hui",
+  "runtime_day": "Durée/jour",
+  "total_weight": "Poids total",
+  "water_temp_unknown": "Température de l'eau inconnue — pas de recommandation.",
+  "rate_not_calibrated": "Débit de distribution non calibré (0 g/s)."
 }

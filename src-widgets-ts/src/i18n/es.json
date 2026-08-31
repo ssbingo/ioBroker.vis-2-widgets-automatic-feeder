@@ -70,5 +70,18 @@
   "ring_y": "Cuenta atrás Y (%)",
   "ring_size": "Tamaño de cuenta atrás (%)",
   "seconds": "Segundos",
-  "tap_to_feed": "Toca para alimentar"
+  "tap_to_feed": "Toca para alimentar",
+  "FeedingAmount": "Cantidad de comida",
+  "feeding_amount": "Modelo de cantidad de comida",
+  "amount_model_off": "El modelo de cantidad de comida está desactivado para este interruptor.",
+  "advisory": "Recomendación",
+  "controls_feeding": "Controla la alimentación",
+  "per_day": "/ día",
+  "next_portion": "Próxima porción",
+  "duration_each": "Por comida",
+  "rate_today": "Tasa hoy",
+  "runtime_day": "Marcha/día",
+  "total_weight": "Peso total",
+  "water_temp_unknown": "Temperatura del agua desconocida — sin recomendación.",
+  "rate_not_calibrated": "Tasa de dosificación no calibrada (0 g/s)."
 }

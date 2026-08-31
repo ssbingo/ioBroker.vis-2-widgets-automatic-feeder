@@ -19,6 +19,7 @@ const config = {
                 './DynamicFeeding': './src/DynamicFeeding',
                 './SeasonBanner': './src/SeasonBanner',
                 './AnimatedFeeder': './src/AnimatedFeeder',
+                './FeedingAmount': './src/FeedingAmount',
                 './translations': './src/translations',
             },
             remotes: {},

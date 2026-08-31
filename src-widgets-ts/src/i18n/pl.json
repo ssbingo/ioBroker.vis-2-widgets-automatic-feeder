@@ -70,5 +70,18 @@
   "ring_y": "Odliczanie Y (%)",
   "ring_size": "Rozmiar odliczania (%)",
   "seconds": "Sekundy",
-  "tap_to_feed": "Dotknij, aby nakarmić"
+  "tap_to_feed": "Dotknij, aby nakarmić",
+  "FeedingAmount": "Ilość karmy",
+  "feeding_amount": "Model ilości karmy",
+  "amount_model_off": "Model ilości karmy jest wyłączony dla tego przełącznika.",
+  "advisory": "Zalecenie",
+  "controls_feeding": "Steruje karmieniem",
+  "per_day": "/ dzień",
+  "next_portion": "Następna porcja",
+  "duration_each": "Na karmienie",
+  "rate_today": "Dawka dziś",
+  "runtime_day": "Czas pracy/dzień",
+  "total_weight": "Waga całkowita",
+  "water_temp_unknown": "Temperatura wody nieznana — brak zalecenia.",
+  "rate_not_calibrated": "Szybkość dozowania nieskalibrowana (0 g/s)."
 }
