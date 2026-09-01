@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.3.0",
+        "version": "0.3.1",
         "news": {
+            "0.3.1": {
+                "en": "Housekeeping only (repository checker): bumped @alcalzone/release-script-plugin-license to 5.2.2, removed the unneeded prepublishOnly script and the unnecessary admin dependency (pure widget set, no admin UI), and unpinned the CI deploy action to @v1. No widget changes.",
+                "de": "Nur Housekeeping (Repository-Checker): @alcalzone/release-script-plugin-license auf 5.2.2 angehoben, das überflüssige prepublishOnly-Skript und die unnötige admin-Abhängigkeit entfernt (reines Widget-Set ohne Admin-UI) und die CI-Deploy-Action auf @v1 gelöst. Keine Widget-Änderungen.",
+                "ru": "Только обслуживание (проверка репозитория): @alcalzone/release-script-plugin-license обновлён до 5.2.2, удалены ненужный скрипт prepublishOnly и лишняя зависимость admin (набор виджетов без интерфейса admin), а деплой-экшен CI откреплён до @v1. Изменений виджетов нет.",
+                "pt": "Apenas manutenção (verificador do repositório): @alcalzone/release-script-plugin-license atualizado para 5.2.2, removidos o script prepublishOnly desnecessário e a dependência admin desnecessária (conjunto de widgets sem UI de admin), e a ação de deploy do CI desafixada para @v1. Sem alterações nos widgets.",
+                "nl": "Alleen onderhoud (repository checker): @alcalzone/release-script-plugin-license naar 5.2.2, het overbodige prepublishOnly-script en de onnodige admin-afhankelijkheid verwijderd (pure widgetset zonder admin-UI), en de CI-deploy-action losgekoppeld naar @v1. Geen widgetwijzigingen.",
+                "fr": "Maintenance uniquement (vérificateur de dépôt) : @alcalzone/release-script-plugin-license passé à 5.2.2, suppression du script prepublishOnly inutile et de la dépendance admin superflue (jeu de widgets sans UI admin), et action de déploiement CI ramenée à @v1. Aucun changement de widget.",
+                "it": "Solo manutenzione (repository checker): @alcalzone/release-script-plugin-license aggiornato a 5.2.2, rimossi lo script prepublishOnly non necessario e la dipendenza admin superflua (set di widget senza UI admin) e action di deploy CI riportata a @v1. Nessuna modifica ai widget.",
+                "es": "Solo mantenimiento (verificador del repositorio): @alcalzone/release-script-plugin-license actualizado a 5.2.2, eliminados el script prepublishOnly innecesario y la dependencia admin superflua (conjunto de widgets sin UI de admin), y la acción de despliegue de CI desanclada a @v1. Sin cambios en los widgets.",
+                "pl": "Tylko porządki (repository checker): @alcalzone/release-script-plugin-license do 5.2.2, usunięto zbędny skrypt prepublishOnly i niepotrzebną zależność admin (zestaw widgetów bez UI admina), a akcję deploy CI odpięto do @v1. Bez zmian w widgetach.",
+                "uk": "Лише обслуговування (перевірка репозиторію): @alcalzone/release-script-plugin-license оновлено до 5.2.2, вилучено непотрібний скрипт prepublishOnly та зайву залежність admin (набір віджетів без admin-UI), а деплой-екшен CI відкріплено до @v1. Змін у віджетах немає.",
+                "zh-cn": "仅维护（仓库检查器）：将 @alcalzone/release-script-plugin-license 升级到 5.2.2，移除多余的 prepublishOnly 脚本和不必要的 admin 依赖（纯组件集、无 admin 界面），并将 CI 部署 action 解除固定为 @v1。组件无变化。"
+            },
             "0.3.0": {
                 "en": "New editable widget FeedingAmount: shows the adapter's feeding-amount model (daily ration, temperature %, total weight, per-feeding portion and run-times) and lets you edit the fish counts, temperature percentages, Phase-A/B switches and dispense rate — written to the adapter's settings.* states. Needs automatic-feeder v1.16.0+.",
                 "de": "Neues editierbares Widget FeedingAmount: zeigt das Futtermengen-Modell des Adapters (Tagesration, Temperatur-%, Gesamtgewicht, Portion je Fütterung und Laufzeiten) und lässt Fischzahlen, Temperatur-Prozente, Phase-A/B-Schalter und Dosierrate bearbeiten — geschrieben in die settings.*-States des Adapters. Benötigt automatic-feeder v1.16.0+.",
@@ -191,11 +204,7 @@
                 "js-controller": ">=6.0.11"
             }
         ],
-        "globalDependencies": [
-            {
-                "admin": ">=7.8.23"
-            }
-        ]
+        "globalDependencies": []
     },
     "native": {},
     "objects": [],
