@@ -83,5 +83,13 @@
   "runtime_day": "Runtime/day",
   "total_weight": "Total weight",
   "water_temp_unknown": "Water temperature unknown — no recommendation.",
-  "rate_not_calibrated": "Dispense rate not calibrated (0 g/s)."
+  "rate_not_calibrated": "Dispense rate not calibrated (0 g/s).",
+  "edit": "Edit",
+  "done": "Done",
+  "model_enabled": "Feeding-amount model",
+  "control_enabled": "Control feeding",
+  "fish_counts": "Fish per size class",
+  "temp_percents": "Feeding % by temperature",
+  "dispense_rate": "Dispense rate (g/s)",
+  "editable": "Allow editing"
 }

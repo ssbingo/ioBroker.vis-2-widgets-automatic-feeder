@@ -83,5 +83,13 @@
   "runtime_day": "Laufzeit/Tag",
   "total_weight": "Gesamtgewicht",
   "water_temp_unknown": "Wassertemperatur unbekannt — keine Empfehlung.",
-  "rate_not_calibrated": "Dosierrate nicht kalibriert (0 g/s)."
+  "rate_not_calibrated": "Dosierrate nicht kalibriert (0 g/s).",
+  "edit": "Bearbeiten",
+  "done": "Fertig",
+  "model_enabled": "Futtermengen-Modell",
+  "control_enabled": "Fütterung steuern",
+  "fish_counts": "Fische je Größe",
+  "temp_percents": "Fütterungs-% nach Temperatur",
+  "dispense_rate": "Dosierrate (g/s)",
+  "editable": "Bearbeiten erlauben"
 }

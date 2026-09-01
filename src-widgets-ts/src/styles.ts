@@ -68,6 +68,16 @@ const CSS = `
 .af-animcard{box-sizing:border-box;height:100%;width:100%;border-radius:15px;overflow:hidden;padding:0}
 .af-animcard.af-bg{background:#1c2128;box-shadow:0 0 10px #000}
 .af-anim-canvas{display:block;width:100%;height:100%;object-fit:contain}
+.af-editlink{font-size:11px;letter-spacing:.03em;text-transform:none;color:var(--af-accent);font-weight:700;
+  cursor:pointer;background:none;border:0;padding:2px 2px;font-family:Arial,sans-serif}
+.af-ed{display:flex;flex-direction:column;gap:7px;overflow:auto;padding-right:2px}
+.af-edsec{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#9aa3b0;font-weight:700;margin-top:3px}
+.af-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(58px,1fr));gap:6px}
+.af-fld{display:flex;flex-direction:column;gap:2px}
+.af-fld>span{font-size:10px;color:#9aa3b0;white-space:nowrap}
+.af-num{width:100%;box-sizing:border-box;padding:5px 6px;border-radius:7px;border:1px solid rgba(255,255,255,.14);
+  background:#232830;color:#fff;font-family:Arial,sans-serif;font-size:13px;font-variant-numeric:tabular-nums;text-align:right}
+.af-num:focus{outline:2px solid var(--af-accent);outline-offset:-1px}
 `;
 
 /** Injects the shared widget CSS (keyframes + classes) once per page. */

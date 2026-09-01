@@ -83,5 +83,13 @@
   "runtime_day": "Marcha/día",
   "total_weight": "Peso total",
   "water_temp_unknown": "Temperatura del agua desconocida — sin recomendación.",
-  "rate_not_calibrated": "Tasa de dosificación no calibrada (0 g/s)."
+  "rate_not_calibrated": "Tasa de dosificación no calibrada (0 g/s).",
+  "edit": "Editar",
+  "done": "Listo",
+  "model_enabled": "Modelo de cantidad",
+  "control_enabled": "Controlar alimentación",
+  "fish_counts": "Peces por tamaño",
+  "temp_percents": "% por temperatura",
+  "dispense_rate": "Tasa de dosificación (g/s)",
+  "editable": "Permitir edición"
 }

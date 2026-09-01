@@ -83,5 +83,13 @@
   "runtime_day": "Durée/jour",
   "total_weight": "Poids total",
   "water_temp_unknown": "Température de l'eau inconnue — pas de recommandation.",
-  "rate_not_calibrated": "Débit de distribution non calibré (0 g/s)."
+  "rate_not_calibrated": "Débit de distribution non calibré (0 g/s).",
+  "edit": "Modifier",
+  "done": "Terminé",
+  "model_enabled": "Modèle de quantité",
+  "control_enabled": "Piloter la distribution",
+  "fish_counts": "Poissons par taille",
+  "temp_percents": "% selon la température",
+  "dispense_rate": "Débit (g/s)",
+  "editable": "Autoriser la modification"
 }

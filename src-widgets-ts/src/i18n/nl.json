@@ -83,5 +83,13 @@
   "runtime_day": "Looptijd/dag",
   "total_weight": "Totaalgewicht",
   "water_temp_unknown": "Watertemperatuur onbekend — geen advies.",
-  "rate_not_calibrated": "Doseersnelheid niet gekalibreerd (0 g/s)."
+  "rate_not_calibrated": "Doseersnelheid niet gekalibreerd (0 g/s).",
+  "edit": "Bewerken",
+  "done": "Klaar",
+  "model_enabled": "Voederhoeveelheid-model",
+  "control_enabled": "Voeren aansturen",
+  "fish_counts": "Vissen per grootte",
+  "temp_percents": "Voeder-% per temperatuur",
+  "dispense_rate": "Doseersnelheid (g/s)",
+  "editable": "Bewerken toestaan"
 }

@@ -83,5 +83,13 @@
   "runtime_day": "每日运行",
   "total_weight": "总重量",
   "water_temp_unknown": "水温未知 — 无建议。",
-  "rate_not_calibrated": "投料速率未校准（0 g/s）。"
+  "rate_not_calibrated": "投料速率未校准（0 g/s）。",
+  "edit": "编辑",
+  "done": "完成",
+  "model_enabled": "投喂量模型",
+  "control_enabled": "控制投喂",
+  "fish_counts": "各体长鱼数",
+  "temp_percents": "按温度的投喂%",
+  "dispense_rate": "投喂速率 (克/秒)",
+  "editable": "允许编辑"
 }

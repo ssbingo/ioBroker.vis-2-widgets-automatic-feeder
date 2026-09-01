@@ -83,5 +83,13 @@
   "runtime_day": "Tempo de func./dia",
   "total_weight": "Peso total",
   "water_temp_unknown": "Temperatura da água desconhecida — sem recomendação.",
-  "rate_not_calibrated": "Taxa de dispensa não calibrada (0 g/s)."
+  "rate_not_calibrated": "Taxa de dispensa não calibrada (0 g/s).",
+  "edit": "Editar",
+  "done": "Concluído",
+  "model_enabled": "Modelo de quantidade de ração",
+  "control_enabled": "Controlar alimentação",
+  "fish_counts": "Peixes por tamanho",
+  "temp_percents": "% por temperatura",
+  "dispense_rate": "Taxa de dosagem (g/s)",
+  "editable": "Permitir edição"
 }

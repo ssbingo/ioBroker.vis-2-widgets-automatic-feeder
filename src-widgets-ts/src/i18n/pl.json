@@ -83,5 +83,13 @@
   "runtime_day": "Czas pracy/dzień",
   "total_weight": "Waga całkowita",
   "water_temp_unknown": "Temperatura wody nieznana — brak zalecenia.",
-  "rate_not_calibrated": "Szybkość dozowania nieskalibrowana (0 g/s)."
+  "rate_not_calibrated": "Szybkość dozowania nieskalibrowana (0 g/s).",
+  "edit": "Edytuj",
+  "done": "Gotowe",
+  "model_enabled": "Model ilości karmy",
+  "control_enabled": "Steruj karmieniem",
+  "fish_counts": "Ryby wg wielkości",
+  "temp_percents": "% wg temperatury",
+  "dispense_rate": "Szybkość dozowania (g/s)",
+  "editable": "Zezwól na edycję"
 }
