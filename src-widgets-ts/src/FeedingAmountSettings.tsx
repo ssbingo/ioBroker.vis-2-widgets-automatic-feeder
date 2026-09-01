@@ -186,12 +186,15 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
 
     renderWidgetBody(props: RxRenderWidgetProps): React.JSX.Element {
         super.renderWidgetBody(props);
-        const noCard = this.state.rxData.noCard === true;
         const t = (k: string): string => FeedingAmountSettings.t(k);
+        // match the vis-2 colour mode like the other widgets (dark / light)
+        const dark = this.props.context.themeType === 'dark';
+        const noCard = this.state.rxData.noCard === true;
+        const cardCls = `fas-card${dark ? ' fas-dark' : ''}${noCard ? ' fas-flat' : ''}`;
 
         if (!this.channel()) {
             return (
-                <div className={`fas-card${noCard ? '' : ''}`}>
+                <div className={cardCls}>
                     <div className="fas-title">{t('feeding_amount')}</div>
                     <div className="fas-note">{t('select_channel_hint')}</div>
                 </div>
@@ -206,7 +209,7 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
         const totalG = FISH_SIZES.reduce((sum, s) => sum + this.edNum(`fishCount${s}`, 0) * WEIGHT[s], 0);
 
         return (
-            <div className="fas-card">
+            <div className={cardCls}>
                 <div className="fas-title">{t('feeding_amount')}</div>
 
                 <div className="fas-switch">

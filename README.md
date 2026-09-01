@@ -364,7 +364,8 @@ It offers:
 - a **control on/off** switch (Phase B) and, when on, the optional **daily maximum** in grams.
 
 Every field updates immediately in the widget and is written to the adapter, which applies it and restarts the instance
-(a short debounce) so the model recomputes. Default widget size: 470 × 620 px.
+(a short debounce) so the model recomputes. The panel follows the vis-2 **colour mode** (dark/light). Default widget
+size: 470 × 620 px.
 
 ---
 
@@ -486,6 +487,10 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.1 (2026-09-01)
+* (ssbingo) **FeedingAmountSettings** now follows the vis-2 **colour mode** (dark/light) like the other widgets — it reads `context.themeType` and renders a dark panel in dark mode and the light panel in light mode (previously it was always light)
+* (ssbingo) The **No card background** option of FeedingAmountSettings now actually works (transparent background) instead of doing nothing
+
 ### 0.4.0 (2026-09-01)
 * (ssbingo) New separate **FeedingAmountSettings** widget — a light settings panel matching the agreed design: a model on/off switch, a fish list with per-size icons + reference weights and editable counts (with a live total weight), the seven temperature percentages, a Phase-B control switch and the optional daily maximum. All fields write to the adapter's writable `switches.<id>.settings.*` states (**automatic-feeder v1.16.0+**)
 * (ssbingo) FeedingAmountSettings has an **active-feed switcher** built from the feed profiles configured for the switch in the adapter admin; one tap selects the active profile and its dispense rate (writes `settings.activeFeed`, needs **automatic-feeder v1.17.0+**)

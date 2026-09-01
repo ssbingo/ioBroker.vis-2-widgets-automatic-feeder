@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.4.0",
+        "version": "0.4.1",
         "news": {
+            "0.4.1": {
+                "en": "FeedingAmountSettings now follows the vis-2 colour mode (dark/light); the ‚No card background’ option now works.",
+                "de": "FeedingAmountSettings folgt jetzt dem vis-2-Farbmodus (dunkel/hell); die Option ‚Kein Kartenhintergrund‘ funktioniert nun.",
+                "ru": "FeedingAmountSettings теперь следует цветовому режиму vis-2 (тёмный/светлый); опция «Без фона карточки» теперь работает.",
+                "pt": "FeedingAmountSettings agora segue o modo de cor do vis-2 (escuro/claro); a opção ‚Sem fundo de cartão‘ agora funciona.",
+                "nl": "FeedingAmountSettings volgt nu de vis-2-kleurmodus (donker/licht); de optie ‚Geen kaartachtergrond‘ werkt nu.",
+                "fr": "FeedingAmountSettings suit désormais le mode de couleur de vis-2 (sombre/clair) ; l’option « Sans fond de carte » fonctionne maintenant.",
+                "it": "FeedingAmountSettings ora segue la modalità colore di vis-2 (scuro/chiaro); l’opzione ‚Nessuno sfondo scheda‘ ora funziona.",
+                "es": "FeedingAmountSettings ahora sigue el modo de color de vis-2 (oscuro/claro); la opción ‚Sin fondo de tarjeta‘ ahora funciona.",
+                "pl": "FeedingAmountSettings korzysta teraz z trybu kolorów vis-2 (ciemny/jasny); opcja ‚Bez tła karty‘ teraz działa.",
+                "uk": "FeedingAmountSettings тепер відповідає колірному режиму vis-2 (темний/світлий); опція «Без фону картки» тепер працює.",
+                "zh-cn": "FeedingAmountSettings 现在跟随 vis-2 的颜色模式（深色/浅色）；“无卡片背景”选项现在生效。"
+            },
             "0.4.0": {
                 "en": "New separate FeedingAmountSettings widget (light editor: fish counts, temperatures, feed switcher, Phase-B control); FeedingAmount is read-only again.",
                 "de": "Neues separates Widget FeedingAmountSettings (heller Editor: Fischanzahl, Temperaturen, Futter-Umschalter, Phase-B-Steuerung); FeedingAmount ist wieder reine Anzeige.",
@@ -80,19 +93,6 @@
                 "pl": "Wewnętrzne wydanie konserwacyjne: zaktualizowano narzędzia deweloperskie/CI oraz zależności budowania widżetów (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Bez zmian w samych widżetach.",
                 "uk": "Внутрішній реліз обслуговування: оновлено інструменти розробки/CI та збіркові залежності віджетів (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Самі віджети не змінювалися.",
                 "zh-cn": "内部维护版本：更新了开发/CI 工具和小部件构建依赖（@iobroker/adapter-react-v5、@module-federation/vite、@iobroker/testing、GitHub Actions）。小部件本身没有变化。"
-            },
-            "0.2.4": {
-                "en": "Declared the adapter's minimum platform requirements: js-controller >= 6.0.11, admin >= 8.0.0 and Node.js >= 22. No changes to the widgets themselves.",
-                "de": "Mindestanforderungen des Adapters festgelegt: js-controller >= 6.0.11, admin >= 8.0.0 und Node.js >= 22. Keine Änderungen an den Widgets selbst.",
-                "ru": "Заданы минимальные требования адаптера: js-controller >= 6.0.11, admin >= 8.0.0 и Node.js >= 22. Сами виджеты не изменялись.",
-                "pt": "Definidos os requisitos mínimos do adaptador: js-controller >= 6.0.11, admin >= 8.0.0 e Node.js >= 22. Sem alterações nos widgets em si.",
-                "nl": "Minimale vereisten van de adapter vastgelegd: js-controller >= 6.0.11, admin >= 8.0.0 en Node.js >= 22. Geen wijzigingen aan de widgets zelf.",
-                "fr": "Exigences minimales de l'adaptateur définies : js-controller >= 6.0.11, admin >= 8.0.0 et Node.js >= 22. Aucune modification des widgets eux-mêmes.",
-                "it": "Definiti i requisiti minimi dell'adattatore: js-controller >= 6.0.11, admin >= 8.0.0 e Node.js >= 22. Nessuna modifica ai widget stessi.",
-                "es": "Se definieron los requisitos mínimos del adaptador: js-controller >= 6.0.11, admin >= 8.0.0 y Node.js >= 22. Sin cambios en los widgets.",
-                "pl": "Określono minimalne wymagania adaptera: js-controller >= 6.0.11, admin >= 8.0.0 oraz Node.js >= 22. Bez zmian w samych widżetach.",
-                "uk": "Визначено мінімальні вимоги адаптера: js-controller >= 6.0.11, admin >= 8.0.0 та Node.js >= 22. Самі віджети не змінювалися.",
-                "zh-cn": "定义了适配器的最低平台要求：js-controller >= 6.0.11、admin >= 8.0.0 和 Node.js >= 22。小部件本身没有变化。"
             }
         },
         "titleLang": {
