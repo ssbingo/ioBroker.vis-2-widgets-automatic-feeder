@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.3.1",
+        "version": "0.3.2",
         "news": {
+            "0.3.2": {
+                "en": "Housekeeping: keep only the latest 7 entries in common.news (repository checker W1032). No widget changes.",
+                "de": "Housekeeping: nur die neuesten 7 Einträge in common.news behalten (Repository-Checker W1032). Keine Widget-Änderungen.",
+                "ru": "Обслуживание: оставлены только 7 последних записей в common.news (проверка репозитория W1032). Изменений виджетов нет.",
+                "pt": "Manutenção: manter apenas as 7 entradas mais recentes em common.news (verificador do repositório W1032). Sem alterações nos widgets.",
+                "nl": "Onderhoud: alleen de nieuwste 7 items in common.news behouden (repository checker W1032). Geen widgetwijzigingen.",
+                "fr": "Maintenance : ne conserver que les 7 dernières entrées de common.news (vérificateur de dépôt W1032). Aucun changement de widget.",
+                "it": "Manutenzione: mantenere solo le 7 voci più recenti in common.news (repository checker W1032). Nessuna modifica ai widget.",
+                "es": "Mantenimiento: conservar solo las 7 entradas más recientes en common.news (verificador del repositorio W1032). Sin cambios en los widgets.",
+                "pl": "Porządki: zachowanie tylko 7 najnowszych wpisów w common.news (repository checker W1032). Bez zmian w widgetach.",
+                "uk": "Обслуговування: залишено лише 7 останніх записів у common.news (перевірка репозиторію W1032). Змін у віджетах немає.",
+                "zh-cn": "维护：common.news 仅保留最新的 7 条（仓库检查器 W1032）。组件无变化。"
+            },
             "0.3.1": {
                 "en": "Housekeeping only (repository checker): bumped @alcalzone/release-script-plugin-license to 5.2.2, removed the unneeded prepublishOnly script and the unnecessary admin dependency (pure widget set, no admin UI), and unpinned the CI deploy action to @v1. No widget changes.",
                 "de": "Nur Housekeeping (Repository-Checker): @alcalzone/release-script-plugin-license auf 5.2.2 angehoben, das überflüssige prepublishOnly-Skript und die unnötige admin-Abhängigkeit entfernt (reines Widget-Set ohne Admin-UI) und die CI-Deploy-Action auf @v1 gelöst. Keine Widget-Änderungen.",
@@ -80,32 +93,6 @@
                 "pl": "Wydanie konserwacyjne: przypięto akcję wdrożeniową workflow CI (ioBroker/testing-action-deploy) do wersji v1.5.1. Bez zmian w samych widżetach.",
                 "uk": "Реліз обслуговування: action розгортання в CI-workflow (ioBroker/testing-action-deploy) зафіксовано на версії v1.5.1. Самі віджети не змінювалися.",
                 "zh-cn": "维护版本：将 CI 发布工作流的部署 action（ioBroker/testing-action-deploy）固定到 v1.5.1。小部件本身没有变化。"
-            },
-            "0.2.2": {
-                "en": "Maintenance release: corrected the adapter metadata (connectionType/dataSource now \"none\" for this onlyWWW widget set), removed unused translation keys and build-script leftovers, and refreshed the repository/CI configuration. No changes to the widgets themselves.",
-                "de": "Wartungsrelease: Adapter-Metadaten korrigiert (connectionType/dataSource jetzt \"none\" für dieses onlyWWW-Widget-Set), ungenutzte Übersetzungsschlüssel und Build-Skript-Reste entfernt sowie die Repository-/CI-Konfiguration aufgefrischt. Keine Änderungen an den Widgets selbst.",
-                "ru": "Сервисный релиз: исправлены метаданные адаптера (connectionType/dataSource теперь \"none\" для этого onlyWWW-набора виджетов), удалены неиспользуемые ключи перевода и остатки build-скриптов, обновлена конфигурация репозитория/CI. Сами виджеты не изменялись.",
-                "pt": "Versão de manutenção: metadados do adaptador corrigidos (connectionType/dataSource agora \"none\" para este conjunto de widgets onlyWWW), removidas chaves de tradução não utilizadas e restos de scripts de build, e atualizada a configuração do repositório/CI. Sem alterações nos widgets em si.",
-                "nl": "Onderhoudsrelease: adaptermetadata gecorrigeerd (connectionType/dataSource nu \"none\" voor deze onlyWWW-widgetset), ongebruikte vertaalsleutels en build-scriptresten verwijderd en de repository-/CI-configuratie ververst. Geen wijzigingen aan de widgets zelf.",
-                "fr": "Version de maintenance : métadonnées de l'adaptateur corrigées (connectionType/dataSource désormais « none » pour cet ensemble de widgets onlyWWW), suppression des clés de traduction inutilisées et des restes de scripts de build, et rafraîchissement de la configuration du dépôt/CI. Aucune modification des widgets eux-mêmes.",
-                "it": "Versione di manutenzione: corretti i metadati dell'adattatore (connectionType/dataSource ora \"none\" per questo set di widget onlyWWW), rimosse chiavi di traduzione inutilizzate e residui degli script di build e aggiornata la configurazione del repository/CI. Nessuna modifica ai widget stessi.",
-                "es": "Versión de mantenimiento: se corrigieron los metadatos del adaptador (connectionType/dataSource ahora \"none\" para este conjunto de widgets onlyWWW), se eliminaron claves de traducción sin usar y restos de scripts de compilación, y se actualizó la configuración del repositorio/CI. Sin cambios en los widgets.",
-                "pl": "Wydanie konserwacyjne: poprawiono metadane adaptera (connectionType/dataSource teraz \"none\" dla tego zestawu widżetów onlyWWW), usunięto nieużywane klucze tłumaczeń i pozostałości skryptów budowania oraz odświeżono konfigurację repozytorium/CI. Bez zmian w samych widżetach.",
-                "uk": "Реліз обслуговування: виправлено метадані адаптера (connectionType/dataSource тепер \"none\" для цього набору віджетів onlyWWW), видалено невикористовувані ключі перекладу та залишки build-скриптів, оновлено конфігурацію репозиторію/CI. Самі віджети не змінювалися.",
-                "zh-cn": "维护版本：修正了适配器元数据（connectionType/dataSource 现为 \"none\"，适用于此 onlyWWW 小部件集），移除了未使用的翻译键和构建脚本残留，并刷新了仓库/CI 配置。小部件本身没有变化。"
-            },
-            "0.2.1": {
-                "en": "AnimatedFeeder now renders in Firefox: the built-in image uses a base64 data URI and the canvas is initialised via a ref callback. A broken or zero-size custom image no longer blanks the widget.",
-                "de": "AnimatedFeeder wird jetzt auch in Firefox angezeigt: Das eingebaute Bild nutzt eine base64-Data-URI und der Canvas wird über einen ref-Callback initialisiert. Ein defektes oder größenloses Bild leert das Widget nicht mehr.",
-                "ru": "AnimatedFeeder теперь отображается в Firefox: встроенное изображение использует data-URI в base64, а canvas инициализируется через ref-обратный вызов. Повреждённое изображение больше не делает виджет пустым.",
-                "pt": "O AnimatedFeeder agora é exibido no Firefox: a imagem incorporada usa um data URI base64 e o canvas é inicializado por um callback de ref. Uma imagem com falha já não deixa o widget em branco.",
-                "nl": "AnimatedFeeder werkt nu ook in Firefox: de ingebouwde afbeelding gebruikt een base64 data-URI en het canvas wordt via een ref-callback geïnitialiseerd. Een kapotte afbeelding maakt de widget niet meer leeg.",
-                "fr": "AnimatedFeeder s'affiche désormais dans Firefox : l'image intégrée utilise une data URI base64 et le canevas est initialisé via un callback de ref. Une image défectueuse ne vide plus le widget.",
-                "it": "AnimatedFeeder ora viene visualizzato in Firefox: l'immagine integrata usa un data URI base64 e il canvas viene inizializzato tramite un callback ref. Un'immagine difettosa non svuota più il widget.",
-                "es": "AnimatedFeeder ahora se muestra en Firefox: la imagen integrada usa un data URI en base64 y el lienzo se inicializa mediante un callback de ref. Una imagen defectuosa ya no deja el widget en blanco.",
-                "pl": "AnimatedFeeder działa teraz w Firefoksie: wbudowany obraz używa identyfikatora data URI w base64, a płótno jest inicjowane przez wywołanie zwrotne ref. Uszkodzony obraz nie opróżnia już widżetu.",
-                "uk": "AnimatedFeeder тепер відображається у Firefox: вбудоване зображення використовує data-URI у base64, а canvas ініціалізується через ref-колбек. Пошкоджене зображення більше не робить віджет порожнім.",
-                "zh-cn": "AnimatedFeeder 现在可在 Firefox 中正常显示：内置图片改用 base64 数据 URI，画布通过 ref 回调初始化。损坏或尺寸为零的图片不再使小部件变空白。"
             }
         },
         "titleLang": {
