@@ -7,6 +7,7 @@ import { feederCommonGroup, instanceNumber, readFeedProfiles } from './common';
 import FISH_ICONS from './fishIcons';
 
 interface FASRxData extends FeederBaseRxData {
+    accent: string;
     noCard: boolean;
 }
 
@@ -37,6 +38,39 @@ const SETTING_KEYS = [
     ...TEMP_BANDS.map(b => b.key),
 ];
 
+/** `#rgb` / `#rrggbb` -> {r,g,b}, or null when unparseable. */
+function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
+    const m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec((hex || '').trim());
+    if (!m) {
+        return null;
+    }
+    let h = m[1];
+    if (h.length === 3) {
+        h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+    }
+    return { r: parseInt(h.slice(0, 2), 16), g: parseInt(h.slice(2, 4), 16), b: parseInt(h.slice(4, 6), 16) };
+}
+
+/** Translucent `rgba()` from a hex colour (falls back to the input). */
+function rgba(hex: string, a: number): string {
+    const c = hexToRgb(hex);
+    return c ? `rgba(${c.r},${c.g},${c.b},${a})` : hex;
+}
+
+/** Darken a hex colour toward black by factor f (0..1) — keeps accent ink readable on the light panel. */
+function darken(hex: string, f: number): string {
+    const c = hexToRgb(hex);
+    if (!c) {
+        return hex;
+    }
+    const k = 1 - f;
+    const to = (n: number): string =>
+        Math.round(n * k)
+            .toString(16)
+            .padStart(2, '0');
+    return `#${to(c.r)}${to(c.g)}${to(c.b)}`;
+}
+
 /**
  * Editor widget for the adapter's feeding-amount model: fish counts (with icons), temperature
  * percentages, the Phase-A/B switches, the daily cap and a feed switcher (feed profiles). All
@@ -66,7 +100,10 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
                 {
                     name: 'style',
                     label: 'group_style',
-                    fields: [{ name: 'noCard', type: 'checkbox', label: 'no_card', default: false }],
+                    fields: [
+                        { name: 'accent', type: 'color', label: 'accent', default: '#f2a63c' },
+                        { name: 'noCard', type: 'checkbox', label: 'no_card', default: false },
+                    ],
                 },
             ],
             visDefaultStyle: { width: 470, height: 620 },
@@ -191,10 +228,20 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
         const dark = this.props.context.themeType === 'dark';
         const noCard = this.state.rxData.noCard === true;
         const cardCls = `fas-card${dark ? ' fas-dark' : ''}${noCard ? ' fas-flat' : ''}`;
+        // configurable accent (like the FeedingAmount widget); drives the fas-* accent variables
+        const accent = this.state.rxData.accent || '#f2a63c';
+        const styleVars = {
+            '--fa': accent,
+            '--fa-soft': rgba(accent, dark ? 0.16 : 0.12),
+            '--fa-ink': dark ? accent : darken(accent, 0.5),
+        } as React.CSSProperties;
 
         if (!this.channel()) {
             return (
-                <div className={cardCls}>
+                <div
+                    className={cardCls}
+                    style={styleVars}
+                >
                     <div className="fas-title">{t('feeding_amount')}</div>
                     <div className="fas-note">{t('select_channel_hint')}</div>
                 </div>
@@ -209,7 +256,10 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
         const totalG = FISH_SIZES.reduce((sum, s) => sum + this.edNum(`fishCount${s}`, 0) * WEIGHT[s], 0);
 
         return (
-            <div className={cardCls}>
+            <div
+                className={cardCls}
+                style={styleVars}
+            >
                 <div className="fas-title">{t('feeding_amount')}</div>
 
                 <div className="fas-switch">

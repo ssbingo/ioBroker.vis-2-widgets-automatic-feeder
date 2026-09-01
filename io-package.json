@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.4.1",
+        "version": "0.4.2",
         "news": {
+            "0.4.2": {
+                "en": "FeedingAmountSettings now has an ‚Accent colour’ option like FeedingAmount, so both widgets match in design.",
+                "de": "FeedingAmountSettings hat jetzt eine Option ‚Akzentfarbe‘ wie FeedingAmount, sodass beide Widgets im Design zusammenpassen.",
+                "ru": "FeedingAmountSettings теперь имеет опцию «Акцентный цвет», как у FeedingAmount, чтобы оба виджета совпадали по дизайну.",
+                "pt": "FeedingAmountSettings agora tem uma opção ‚Cor de destaque‘ como o FeedingAmount, para os dois widgets combinarem no design.",
+                "nl": "FeedingAmountSettings heeft nu een optie ‚Accentkleur‘ zoals FeedingAmount, zodat beide widgets qua ontwerp overeenkomen.",
+                "fr": "FeedingAmountSettings dispose désormais d’une option « Couleur d’accent » comme FeedingAmount, pour que les deux widgets s’accordent.",
+                "it": "FeedingAmountSettings ora ha un’opzione ‚Colore d’accento‘ come FeedingAmount, così i due widget si abbinano nel design.",
+                "es": "FeedingAmountSettings ahora tiene una opción ‚Color de acento‘ como FeedingAmount, para que ambos widgets coincidan en el diseño.",
+                "pl": "FeedingAmountSettings ma teraz opcję ‚Kolor akcentu‘ jak FeedingAmount, dzięki czemu oba widżety pasują do siebie.",
+                "uk": "FeedingAmountSettings тепер має опцію «Акцентний колір», як у FeedingAmount, щоб обидва віджети збігалися за дизайном.",
+                "zh-cn": "FeedingAmountSettings 现在有了与 FeedingAmount 相同的“强调色”选项，使两个小部件在设计上保持一致。"
+            },
             "0.4.1": {
                 "en": "FeedingAmountSettings now follows the vis-2 colour mode (dark/light); the ‚No card background’ option now works.",
                 "de": "FeedingAmountSettings folgt jetzt dem vis-2-Farbmodus (dunkel/hell); die Option ‚Kein Kartenhintergrund‘ funktioniert nun.",
@@ -80,19 +93,6 @@
                 "pl": "Zależność admin ustawiona na >= 7.8.23, zgodnie z aktualnym stabilnym repozytorium ioBroker (naprawia błąd repochecker E4033). Bez zmian w samych widżetach.",
                 "uk": "Залежність admin встановлено на >= 7.8.23 відповідно до поточного стабільного репозиторію ioBroker (виправляє помилку repochecker E4033). Самі віджети не змінювалися.",
                 "zh-cn": "将 admin 依赖设置为 >= 7.8.23，以匹配当前的 ioBroker 稳定仓库（修复 repochecker 错误 E4033）。小部件本身没有变化。"
-            },
-            "0.2.5": {
-                "en": "Internal maintenance release: updated development/CI tooling and widget build dependencies (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). No changes to the widgets themselves.",
-                "de": "Interne Wartungsversion: Entwicklungs-/CI-Tooling und Build-Abhängigkeiten der Widgets aktualisiert (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Keine Änderungen an den Widgets selbst.",
-                "ru": "Внутренний сервисный релиз: обновлены инструменты разработки/CI и сборочные зависимости виджетов (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Сами виджеты не изменялись.",
-                "pt": "Versão de manutenção interna: ferramentas de desenvolvimento/CI e dependências de build dos widgets atualizadas (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Sem alterações nos widgets em si.",
-                "nl": "Interne onderhoudsrelease: ontwikkel-/CI-tooling en build-afhankelijkheden van de widgets bijgewerkt (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Geen wijzigingen aan de widgets zelf.",
-                "fr": "Version de maintenance interne : outils de développement/CI et dépendances de build des widgets mis à jour (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Aucune modification des widgets eux-mêmes.",
-                "it": "Versione di manutenzione interna: aggiornati gli strumenti di sviluppo/CI e le dipendenze di build dei widget (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Nessuna modifica ai widget stessi.",
-                "es": "Versión de mantenimiento interno: se actualizaron las herramientas de desarrollo/CI y las dependencias de compilación de los widgets (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Sin cambios en los widgets.",
-                "pl": "Wewnętrzne wydanie konserwacyjne: zaktualizowano narzędzia deweloperskie/CI oraz zależności budowania widżetów (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Bez zmian w samych widżetach.",
-                "uk": "Внутрішній реліз обслуговування: оновлено інструменти розробки/CI та збіркові залежності віджетів (@iobroker/adapter-react-v5, @module-federation/vite, @iobroker/testing, GitHub Actions). Самі віджети не змінювалися.",
-                "zh-cn": "内部维护版本：更新了开发/CI 工具和小部件构建依赖（@iobroker/adapter-react-v5、@module-federation/vite、@iobroker/testing、GitHub Actions）。小部件本身没有变化。"
             }
         },
         "titleLang": {

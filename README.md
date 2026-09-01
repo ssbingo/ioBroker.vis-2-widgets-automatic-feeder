@@ -487,6 +487,9 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.2 (2026-09-01)
+* (ssbingo) **FeedingAmountSettings** now has an **Accent colour** option (Appearance group), just like the FeedingAmount widget — the accent drives the toggles, active borders and highlighted values, so both widgets can be given the same accent for a consistent design. In light mode the accent is darkened for readable text; in dark mode it is used directly
+
 ### 0.4.1 (2026-09-01)
 * (ssbingo) **FeedingAmountSettings** now follows the vis-2 **colour mode** (dark/light) like the other widgets — it reads `context.themeType` and renders a dark panel in dark mode and the light panel in light mode (previously it was always light)
 * (ssbingo) The **No card background** option of FeedingAmountSettings now actually works (transparent background) instead of doing nothing
