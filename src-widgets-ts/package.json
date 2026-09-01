@@ -1,7 +1,7 @@
 {
     "name": "iobroker.vis-2-widgets-automatic-feeder-ts",
     "private": true,
-    "version": "0.2.6",
+    "version": "0.4.0",
     "type": "module",
     "dependencies": {
         "@iobroker/adapter-react-v5": "^8.3.2",

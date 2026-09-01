@@ -55,6 +55,8 @@ detail.
    - [6.4 DynamicFeeding](#64-dynamicfeeding)
    - [6.5 SeasonBanner](#65-seasonbanner)
    - [6.6 AnimatedFeeder](#66-animatedfeeder)
+   - [6.7 FeedingAmount](#67-feedingamount)
+   - [6.8 FeedingAmountSettings](#68-feedingamountsettings)
 7. [Configuration & bindings](#7-configuration--bindings)
 8. [Which data points each widget uses](#8-which-data-points-each-widget-uses)
 9. [Development](#9-development)
@@ -328,6 +330,44 @@ Default widget size: 300 × 440 px.
 
 ---
 
+### 6.7 FeedingAmount
+
+A compact, **read-only** card for the adapter's feeding-amount model (**automatic-feeder v1.16.0+**) of one switch. It
+shows the recommended **daily ration** in grams, the **feeding percentage** for the current water temperature and the
+estimated **total fish weight**. When the adapter is in **control mode** (Phase B), it additionally shows the
+**per-feeding portion**, the **duration per feeding** and the **daily run-time**, plus the name of the **active feed
+profile**. Exact per-feeding values come from the adapter's `status.feedTargetPortionGrams` /
+`status.feedingsPerDayToday`; older adapters fall back to a derivation.
+
+A pill in the header shows whether the model is *advisory* (Phase A) or *controls feeding* (Phase B). To **edit** the
+model (fish counts, temperature percentages, the feed profile, the Phase switches, the daily cap), use the separate
+**FeedingAmountSettings** widget below.
+
+*Appearance:* **Accent colour** (default `#f2a63c`) and **No card background**. Default widget size: 460 × 190 px.
+
+---
+
+### 6.8 FeedingAmountSettings
+
+The **editor** for the feeding-amount model — a light settings panel that writes directly to the adapter's writable
+`switches.<id>.settings.*` states (needs **automatic-feeder v1.16.0+** for the settings mirror, and **v1.17.0+** for
+the feed-profile switcher). Use it on a dashboard next to the read-only **FeedingAmount** card.
+
+It offers:
+
+- a **model on/off** switch (`amountModelEnabled`);
+- a **fish list** with a per-size icon, the fixed reference weight and an editable count for each size class
+  (15/20/30/40/50/60 cm), with a live **total weight**;
+- an **active-feed switcher** built from the feed profiles you defined for the switch in the adapter admin — one tap
+  selects the active profile (writes `settings.activeFeed`) and its dispense rate (g/s) drives the control mode;
+- the seven **temperature percentages** (`<15°` … `>30°`);
+- a **control on/off** switch (Phase B) and, when on, the optional **daily maximum** in grams.
+
+Every field updates immediately in the widget and is written to the adapter, which applies it and restarts the instance
+(a short debounce) so the model recomputes. Default widget size: 470 × 620 px.
+
+---
+
 ## 7. Configuration & bindings
 
 Every widget has the same two required settings in the **common** attribute group:
@@ -368,6 +408,8 @@ For full transparency — the widgets subscribe to the switch channel
 | **DynamicFeeding** | `settings.dynamicEnabled`, `settings.dynamicSource`, `status.dynamicAvgTemperature`, `status.dynamicRate`, `status.dynamicIntervalMin`, `status.dynamicDurationSec` | — |
 | **SeasonBanner** | `status.winterActive`, `status.pauseActive`, `status.pauseActiveUntil`, `status.pauseManual`, `settings.winterWindow` | — |
 | **AnimatedFeeder** | `status.feedingActive`, `status.feedingEndsTs`, `status.feedingDurationSec`, `status.winterActive`, `status.pauseManual`, `status.pauseActive` | `feedFor` (tap-to-feed, value = seconds) |
+| **FeedingAmount** | `status.fishTotalWeight`, `status.feedPercentToday`, `status.feedTargetGramsToday`, `status.feedingsPerDayToday`, `status.feedTargetPortionGrams`, `status.feedTargetSecondsToday`, `status.feedEffectiveDurationSec`, `status.activeFeedName` | — |
+| **FeedingAmountSettings** | `settings.amountModelEnabled`, `settings.amountControlEnabled`, `settings.feedDailyMaxGrams`, `settings.activeFeed`, `settings.fishCount15…60`, `settings.feedPctBelow15`/`feedPct15…30`; reads feed profiles from `system.adapter.automatic-feeder.<n>` → `native.switches[].feedProfiles` | the same `settings.*` states it reads |
 
 See the [ioBroker.automatic-feeder documentation](https://github.com/ssbingo/ioBroker.automatic-feeder) for the exact
 meaning of each data point.
@@ -444,6 +486,11 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2026-09-01)
+* (ssbingo) New separate **FeedingAmountSettings** widget — a light settings panel matching the agreed design: a model on/off switch, a fish list with per-size icons + reference weights and editable counts (with a live total weight), the seven temperature percentages, a Phase-B control switch and the optional daily maximum. All fields write to the adapter's writable `switches.<id>.settings.*` states (**automatic-feeder v1.16.0+**)
+* (ssbingo) FeedingAmountSettings has an **active-feed switcher** built from the feed profiles configured for the switch in the adapter admin; one tap selects the active profile and its dispense rate (writes `settings.activeFeed`, needs **automatic-feeder v1.17.0+**)
+* (ssbingo) The **FeedingAmount** widget is now purely a **read-only** display card again; all editing moved to the new FeedingAmountSettings widget. It also shows the active feed-profile name (`status.activeFeedName`)
+
 ### 0.3.2 (2026-09-01)
 * (ssbingo) Housekeeping: keep only the latest 7 entries in `common.news` (repository checker W1032). No widget changes
 

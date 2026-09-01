@@ -1,5 +1,4 @@
-// Shared CSS for all Automatic-Feeder widgets. Injected once per page.
-const CSS = `
+import{_ as p,a as b}from"./_virtual_mf___mfe_internal__vis2AutomaticFeeder__loadShare__react_mf_1_jsx_mf_2_runtime__loadShare__.js-DCoao-Er.js";import{k as u,i as m}from"./_virtual_mf___mfe_internal__vis2AutomaticFeeder__loadShare__react__loadShare__.js-DTmx7S-k.js";import{J as h,K as w,v as y,w as l}from"./_virtual_mf___mfe_internal__vis2AutomaticFeeder__loadShare___mf_0_mui_mf_1_material__loadShare__.js-Dftr3jqB.js";const k=`
 .af-card{box-sizing:border-box;height:100%;width:100%;display:flex;flex-direction:column;
   font-family:Arial,Helvetica,sans-serif;color:#fff;border-radius:15px;padding:12px 14px;overflow:hidden}
 .af-card.af-bg{background:#2e353d;box-shadow:0 0 10px #000}
@@ -132,15 +131,4 @@ const CSS = `
 .fas-in{width:120px;padding:7px 8px;border:1px solid #c8d1da;border-radius:8px;background:#fff;color:#1b2027;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:14px;text-align:right}
 .fas-in:focus{outline:2px solid var(--fa);outline-offset:1px}
 .fas-hint{font-size:11.5px;color:#5c6673;margin-top:6px}
-`;
-
-/** Injects the shared widget CSS (keyframes + classes) once per page. */
-export function injectStyles(): void {
-    if (typeof document === 'undefined' || document.getElementById('af-feeder-styles')) {
-        return;
-    }
-    const el = document.createElement('style');
-    el.id = 'af-feeder-styles';
-    el.appendChild(document.createTextNode(CSS));
-    document.head.appendChild(el);
-}
+`;function P(){if(typeof document>"u"||document.getElementById("af-feeder-styles"))return;const a=document.createElement("style");a.id="af-feeder-styles",a.appendChild(document.createTextNode(k)),document.head.appendChild(a)}const d="automatic-feeder";function x(a){return((a==null?void 0:a.instance)!==void 0&&a.instance!==""?String(a.instance):"0").split(".").pop()||"0"}function I(a){const e=a==null?void 0:a.switchId;return e?`${d}.${x(a)}.switches.${e}`:""}async function v(a,e){var n;try{const i=await a.getObject(`system.adapter.${d}.${e}`);return(((n=i==null?void 0:i.native)==null?void 0:n.switches)||[]).filter(t=>t&&t.id).map((t,f)=>({id:String(t.id),name:t.name&&t.name.trim()||String(t.id)||`Switch ${f+1}`}))}catch{return[]}}async function B(a,e,n){var i;try{const s=await a.getObject(`system.adapter.${d}.${e}`),f=(((i=s==null?void 0:s.native)==null?void 0:i.switches)||[]).find(o=>o&&String(o.id)===n);return(Array.isArray(f==null?void 0:f.feedProfiles)?f.feedProfiles:[]).filter(o=>o&&typeof o=="object").map(o=>({name:String(o.name??""),gramsPerSec:Number(o.gramsPerSec)||0}))}catch{return[]}}function z(a){const{socket:e,data:n,onDataChange:i,label:s}=a,[t,f]=u([]),c=x(n);m(()=>{let r=!0;return v(e,c).then(g=>r&&f(g)),()=>{r=!1}},[e,c]);const o=n.switchId||"";return b(h,{fullWidth:!0,variant:"standard",size:"small",children:[p(w,{children:s}),p(y,{value:t.some(r=>r.id===o)?o:"",onChange:r=>i({...n,switchId:r.target.value}),children:t.length?t.map(r=>p(l,{value:r.id,children:r.name},r.id)):p(l,{value:"",disabled:!0,children:"—"})})]})}function j(){return{name:"common",fields:[{name:"instance",type:"instance",label:"feeder_instance",adapter:d,isShort:!0,default:"0"},{name:"switchId",type:"custom",label:"switch",component:(a,e,n,i)=>p(z,{socket:i.context.socket,data:e,onDataChange:n,label:a.label||"switch"})}]}}export{x as a,I as c,j as f,P as i,B as r};

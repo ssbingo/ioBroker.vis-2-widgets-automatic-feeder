@@ -84,12 +84,16 @@
   "total_weight": "Totaalgewicht",
   "water_temp_unknown": "Watertemperatuur onbekend — geen advies.",
   "rate_not_calibrated": "Doseersnelheid niet gekalibreerd (0 g/s).",
-  "edit": "Bewerken",
-  "done": "Klaar",
   "model_enabled": "Voederhoeveelheid-model",
   "control_enabled": "Voeren aansturen",
   "fish_counts": "Vissen per grootte",
   "temp_percents": "Voeder-% per temperatuur",
-  "dispense_rate": "Doseersnelheid (g/s)",
-  "editable": "Bewerken toestaan"
+  "feed": "Voer",
+  "advisory_hint": "Aanbevolen daghoeveelheid tonen (fase A · stuurt het voeren niet)",
+  "settings_write_hint": "Alle velden hier zijn bewerkbaar en schrijven naar de settings.*-states van de adapter.",
+  "active_feed": "Actief voer (doseersnelheid per pellet)",
+  "control_phase_b": "Aansturing · fase B",
+  "control_hint": "Deze hoeveelheid bepaalt de voederduur (schakelt dynamiek Q10 uit)",
+  "daily_max": "Dagmaximum (g)",
+  "off": "uit"
 }

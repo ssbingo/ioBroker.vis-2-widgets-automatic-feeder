@@ -84,12 +84,16 @@
   "total_weight": "Waga całkowita",
   "water_temp_unknown": "Temperatura wody nieznana — brak zalecenia.",
   "rate_not_calibrated": "Szybkość dozowania nieskalibrowana (0 g/s).",
-  "edit": "Edytuj",
-  "done": "Gotowe",
   "model_enabled": "Model ilości karmy",
   "control_enabled": "Steruj karmieniem",
   "fish_counts": "Ryby wg wielkości",
   "temp_percents": "% wg temperatury",
-  "dispense_rate": "Szybkość dozowania (g/s)",
-  "editable": "Zezwól na edycję"
+  "feed": "Karma",
+  "advisory_hint": "Pokaż zalecaną dzienną ilość (faza A · nie steruje karmieniem)",
+  "settings_write_hint": "Wszystkie pola tutaj są edytowalne i zapisują do stanów settings.* adaptera.",
+  "active_feed": "Aktywna karma (szybkość dozowania na pellet)",
+  "control_phase_b": "Sterowanie · faza B",
+  "control_hint": "Ta ilość ustala czas karmienia (wyłącza dynamikę Q10)",
+  "daily_max": "Maks. dzienne (g)",
+  "off": "wył"
 }

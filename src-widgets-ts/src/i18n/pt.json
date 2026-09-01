@@ -84,12 +84,16 @@
   "total_weight": "Peso total",
   "water_temp_unknown": "Temperatura da água desconhecida — sem recomendação.",
   "rate_not_calibrated": "Taxa de dispensa não calibrada (0 g/s).",
-  "edit": "Editar",
-  "done": "Concluído",
   "model_enabled": "Modelo de quantidade de ração",
   "control_enabled": "Controlar alimentação",
   "fish_counts": "Peixes por tamanho",
   "temp_percents": "% por temperatura",
-  "dispense_rate": "Taxa de dosagem (g/s)",
-  "editable": "Permitir edição"
+  "feed": "Ração",
+  "advisory_hint": "Mostrar a ração diária recomendada (Fase A · não controla a alimentação)",
+  "settings_write_hint": "Todos os campos aqui são editáveis e gravam nos estados settings.* do adaptador.",
+  "active_feed": "Ração ativa (taxa de dosagem por pellet)",
+  "control_phase_b": "Controlo · Fase B",
+  "control_hint": "Esta quantidade define a duração da alimentação (desliga a dinâmica Q10)",
+  "daily_max": "Máx. diário (g)",
+  "off": "desl"
 }

@@ -20,6 +20,7 @@ const config = {
                 './SeasonBanner': './src/SeasonBanner',
                 './AnimatedFeeder': './src/AnimatedFeeder',
                 './FeedingAmount': './src/FeedingAmount',
+                './FeedingAmountSettings': './src/FeedingAmountSettings',
                 './translations': './src/translations',
             },
             remotes: {},

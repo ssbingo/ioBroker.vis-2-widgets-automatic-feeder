@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.3.2",
+        "version": "0.4.0",
         "news": {
+            "0.4.0": {
+                "en": "New separate FeedingAmountSettings widget (light editor: fish counts, temperatures, feed switcher, Phase-B control); FeedingAmount is read-only again.",
+                "de": "Neues separates Widget FeedingAmountSettings (heller Editor: Fischanzahl, Temperaturen, Futter-Umschalter, Phase-B-Steuerung); FeedingAmount ist wieder reine Anzeige.",
+                "ru": "Новый отдельный виджет FeedingAmountSettings (светлый редактор: количество рыб, температуры, переключатель корма, управление фазой B); FeedingAmount снова только отображение.",
+                "pt": "Novo widget separado FeedingAmountSettings (editor claro: contagem de peixes, temperaturas, seletor de ração, controlo da Fase B); FeedingAmount volta a ser apenas visualização.",
+                "nl": "Nieuw apart widget FeedingAmountSettings (lichte editor: aantal vissen, temperaturen, voerkiezer, fase-B-aansturing); FeedingAmount is weer alleen weergave.",
+                "fr": "Nouveau widget séparé FeedingAmountSettings (éditeur clair : nombre de poissons, températures, sélecteur de nourriture, pilotage phase B) ; FeedingAmount redevient un simple affichage.",
+                "it": "Nuovo widget separato FeedingAmountSettings (editor chiaro: numero di pesci, temperature, selettore mangime, controllo Fase B); FeedingAmount torna a essere solo visualizzazione.",
+                "es": "Nuevo widget separado FeedingAmountSettings (editor claro: número de peces, temperaturas, selector de alimento, control de Fase B); FeedingAmount vuelve a ser solo visualización.",
+                "pl": "Nowy osobny widget FeedingAmountSettings (jasny edytor: liczba ryb, temperatury, przełącznik karmy, sterowanie fazą B); FeedingAmount znów tylko wyświetla.",
+                "uk": "Новий окремий віджет FeedingAmountSettings (світлий редактор: кількість риб, температури, перемикач корму, керування фазою B); FeedingAmount знову лише відображення.",
+                "zh-cn": "新增独立的 FeedingAmountSettings 小部件（浅色编辑器：鱼的数量、温度、饲料切换、阶段 B 控制）；FeedingAmount 恢复为纯显示。"
+            },
             "0.3.2": {
                 "en": "Housekeeping: keep only the latest 7 entries in common.news (repository checker W1032). No widget changes.",
                 "de": "Housekeeping: nur die neuesten 7 Einträge in common.news behalten (Repository-Checker W1032). Keine Widget-Änderungen.",
@@ -80,19 +93,6 @@
                 "pl": "Określono minimalne wymagania adaptera: js-controller >= 6.0.11, admin >= 8.0.0 oraz Node.js >= 22. Bez zmian w samych widżetach.",
                 "uk": "Визначено мінімальні вимоги адаптера: js-controller >= 6.0.11, admin >= 8.0.0 та Node.js >= 22. Самі віджети не змінювалися.",
                 "zh-cn": "定义了适配器的最低平台要求：js-controller >= 6.0.11、admin >= 8.0.0 和 Node.js >= 22。小部件本身没有变化。"
-            },
-            "0.2.3": {
-                "en": "Maintenance release: pinned the CI release workflow's deploy action (ioBroker/testing-action-deploy) to v1.5.1. No changes to the widgets themselves.",
-                "de": "Wartungsrelease: Die Deploy-Action des CI-Release-Workflows (ioBroker/testing-action-deploy) auf v1.5.1 festgepinnt. Keine Änderungen an den Widgets selbst.",
-                "ru": "Сервисный релиз: action развёртывания в CI-workflow (ioBroker/testing-action-deploy) зафиксирован на версии v1.5.1. Сами виджеты не изменялись.",
-                "pt": "Versão de manutenção: a action de deploy do workflow de CI (ioBroker/testing-action-deploy) foi fixada na v1.5.1. Sem alterações nos widgets em si.",
-                "nl": "Onderhoudsrelease: de deploy-action van de CI-releaseworkflow (ioBroker/testing-action-deploy) vastgezet op v1.5.1. Geen wijzigingen aan de widgets zelf.",
-                "fr": "Version de maintenance : l'action de déploiement du workflow CI (ioBroker/testing-action-deploy) est désormais épinglée à la v1.5.1. Aucune modification des widgets eux-mêmes.",
-                "it": "Versione di manutenzione: l'action di deploy del workflow CI (ioBroker/testing-action-deploy) è stata fissata alla v1.5.1. Nessuna modifica ai widget stessi.",
-                "es": "Versión de mantenimiento: se fijó la action de despliegue del flujo de trabajo de CI (ioBroker/testing-action-deploy) a la v1.5.1. Sin cambios en los widgets.",
-                "pl": "Wydanie konserwacyjne: przypięto akcję wdrożeniową workflow CI (ioBroker/testing-action-deploy) do wersji v1.5.1. Bez zmian w samych widżetach.",
-                "uk": "Реліз обслуговування: action розгортання в CI-workflow (ioBroker/testing-action-deploy) зафіксовано на версії v1.5.1. Самі віджети не змінювалися.",
-                "zh-cn": "维护版本：将 CI 发布工作流的部署 action（ioBroker/testing-action-deploy）固定到 v1.5.1。小部件本身没有变化。"
             }
         },
         "titleLang": {
@@ -159,7 +159,8 @@
                     "DynamicFeeding",
                     "SeasonBanner",
                     "AnimatedFeeder",
-                    "FeedingAmount"
+                    "FeedingAmount",
+                    "FeedingAmountSettings"
                 ]
             }
         },

@@ -46,6 +46,27 @@ async function readSwitches(socket: SocketLike, instance: string): Promise<Switc
     }
 }
 
+/** Reads the feed profiles ({name, gramsPerSec}) configured for one switch of a feeder instance. */
+export async function readFeedProfiles(
+    socket: SocketLike,
+    instance: string,
+    switchId: string,
+): Promise<{ name: string; gramsPerSec: number }[]> {
+    try {
+        const obj = await socket.getObject(`system.adapter.${ADAPTER}.${instance}`);
+        const switches = (obj?.native?.switches as Array<{ id?: string; feedProfiles?: unknown }>) || [];
+        const sw = switches.find(s => s && String(s.id) === switchId);
+        const list = Array.isArray(sw?.feedProfiles)
+            ? (sw.feedProfiles as Array<{ name?: string; gramsPerSec?: number }>)
+            : [];
+        return list
+            .filter(p => p && typeof p === 'object')
+            .map(p => ({ name: String(p.name ?? ''), gramsPerSec: Number(p.gramsPerSec) || 0 }));
+    } catch {
+        return [];
+    }
+}
+
 /** Attribute dropdown that lets the user pick a feeder switch by its friendly name. */
 function SwitchSelect(props: {
     socket: SocketLike;
