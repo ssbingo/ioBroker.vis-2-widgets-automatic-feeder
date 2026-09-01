@@ -30,6 +30,7 @@ export default class FeedingAmount extends FeederWidgetBase<FeedingAmountRxData,
             'status.feedTargetSecondsToday',
             'status.feedEffectiveDurationSec',
             'status.activeFeedName',
+            'status.activeFeedSize',
         ];
     }
 
@@ -104,6 +105,7 @@ export default class FeedingAmount extends FeederWidgetBase<FeedingAmountRxData,
         const dailySec = this.num('status.feedTargetSecondsToday');
         const perFeedingSec = this.num('status.feedEffectiveDurationSec');
         const feed = this.str('status.activeFeedName');
+        const feedSize = this.num('status.activeFeedSize');
 
         // model off/inactive: adapter clears weight to 0 and percent/grams to null
         const active = grams !== null || pct !== null || (weight !== null && weight > 0);
@@ -173,6 +175,7 @@ export default class FeedingAmount extends FeederWidgetBase<FeedingAmountRxData,
                         {feed ? (
                             <>
                                 <b>{feed}</b>
+                                {feedSize ? <> · {feedSize} mm</> : null}
                                 {feedings ? <> · {feedings}×</> : null}
                             </>
                         ) : control ? (

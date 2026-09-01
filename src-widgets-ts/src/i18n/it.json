@@ -91,9 +91,10 @@
   "feed": "Mangime",
   "advisory_hint": "Mostra la razione giornaliera consigliata (Fase A · non controlla l’alimentazione)",
   "settings_write_hint": "Tutti i campi qui sono modificabili e scrivono negli stati settings.* dell’adattatore.",
-  "active_feed": "Mangime attivo (portata per pellet)",
+  "active_feed": "Mangime attivo",
   "control_phase_b": "Controllo · Fase B",
   "control_hint": "Questa quantità imposta la durata dell’alimentazione (disattiva la dinamica Q10)",
   "daily_max": "Max giornaliero (g)",
-  "off": "off"
+  "off": "off",
+  "no_feed": "— nessun mangime —"
 }

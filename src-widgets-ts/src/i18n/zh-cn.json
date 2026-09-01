@@ -91,9 +91,10 @@
   "feed": "饲料",
   "advisory_hint": "显示推荐的每日投喂量（阶段 A · 不控制投喂）",
   "settings_write_hint": "此处所有字段均可编辑，并写入适配器的 settings.* 状态。",
-  "active_feed": "活动饲料（每种颗粒的投喂速率）",
+  "active_feed": "当前饲料",
   "control_phase_b": "控制 · 阶段 B",
   "control_hint": "该量决定投喂时长（关闭 Q10 动态）",
   "daily_max": "每日上限 (克)",
-  "off": "关"
+  "off": "关",
+  "no_feed": "— 无饲料 —"
 }

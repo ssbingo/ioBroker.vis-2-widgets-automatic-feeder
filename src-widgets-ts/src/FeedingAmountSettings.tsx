@@ -3,7 +3,7 @@ import React from 'react';
 import type { RxRenderWidgetProps, RxWidgetInfo, VisRxWidgetProps } from '@iobroker/types-vis-2';
 
 import FeederWidgetBase, { type FeederBaseRxData, type FeederBaseState } from './FeederWidgetBase';
-import { feederCommonGroup, instanceNumber, readFeedProfiles } from './common';
+import { feederCommonGroup, instanceNumber, readFeedList, type FeedDef } from './common';
 import FISH_ICONS from './fishIcons';
 
 interface FASRxData extends FeederBaseRxData {
@@ -14,7 +14,7 @@ interface FASRxData extends FeederBaseRxData {
 interface FASState extends FeederBaseState {
     /** local edit buffer: settings.* only update after an adapter restart, so keep typing responsive */
     ed: Record<string, number | boolean | string>;
-    profiles: { name: string; gramsPerSec: number }[];
+    feeds: FeedDef[];
 }
 
 const FISH_SIZES = [15, 20, 30, 40, 50, 60];
@@ -29,6 +29,7 @@ const TEMP_BANDS: { key: string; label: string }[] = [
     { key: 'feedPct30', label: '>30°' },
 ];
 const BOOL_KEYS = new Set(['amountModelEnabled', 'amountControlEnabled']);
+const STRING_KEYS = new Set(['activeFeed']);
 const SETTING_KEYS = [
     'amountModelEnabled',
     'amountControlEnabled',
@@ -82,7 +83,7 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
 
     constructor(props: VisRxWidgetProps) {
         super(props);
-        this.state = { ...this.state, ed: {}, profiles: [] };
+        this.state = { ...this.state, ed: {}, feeds: [] };
     }
 
     // eslint-disable-next-line class-methods-use-this
@@ -122,27 +123,19 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
 
     componentDidMount(): void {
         super.componentDidMount();
-        void this.loadProfiles();
+        void this.loadFeeds();
     }
 
     onRxDataChanged(): void {
         super.onRxDataChanged();
-        this.setState({ ed: {}, profiles: [] });
-        void this.loadProfiles();
+        this.setState({ ed: {}, feeds: [] });
+        void this.loadFeeds();
     }
 
-    private async loadProfiles(): Promise<void> {
-        const sid = this.state.rxData.switchId;
-        if (!sid) {
-            return;
-        }
-        const profiles = await readFeedProfiles(
-            this.props.context.socket,
-            instanceNumber(this.state.rxData),
-            String(sid),
-        );
+    private async loadFeeds(): Promise<void> {
+        const feeds = await readFeedList(this.props.context.socket, instanceNumber(this.state.rxData));
         if (this.fMounted) {
-            this.setState({ profiles });
+            this.setState({ feeds });
         }
     }
 
@@ -162,6 +155,8 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
         let val: number | boolean | string;
         if (BOOL_KEYS.has(key)) {
             val = v === true;
+        } else if (STRING_KEYS.has(key)) {
+            val = v === null || v === undefined ? '' : String(v);
         } else if (key === 'feedDailyMaxGrams') {
             val = v === null || v === undefined || v === '' ? '' : Number(v);
         } else {
@@ -186,6 +181,11 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
     private edBool(key: string): boolean {
         const v = this.state.ed[key];
         return v === undefined ? this.bool(`settings.${key}`) : v === true;
+    }
+
+    private edStr(key: string): string {
+        const v = this.state.ed[key];
+        return v === undefined ? this.str(`settings.${key}`) : String(v);
     }
 
     private writeBool(key: string, checked: boolean): void {
@@ -216,9 +216,9 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
         this.write('settings.feedDailyMaxGrams', v);
     }
 
-    private setActiveFeed(i: number): void {
-        this.setEd('activeFeed', i);
-        this.write('settings.activeFeed', i);
+    private setActiveFeed(id: string): void {
+        this.setEd('activeFeed', id);
+        this.write('settings.activeFeed', id);
     }
 
     renderWidgetBody(props: RxRenderWidgetProps): React.JSX.Element {
@@ -250,8 +250,8 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
 
         const modelOn = this.edBool('amountModelEnabled');
         const controlOn = this.edBool('amountControlEnabled');
-        const activeFeed = this.edNum('activeFeed', 0);
-        const profiles = this.state.profiles;
+        const activeFeed = this.edStr('activeFeed');
+        const feeds = this.state.feeds;
 
         const totalG = FISH_SIZES.reduce((sum, s) => sum + this.edNum(`fishCount${s}`, 0) * WEIGHT[s], 0);
 
@@ -314,22 +314,25 @@ export default class FeedingAmountSettings extends FeederWidgetBase<FASRxData, F
                         <span className="v">{Math.round(totalG / 100) / 10} kg</span>
                     </div>
 
-                    {profiles.length ? (
+                    {feeds.length ? (
                         <>
                             <div className="fas-h">{t('active_feed')}</div>
-                            <div className="fas-seg">
-                                {profiles.map((p, i) => (
-                                    <button
-                                        type="button"
-                                        key={i}
-                                        className={activeFeed === i ? 'on' : ''}
-                                        onClick={() => this.setActiveFeed(i)}
+                            <select
+                                className="fas-dd"
+                                value={feeds.some(f => f.id === activeFeed) ? activeFeed : ''}
+                                onChange={e => this.setActiveFeed(e.target.value)}
+                            >
+                                <option value="">{t('no_feed')}</option>
+                                {feeds.map(f => (
+                                    <option
+                                        key={f.id}
+                                        value={f.id}
                                     >
-                                        <span className="fn">{p.name || `#${i + 1}`}</span>
-                                        <span className="fm">{p.gramsPerSec} g/s</span>
-                                    </button>
+                                        {f.name || f.id}
+                                        {f.size ? ` · ${f.size} mm` : ''}
+                                    </option>
                                 ))}
-                            </div>
+                            </select>
                         </>
                     ) : null}
 

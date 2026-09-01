@@ -46,22 +46,40 @@ async function readSwitches(socket: SocketLike, instance: string): Promise<Switc
     }
 }
 
-/** Reads the feed profiles ({name, gramsPerSec}) configured for one switch of a feeder instance. */
-export async function readFeedProfiles(
-    socket: SocketLike,
-    instance: string,
-    switchId: string,
-): Promise<{ name: string; gramsPerSec: number }[]> {
+/** A food type from the adapter's central feed list (AdapterConfig.feeds). */
+export interface FeedDef {
+    id: string;
+    name: string;
+    vendor: string;
+    size: number;
+    protein: number;
+    fat: number;
+    fibre: number;
+    ash: number;
+    url: string;
+}
+
+/**
+ * Reads the adapter's central feed list (`native.feeds`, adapter v1.18.0+). Each switch's
+ * `settings.activeFeed` references an entry by `id`.
+ */
+export async function readFeedList(socket: SocketLike, instance: string): Promise<FeedDef[]> {
     try {
         const obj = await socket.getObject(`system.adapter.${ADAPTER}.${instance}`);
-        const switches = (obj?.native?.switches as Array<{ id?: string; feedProfiles?: unknown }>) || [];
-        const sw = switches.find(s => s && String(s.id) === switchId);
-        const list = Array.isArray(sw?.feedProfiles)
-            ? (sw.feedProfiles as Array<{ name?: string; gramsPerSec?: number }>)
-            : [];
-        return list
-            .filter(p => p && typeof p === 'object')
-            .map(p => ({ name: String(p.name ?? ''), gramsPerSec: Number(p.gramsPerSec) || 0 }));
+        const feeds = (obj?.native?.feeds as Array<Partial<FeedDef>>) || [];
+        return feeds
+            .filter(f => f && f.id)
+            .map(f => ({
+                id: String(f.id),
+                name: String(f.name ?? ''),
+                vendor: String(f.vendor ?? ''),
+                size: Number(f.size) || 0,
+                protein: Number(f.protein) || 0,
+                fat: Number(f.fat) || 0,
+                fibre: Number(f.fibre) || 0,
+                ash: Number(f.ash) || 0,
+                url: String(f.url ?? ''),
+            }));
     } catch {
         return [];
     }

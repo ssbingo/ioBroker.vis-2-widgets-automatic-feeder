@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.4.2",
+        "version": "0.4.3",
         "news": {
+            "0.4.3": {
+                "en": "FeedingAmountSettings now selects the active feed from the adapter's central feed list (dropdown, written id-based to settings.activeFeed) instead of per-switch profiles; FeedingAmount shows the active feed's pellet size. Needs automatic-feeder v1.18.0+.",
+                "de": "FeedingAmountSettings wählt das aktive Futter jetzt aus der zentralen Futterliste des Adapters (Dropdown, id-basiert über settings.activeFeed) statt per-Schalter-Profilen; FeedingAmount zeigt die Pelletgröße des aktiven Futters. Benötigt automatic-feeder v1.18.0+.",
+                "ru": "FeedingAmountSettings теперь выбирает активный корм из центрального списка кормов адаптера (выпадающий список, запись по id в settings.activeFeed) вместо профилей по переключателю; FeedingAmount показывает размер гранул активного корма. Требуется automatic-feeder v1.18.0+.",
+                "pt": "FeedingAmountSettings agora seleciona a ração ativa a partir da lista central de rações do adaptador (menu suspenso, gravado por id em settings.activeFeed) em vez de perfis por interruptor; FeedingAmount mostra o tamanho do pellet da ração ativa. Requer automatic-feeder v1.18.0+.",
+                "nl": "FeedingAmountSettings kiest het actieve voer nu uit de centrale voerlijst van de adapter (dropdown, id-gebaseerd naar settings.activeFeed) in plaats van profielen per schakelaar; FeedingAmount toont de pelletgrootte van het actieve voer. Vereist automatic-feeder v1.18.0+.",
+                "fr": "FeedingAmountSettings sélectionne désormais l'aliment actif dans la liste centrale d'aliments de l'adaptateur (menu déroulant, écrit par id dans settings.activeFeed) au lieu des profils par interrupteur ; FeedingAmount affiche la taille des granulés de l'aliment actif. Nécessite automatic-feeder v1.18.0+.",
+                "it": "FeedingAmountSettings ora seleziona il mangime attivo dall'elenco centrale dei mangimi dell'adattatore (menu a tendina, scritto per id in settings.activeFeed) invece dei profili per interruttore; FeedingAmount mostra la dimensione del pellet del mangime attivo. Richiede automatic-feeder v1.18.0+.",
+                "es": "FeedingAmountSettings ahora selecciona la comida activa desde la lista central de comidas del adaptador (menú desplegable, escrito por id en settings.activeFeed) en lugar de perfiles por interruptor; FeedingAmount muestra el tamaño del pellet de la comida activa. Requiere automatic-feeder v1.18.0+.",
+                "pl": "FeedingAmountSettings wybiera teraz aktywną karmę z centralnej listy karm adaptera (lista rozwijana, zapis wg id do settings.activeFeed) zamiast profili na przełącznik; FeedingAmount pokazuje rozmiar granulki aktywnej karmy. Wymaga automatic-feeder v1.18.0+.",
+                "uk": "FeedingAmountSettings тепер вибирає активний корм із центрального списку кормів адаптера (випадаючий список, запис за id у settings.activeFeed) замість профілів на перемикач; FeedingAmount показує розмір гранул активного корму. Потрібен automatic-feeder v1.18.0+.",
+                "zh-cn": "FeedingAmountSettings 现在从适配器的中央饲料列表中选择当前饲料（下拉菜单，按 id 写入 settings.activeFeed），不再使用每开关的配置文件；FeedingAmount 显示当前饲料的颗粒大小。需要 automatic-feeder v1.18.0+。"
+            },
             "0.4.2": {
                 "en": "FeedingAmountSettings now has an ‚Accent colour’ option like FeedingAmount, so both widgets match in design.",
                 "de": "FeedingAmountSettings hat jetzt eine Option ‚Akzentfarbe‘ wie FeedingAmount, sodass beide Widgets im Design zusammenpassen.",
@@ -80,19 +93,6 @@
                 "pl": "Nowy edytowalny widget FeedingAmount: pokazuje model ilości karmy adaptera (dzienna racja, % wg temperatury, masa całkowita, porcja na karmienie i czasy) oraz pozwala edytować liczbę ryb, procenty wg temperatury, przełączniki faz A/B i szybkość dozowania — zapisywane w stanach settings.* adaptera. Wymaga automatic-feeder v1.16.0+.",
                 "uk": "Новий редаговуваний віджет FeedingAmount: показує модель кількості корму адаптера (добова норма, % за температурою, загальна вага, порція на годування та час роботи) і дозволяє змінювати кількість риби, відсотки за температурою, перемикачі фаз A/B і швидкість подачі — записується у стани settings.* адаптера. Потрібен automatic-feeder v1.16.0+.",
                 "zh-cn": "新的可编辑组件 FeedingAmount：显示适配器的投喂量模型（每日投喂量、按温度的百分比、总重量、每次投喂量和运行时间），并可编辑鱼的数量、按温度的百分比、A/B 阶段开关和投喂速率——写入适配器的 settings.* 状态。需要 automatic-feeder v1.16.0+。"
-            },
-            "0.2.6": {
-                "en": "Set the admin dependency to >= 7.8.23 to match the current ioBroker stable repository (fixes repochecker error E4033). No changes to the widgets themselves.",
-                "de": "admin-Abhängigkeit auf >= 7.8.23 gesetzt, passend zum aktuellen ioBroker-Stable-Repository (behebt Repochecker-Fehler E4033). Keine Änderungen an den Widgets selbst.",
-                "ru": "Зависимость admin установлена на >= 7.8.23 в соответствии с текущим стабильным репозиторием ioBroker (исправляет ошибку repochecker E4033). Сами виджеты не изменялись.",
-                "pt": "Dependência do admin definida para >= 7.8.23 para corresponder ao repositório estável atual do ioBroker (corrige o erro E4033 do repochecker). Sem alterações nos widgets em si.",
-                "nl": "admin-afhankelijkheid ingesteld op >= 7.8.23 om overeen te komen met het huidige ioBroker-stable-repository (lost repochecker-fout E4033 op). Geen wijzigingen aan de widgets zelf.",
-                "fr": "Dépendance admin définie sur >= 7.8.23 pour correspondre au dépôt stable actuel d'ioBroker (corrige l'erreur E4033 du repochecker). Aucune modification des widgets eux-mêmes.",
-                "it": "Dipendenza admin impostata su >= 7.8.23 per allinearsi al repository stabile attuale di ioBroker (corregge l'errore E4033 del repochecker). Nessuna modifica ai widget stessi.",
-                "es": "Dependencia de admin establecida en >= 7.8.23 para coincidir con el repositorio estable actual de ioBroker (corrige el error E4033 del repochecker). Sin cambios en los widgets.",
-                "pl": "Zależność admin ustawiona na >= 7.8.23, zgodnie z aktualnym stabilnym repozytorium ioBroker (naprawia błąd repochecker E4033). Bez zmian w samych widżetach.",
-                "uk": "Залежність admin встановлено на >= 7.8.23 відповідно до поточного стабільного репозиторію ioBroker (виправляє помилку repochecker E4033). Самі віджети не змінювалися.",
-                "zh-cn": "将 admin 依赖设置为 >= 7.8.23，以匹配当前的 ioBroker 稳定仓库（修复 repochecker 错误 E4033）。小部件本身没有变化。"
             }
         },
         "titleLang": {

@@ -91,9 +91,10 @@
   "feed": "Futter",
   "advisory_hint": "Empfohlene Tagesmenge anzeigen (Phase A · steuert die Fütterung nicht)",
   "settings_write_hint": "Alle Felder hier sind editierbar und schreiben in die settings.*-States des Adapters.",
-  "active_feed": "Aktives Futter (Dosierrate je Pellet)",
+  "active_feed": "Aktives Futter",
   "control_phase_b": "Steuerung · Phase B",
   "control_hint": "Diese Menge bestimmt die Fütterungsdauer (schaltet Dynamik Q10 ab)",
   "daily_max": "Tagesmaximum (g)",
-  "off": "aus"
+  "off": "aus",
+  "no_feed": "— kein Futter —"
 }

@@ -119,12 +119,6 @@ const CSS = `
 .fas-total{margin-top:10px;display:flex;justify-content:space-between;align-items:baseline;padding:10px 12px;border-radius:10px;background:var(--fa-soft)}
 .fas-total .k{font-size:13px;color:var(--fas-fg3)}
 .fas-total .v{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:600;font-size:17px;color:var(--fa-ink)}
-.fas-seg{display:flex;gap:7px;flex-wrap:wrap}
-.fas-seg button{flex:1;min-width:140px;border:1px solid var(--fas-border2);background:var(--fas-panel);color:var(--fas-fg);border-radius:11px;padding:9px 11px;cursor:pointer;text-align:left;font-family:inherit}
-.fas-seg button.on{border-color:var(--fa);background:var(--fa-soft)}
-.fas-seg button .fn{font-size:13.5px;font-weight:600;display:block}
-.fas-seg button.on .fn{color:var(--fa-ink)}
-.fas-seg button .fm{font-size:11px;color:var(--fas-fg2);font-family:"IBM Plex Mono",ui-monospace,monospace}
 .fas-dd{width:100%;padding:10px 12px;border:1px solid var(--fas-border2);border-radius:11px;background:var(--fas-input-bg);color:var(--fas-fg);font-family:inherit;font-size:14.5px;font-weight:600;cursor:pointer}
 .fas-dd:focus{outline:2px solid var(--fa);outline-offset:1px}
 .fas-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}

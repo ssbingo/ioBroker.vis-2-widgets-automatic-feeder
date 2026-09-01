@@ -91,9 +91,10 @@
   "feed": "Voer",
   "advisory_hint": "Aanbevolen daghoeveelheid tonen (fase A · stuurt het voeren niet)",
   "settings_write_hint": "Alle velden hier zijn bewerkbaar en schrijven naar de settings.*-states van de adapter.",
-  "active_feed": "Actief voer (doseersnelheid per pellet)",
+  "active_feed": "Actief voer",
   "control_phase_b": "Aansturing · fase B",
   "control_hint": "Deze hoeveelheid bepaalt de voederduur (schakelt dynamiek Q10 uit)",
   "daily_max": "Dagmaximum (g)",
-  "off": "uit"
+  "off": "uit",
+  "no_feed": "— geen voer —"
 }

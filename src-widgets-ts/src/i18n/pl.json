@@ -91,9 +91,10 @@
   "feed": "Karma",
   "advisory_hint": "Pokaż zalecaną dzienną ilość (faza A · nie steruje karmieniem)",
   "settings_write_hint": "Wszystkie pola tutaj są edytowalne i zapisują do stanów settings.* adaptera.",
-  "active_feed": "Aktywna karma (szybkość dozowania na pellet)",
+  "active_feed": "Aktywna karma",
   "control_phase_b": "Sterowanie · faza B",
   "control_hint": "Ta ilość ustala czas karmienia (wyłącza dynamikę Q10)",
   "daily_max": "Maks. dzienne (g)",
-  "off": "wył"
+  "off": "wył",
+  "no_feed": "— brak karmy —"
 }

@@ -91,9 +91,10 @@
   "feed": "Feed",
   "advisory_hint": "Show the recommended daily amount (Phase A · does not control feeding)",
   "settings_write_hint": "All fields here are editable and write to the adapter’s settings.* states.",
-  "active_feed": "Active feed (dispense rate per pellet)",
+  "active_feed": "Active feed",
   "control_phase_b": "Control · Phase B",
   "control_hint": "Let this amount set the feeding duration (turns off dynamic Q10)",
   "daily_max": "Daily max (g)",
-  "off": "off"
+  "off": "off",
+  "no_feed": "— no feed —"
 }

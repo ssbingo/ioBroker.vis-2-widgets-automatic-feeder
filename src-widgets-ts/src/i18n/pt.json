@@ -91,9 +91,10 @@
   "feed": "Ração",
   "advisory_hint": "Mostrar a ração diária recomendada (Fase A · não controla a alimentação)",
   "settings_write_hint": "Todos os campos aqui são editáveis e gravam nos estados settings.* do adaptador.",
-  "active_feed": "Ração ativa (taxa de dosagem por pellet)",
+  "active_feed": "Ração ativa",
   "control_phase_b": "Controlo · Fase B",
   "control_hint": "Esta quantidade define a duração da alimentação (desliga a dinâmica Q10)",
   "daily_max": "Máx. diário (g)",
-  "off": "desl"
+  "off": "desl",
+  "no_feed": "— sem ração —"
 }

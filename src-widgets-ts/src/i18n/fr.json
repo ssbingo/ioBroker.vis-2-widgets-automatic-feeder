@@ -91,9 +91,10 @@
   "feed": "Nourriture",
   "advisory_hint": "Afficher la quantité journalière recommandée (phase A · ne pilote pas la distribution)",
   "settings_write_hint": "Tous les champs ici sont modifiables et écrivent dans les états settings.* de l’adaptateur.",
-  "active_feed": "Nourriture active (débit par granulé)",
+  "active_feed": "Aliment actif",
   "control_phase_b": "Pilotage · phase B",
   "control_hint": "Cette quantité définit la durée de distribution (désactive le dynamique Q10)",
   "daily_max": "Max. par jour (g)",
-  "off": "arrêt"
+  "off": "arrêt",
+  "no_feed": "— aucun aliment —"
 }
