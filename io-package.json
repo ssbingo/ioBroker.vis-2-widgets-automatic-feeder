@@ -1,98 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.4.3",
+        "version": "0.4.4",
         "news": {
-            "0.4.3": {
-                "en": "FeedingAmountSettings now selects the active feed from the adapter's central feed list (dropdown, written id-based to settings.activeFeed) instead of per-switch profiles; FeedingAmount shows the active feed's pellet size. Needs automatic-feeder v1.18.0+.",
-                "de": "FeedingAmountSettings wählt das aktive Futter jetzt aus der zentralen Futterliste des Adapters (Dropdown, id-basiert über settings.activeFeed) statt per-Schalter-Profilen; FeedingAmount zeigt die Pelletgröße des aktiven Futters. Benötigt automatic-feeder v1.18.0+.",
-                "ru": "FeedingAmountSettings теперь выбирает активный корм из центрального списка кормов адаптера (выпадающий список, запись по id в settings.activeFeed) вместо профилей по переключателю; FeedingAmount показывает размер гранул активного корма. Требуется automatic-feeder v1.18.0+.",
-                "pt": "FeedingAmountSettings agora seleciona a ração ativa a partir da lista central de rações do adaptador (menu suspenso, gravado por id em settings.activeFeed) em vez de perfis por interruptor; FeedingAmount mostra o tamanho do pellet da ração ativa. Requer automatic-feeder v1.18.0+.",
-                "nl": "FeedingAmountSettings kiest het actieve voer nu uit de centrale voerlijst van de adapter (dropdown, id-gebaseerd naar settings.activeFeed) in plaats van profielen per schakelaar; FeedingAmount toont de pelletgrootte van het actieve voer. Vereist automatic-feeder v1.18.0+.",
-                "fr": "FeedingAmountSettings sélectionne désormais l'aliment actif dans la liste centrale d'aliments de l'adaptateur (menu déroulant, écrit par id dans settings.activeFeed) au lieu des profils par interrupteur ; FeedingAmount affiche la taille des granulés de l'aliment actif. Nécessite automatic-feeder v1.18.0+.",
-                "it": "FeedingAmountSettings ora seleziona il mangime attivo dall'elenco centrale dei mangimi dell'adattatore (menu a tendina, scritto per id in settings.activeFeed) invece dei profili per interruttore; FeedingAmount mostra la dimensione del pellet del mangime attivo. Richiede automatic-feeder v1.18.0+.",
-                "es": "FeedingAmountSettings ahora selecciona la comida activa desde la lista central de comidas del adaptador (menú desplegable, escrito por id en settings.activeFeed) en lugar de perfiles por interruptor; FeedingAmount muestra el tamaño del pellet de la comida activa. Requiere automatic-feeder v1.18.0+.",
-                "pl": "FeedingAmountSettings wybiera teraz aktywną karmę z centralnej listy karm adaptera (lista rozwijana, zapis wg id do settings.activeFeed) zamiast profili na przełącznik; FeedingAmount pokazuje rozmiar granulki aktywnej karmy. Wymaga automatic-feeder v1.18.0+.",
-                "uk": "FeedingAmountSettings тепер вибирає активний корм із центрального списку кормів адаптера (випадаючий список, запис за id у settings.activeFeed) замість профілів на перемикач; FeedingAmount показує розмір гранул активного корму. Потрібен automatic-feeder v1.18.0+.",
-                "zh-cn": "FeedingAmountSettings 现在从适配器的中央饲料列表中选择当前饲料（下拉菜单，按 id 写入 settings.activeFeed），不再使用每开关的配置文件；FeedingAmount 显示当前饲料的颗粒大小。需要 automatic-feeder v1.18.0+。"
-            },
-            "0.4.2": {
-                "en": "FeedingAmountSettings now has an ‚Accent colour’ option like FeedingAmount, so both widgets match in design.",
-                "de": "FeedingAmountSettings hat jetzt eine Option ‚Akzentfarbe‘ wie FeedingAmount, sodass beide Widgets im Design zusammenpassen.",
-                "ru": "FeedingAmountSettings теперь имеет опцию «Акцентный цвет», как у FeedingAmount, чтобы оба виджета совпадали по дизайну.",
-                "pt": "FeedingAmountSettings agora tem uma opção ‚Cor de destaque‘ como o FeedingAmount, para os dois widgets combinarem no design.",
-                "nl": "FeedingAmountSettings heeft nu een optie ‚Accentkleur‘ zoals FeedingAmount, zodat beide widgets qua ontwerp overeenkomen.",
-                "fr": "FeedingAmountSettings dispose désormais d’une option « Couleur d’accent » comme FeedingAmount, pour que les deux widgets s’accordent.",
-                "it": "FeedingAmountSettings ora ha un’opzione ‚Colore d’accento‘ come FeedingAmount, così i due widget si abbinano nel design.",
-                "es": "FeedingAmountSettings ahora tiene una opción ‚Color de acento‘ como FeedingAmount, para que ambos widgets coincidan en el diseño.",
-                "pl": "FeedingAmountSettings ma teraz opcję ‚Kolor akcentu‘ jak FeedingAmount, dzięki czemu oba widżety pasują do siebie.",
-                "uk": "FeedingAmountSettings тепер має опцію «Акцентний колір», як у FeedingAmount, щоб обидва віджети збігалися за дизайном.",
-                "zh-cn": "FeedingAmountSettings 现在有了与 FeedingAmount 相同的“强调色”选项，使两个小部件在设计上保持一致。"
-            },
-            "0.4.1": {
-                "en": "FeedingAmountSettings now follows the vis-2 colour mode (dark/light); the ‚No card background’ option now works.",
-                "de": "FeedingAmountSettings folgt jetzt dem vis-2-Farbmodus (dunkel/hell); die Option ‚Kein Kartenhintergrund‘ funktioniert nun.",
-                "ru": "FeedingAmountSettings теперь следует цветовому режиму vis-2 (тёмный/светлый); опция «Без фона карточки» теперь работает.",
-                "pt": "FeedingAmountSettings agora segue o modo de cor do vis-2 (escuro/claro); a opção ‚Sem fundo de cartão‘ agora funciona.",
-                "nl": "FeedingAmountSettings volgt nu de vis-2-kleurmodus (donker/licht); de optie ‚Geen kaartachtergrond‘ werkt nu.",
-                "fr": "FeedingAmountSettings suit désormais le mode de couleur de vis-2 (sombre/clair) ; l’option « Sans fond de carte » fonctionne maintenant.",
-                "it": "FeedingAmountSettings ora segue la modalità colore di vis-2 (scuro/chiaro); l’opzione ‚Nessuno sfondo scheda‘ ora funziona.",
-                "es": "FeedingAmountSettings ahora sigue el modo de color de vis-2 (oscuro/claro); la opción ‚Sin fondo de tarjeta‘ ahora funciona.",
-                "pl": "FeedingAmountSettings korzysta teraz z trybu kolorów vis-2 (ciemny/jasny); opcja ‚Bez tła karty‘ teraz działa.",
-                "uk": "FeedingAmountSettings тепер відповідає колірному режиму vis-2 (темний/світлий); опція «Без фону картки» тепер працює.",
-                "zh-cn": "FeedingAmountSettings 现在跟随 vis-2 的颜色模式（深色/浅色）；“无卡片背景”选项现在生效。"
-            },
-            "0.4.0": {
-                "en": "New separate FeedingAmountSettings widget (light editor: fish counts, temperatures, feed switcher, Phase-B control); FeedingAmount is read-only again.",
-                "de": "Neues separates Widget FeedingAmountSettings (heller Editor: Fischanzahl, Temperaturen, Futter-Umschalter, Phase-B-Steuerung); FeedingAmount ist wieder reine Anzeige.",
-                "ru": "Новый отдельный виджет FeedingAmountSettings (светлый редактор: количество рыб, температуры, переключатель корма, управление фазой B); FeedingAmount снова только отображение.",
-                "pt": "Novo widget separado FeedingAmountSettings (editor claro: contagem de peixes, temperaturas, seletor de ração, controlo da Fase B); FeedingAmount volta a ser apenas visualização.",
-                "nl": "Nieuw apart widget FeedingAmountSettings (lichte editor: aantal vissen, temperaturen, voerkiezer, fase-B-aansturing); FeedingAmount is weer alleen weergave.",
-                "fr": "Nouveau widget séparé FeedingAmountSettings (éditeur clair : nombre de poissons, températures, sélecteur de nourriture, pilotage phase B) ; FeedingAmount redevient un simple affichage.",
-                "it": "Nuovo widget separato FeedingAmountSettings (editor chiaro: numero di pesci, temperature, selettore mangime, controllo Fase B); FeedingAmount torna a essere solo visualizzazione.",
-                "es": "Nuevo widget separado FeedingAmountSettings (editor claro: número de peces, temperaturas, selector de alimento, control de Fase B); FeedingAmount vuelve a ser solo visualización.",
-                "pl": "Nowy osobny widget FeedingAmountSettings (jasny edytor: liczba ryb, temperatury, przełącznik karmy, sterowanie fazą B); FeedingAmount znów tylko wyświetla.",
-                "uk": "Новий окремий віджет FeedingAmountSettings (світлий редактор: кількість риб, температури, перемикач корму, керування фазою B); FeedingAmount знову лише відображення.",
-                "zh-cn": "新增独立的 FeedingAmountSettings 小部件（浅色编辑器：鱼的数量、温度、饲料切换、阶段 B 控制）；FeedingAmount 恢复为纯显示。"
-            },
-            "0.3.2": {
-                "en": "Housekeeping: keep only the latest 7 entries in common.news (repository checker W1032). No widget changes.",
-                "de": "Housekeeping: nur die neuesten 7 Einträge in common.news behalten (Repository-Checker W1032). Keine Widget-Änderungen.",
-                "ru": "Обслуживание: оставлены только 7 последних записей в common.news (проверка репозитория W1032). Изменений виджетов нет.",
-                "pt": "Manutenção: manter apenas as 7 entradas mais recentes em common.news (verificador do repositório W1032). Sem alterações nos widgets.",
-                "nl": "Onderhoud: alleen de nieuwste 7 items in common.news behouden (repository checker W1032). Geen widgetwijzigingen.",
-                "fr": "Maintenance : ne conserver que les 7 dernières entrées de common.news (vérificateur de dépôt W1032). Aucun changement de widget.",
-                "it": "Manutenzione: mantenere solo le 7 voci più recenti in common.news (repository checker W1032). Nessuna modifica ai widget.",
-                "es": "Mantenimiento: conservar solo las 7 entradas más recientes en common.news (verificador del repositorio W1032). Sin cambios en los widgets.",
-                "pl": "Porządki: zachowanie tylko 7 najnowszych wpisów w common.news (repository checker W1032). Bez zmian w widgetach.",
-                "uk": "Обслуговування: залишено лише 7 останніх записів у common.news (перевірка репозиторію W1032). Змін у віджетах немає.",
-                "zh-cn": "维护：common.news 仅保留最新的 7 条（仓库检查器 W1032）。组件无变化。"
-            },
-            "0.3.1": {
-                "en": "Housekeeping only (repository checker): bumped @alcalzone/release-script-plugin-license to 5.2.2, removed the unneeded prepublishOnly script and the unnecessary admin dependency (pure widget set, no admin UI), and unpinned the CI deploy action to @v1. No widget changes.",
-                "de": "Nur Housekeeping (Repository-Checker): @alcalzone/release-script-plugin-license auf 5.2.2 angehoben, das überflüssige prepublishOnly-Skript und die unnötige admin-Abhängigkeit entfernt (reines Widget-Set ohne Admin-UI) und die CI-Deploy-Action auf @v1 gelöst. Keine Widget-Änderungen.",
-                "ru": "Только обслуживание (проверка репозитория): @alcalzone/release-script-plugin-license обновлён до 5.2.2, удалены ненужный скрипт prepublishOnly и лишняя зависимость admin (набор виджетов без интерфейса admin), а деплой-экшен CI откреплён до @v1. Изменений виджетов нет.",
-                "pt": "Apenas manutenção (verificador do repositório): @alcalzone/release-script-plugin-license atualizado para 5.2.2, removidos o script prepublishOnly desnecessário e a dependência admin desnecessária (conjunto de widgets sem UI de admin), e a ação de deploy do CI desafixada para @v1. Sem alterações nos widgets.",
-                "nl": "Alleen onderhoud (repository checker): @alcalzone/release-script-plugin-license naar 5.2.2, het overbodige prepublishOnly-script en de onnodige admin-afhankelijkheid verwijderd (pure widgetset zonder admin-UI), en de CI-deploy-action losgekoppeld naar @v1. Geen widgetwijzigingen.",
-                "fr": "Maintenance uniquement (vérificateur de dépôt) : @alcalzone/release-script-plugin-license passé à 5.2.2, suppression du script prepublishOnly inutile et de la dépendance admin superflue (jeu de widgets sans UI admin), et action de déploiement CI ramenée à @v1. Aucun changement de widget.",
-                "it": "Solo manutenzione (repository checker): @alcalzone/release-script-plugin-license aggiornato a 5.2.2, rimossi lo script prepublishOnly non necessario e la dipendenza admin superflua (set di widget senza UI admin) e action di deploy CI riportata a @v1. Nessuna modifica ai widget.",
-                "es": "Solo mantenimiento (verificador del repositorio): @alcalzone/release-script-plugin-license actualizado a 5.2.2, eliminados el script prepublishOnly innecesario y la dependencia admin superflua (conjunto de widgets sin UI de admin), y la acción de despliegue de CI desanclada a @v1. Sin cambios en los widgets.",
-                "pl": "Tylko porządki (repository checker): @alcalzone/release-script-plugin-license do 5.2.2, usunięto zbędny skrypt prepublishOnly i niepotrzebną zależność admin (zestaw widgetów bez UI admina), a akcję deploy CI odpięto do @v1. Bez zmian w widgetach.",
-                "uk": "Лише обслуговування (перевірка репозиторію): @alcalzone/release-script-plugin-license оновлено до 5.2.2, вилучено непотрібний скрипт prepublishOnly та зайву залежність admin (набір віджетів без admin-UI), а деплой-екшен CI відкріплено до @v1. Змін у віджетах немає.",
-                "zh-cn": "仅维护（仓库检查器）：将 @alcalzone/release-script-plugin-license 升级到 5.2.2，移除多余的 prepublishOnly 脚本和不必要的 admin 依赖（纯组件集、无 admin 界面），并将 CI 部署 action 解除固定为 @v1。组件无变化。"
-            },
-            "0.3.0": {
-                "en": "New editable widget FeedingAmount: shows the adapter's feeding-amount model (daily ration, temperature %, total weight, per-feeding portion and run-times) and lets you edit the fish counts, temperature percentages, Phase-A/B switches and dispense rate — written to the adapter's settings.* states. Needs automatic-feeder v1.16.0+.",
-                "de": "Neues editierbares Widget FeedingAmount: zeigt das Futtermengen-Modell des Adapters (Tagesration, Temperatur-%, Gesamtgewicht, Portion je Fütterung und Laufzeiten) und lässt Fischzahlen, Temperatur-Prozente, Phase-A/B-Schalter und Dosierrate bearbeiten — geschrieben in die settings.*-States des Adapters. Benötigt automatic-feeder v1.16.0+.",
-                "ru": "Новый редактируемый виджет FeedingAmount: показывает модель количества корма адаптера (суточная норма, % по температуре, общий вес, порция на кормление и время работы) и позволяет менять количество рыб, проценты по температуре, переключатели фаз A/B и скорость подачи — запись в состояния settings.* адаптера. Требуется automatic-feeder v1.16.0+.",
-                "pt": "Novo widget editável FeedingAmount: mostra o modelo de quantidade de ração do adaptador (ração diária, % por temperatura, peso total, porção por alimentação e tempos) e permite editar o número de peixes, as percentagens por temperatura, os interruptores das fases A/B e a taxa de dosagem — gravado nos estados settings.* do adaptador. Requer automatic-feeder v1.16.0+.",
-                "nl": "Nieuw bewerkbaar widget FeedingAmount: toont het voederhoeveelheid-model van de adapter (dagrantsoen, temperatuur-%, totaalgewicht, portie per voederbeurt en looptijden) en laat je de aantallen vissen, temperatuurpercentages, fase-A/B-schakelaars en doseersnelheid bewerken — geschreven naar de settings.*-states van de adapter. Vereist automatic-feeder v1.16.0+.",
-                "fr": "Nouveau widget modifiable FeedingAmount : affiche le modèle de quantité de nourriture de l'adaptateur (ration journalière, % selon la température, poids total, portion par distribution et durées) et permet de modifier le nombre de poissons, les pourcentages par température, les interrupteurs des phases A/B et le débit — écrit dans les états settings.* de l'adaptateur. Nécessite automatic-feeder v1.16.0+.",
-                "it": "Nuovo widget modificabile FeedingAmount: mostra il modello di quantità di mangime dell'adattatore (razione giornaliera, % per temperatura, peso totale, porzione per alimentazione e tempi) e consente di modificare il numero di pesci, le percentuali per temperatura, gli interruttori delle fasi A/B e la portata — scritti negli stati settings.* dell'adattatore. Richiede automatic-feeder v1.16.0+.",
-                "es": "Nuevo widget editable FeedingAmount: muestra el modelo de cantidad de alimento del adaptador (ración diaria, % por temperatura, peso total, porción por alimentación y tiempos) y permite editar el número de peces, los porcentajes por temperatura, los interruptores de las fases A/B y la tasa de dosificación — escritos en los estados settings.* del adaptador. Requiere automatic-feeder v1.16.0+.",
-                "pl": "Nowy edytowalny widget FeedingAmount: pokazuje model ilości karmy adaptera (dzienna racja, % wg temperatury, masa całkowita, porcja na karmienie i czasy) oraz pozwala edytować liczbę ryb, procenty wg temperatury, przełączniki faz A/B i szybkość dozowania — zapisywane w stanach settings.* adaptera. Wymaga automatic-feeder v1.16.0+.",
-                "uk": "Новий редаговуваний віджет FeedingAmount: показує модель кількості корму адаптера (добова норма, % за температурою, загальна вага, порція на годування та час роботи) і дозволяє змінювати кількість риби, відсотки за температурою, перемикачі фаз A/B і швидкість подачі — записується у стани settings.* адаптера. Потрібен automatic-feeder v1.16.0+.",
-                "zh-cn": "新的可编辑组件 FeedingAmount：显示适配器的投喂量模型（每日投喂量、按温度的百分比、总重量、每次投喂量和运行时间），并可编辑鱼的数量、按温度的百分比、A/B 阶段开关和投喂速率——写入适配器的 settings.* 状态。需要 automatic-feeder v1.16.0+。"
+            "0.4.4": {
+                "en": "Maintenance release: dependency and build-tooling updates (adapter-react-v5, types-vis-2, module-federation/vite). No changes to the widgets themselves.",
+                "de": "Wartungsrelease: Aktualisierung von Abhängigkeiten und Build-Tooling (adapter-react-v5, types-vis-2, module-federation/vite). Keine Änderungen an den Widgets selbst.",
+                "ru": "Сервисный релиз: обновление зависимостей и инструментов сборки (adapter-react-v5, types-vis-2, module-federation/vite). Сами виджеты не изменялись.",
+                "pt": "Versão de manutenção: atualização de dependências e ferramentas de build (adapter-react-v5, types-vis-2, module-federation/vite). Sem alterações nos widgets em si.",
+                "nl": "Onderhoudsrelease: bijwerken van afhankelijkheden en build-tooling (adapter-react-v5, types-vis-2, module-federation/vite). Geen wijzigingen aan de widgets zelf.",
+                "fr": "Version de maintenance : mise à jour des dépendances et de l'outillage de build (adapter-react-v5, types-vis-2, module-federation/vite). Aucune modification des widgets eux-mêmes.",
+                "it": "Versione di manutenzione: aggiornamento delle dipendenze e degli strumenti di build (adapter-react-v5, types-vis-2, module-federation/vite). Nessuna modifica ai widget stessi.",
+                "es": "Versión de mantenimiento: actualización de dependencias y herramientas de compilación (adapter-react-v5, types-vis-2, module-federation/vite). Sin cambios en los widgets.",
+                "pl": "Wydanie konserwacyjne: aktualizacja zależności i narzędzi budowania (adapter-react-v5, types-vis-2, module-federation/vite). Bez zmian w samych widżetach.",
+                "uk": "Реліз обслуговування: оновлення залежностей та інструментів збірки (adapter-react-v5, types-vis-2, module-federation/vite). Самі віджети не змінювалися.",
+                "zh-cn": "维护版本：更新依赖和构建工具（adapter-react-v5、types-vis-2、module-federation/vite）。小部件本身没有变化。"
             }
         },
         "titleLang": {
