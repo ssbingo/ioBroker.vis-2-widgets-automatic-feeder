@@ -487,6 +487,9 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.3 (2026-09-01)
+* (ssbingo) **FeedingAmountSettings** now selects the active feed from the adapter's **central feed list** (`native.feeds`) via a dropdown, written id-based to `settings.activeFeed` — replacing the deprecated per-switch feed profiles (needs **automatic-feeder v1.18.0+**). **FeedingAmount** additionally shows the active feed's pellet size (`status.activeFeedSize`)
+
 ### 0.4.2 (2026-09-01)
 * (ssbingo) **FeedingAmountSettings** now has an **Accent colour** option (Appearance group), just like the FeedingAmount widget — the accent drives the toggles, active borders and highlighted values, so both widgets can be given the same accent for a consistent design. In light mode the accent is darkened for readable text; in dark mode it is used directly
 
