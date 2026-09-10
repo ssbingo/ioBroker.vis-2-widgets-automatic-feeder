@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.4.4",
+        "version": "0.4.5",
         "news": {
-            "0.4.4": {
-                "en": "Maintenance release: dependency and build-tooling updates (adapter-react-v5, types-vis-2, module-federation/vite). No changes to the widgets themselves.",
-                "de": "Wartungsrelease: Aktualisierung von Abhängigkeiten und Build-Tooling (adapter-react-v5, types-vis-2, module-federation/vite). Keine Änderungen an den Widgets selbst.",
-                "ru": "Сервисный релиз: обновление зависимостей и инструментов сборки (adapter-react-v5, types-vis-2, module-federation/vite). Сами виджеты не изменялись.",
-                "pt": "Versão de manutenção: atualização de dependências e ferramentas de build (adapter-react-v5, types-vis-2, module-federation/vite). Sem alterações nos widgets em si.",
-                "nl": "Onderhoudsrelease: bijwerken van afhankelijkheden en build-tooling (adapter-react-v5, types-vis-2, module-federation/vite). Geen wijzigingen aan de widgets zelf.",
-                "fr": "Version de maintenance : mise à jour des dépendances et de l'outillage de build (adapter-react-v5, types-vis-2, module-federation/vite). Aucune modification des widgets eux-mêmes.",
-                "it": "Versione di manutenzione: aggiornamento delle dipendenze e degli strumenti di build (adapter-react-v5, types-vis-2, module-federation/vite). Nessuna modifica ai widget stessi.",
-                "es": "Versión de mantenimiento: actualización de dependencias y herramientas de compilación (adapter-react-v5, types-vis-2, module-federation/vite). Sin cambios en los widgets.",
-                "pl": "Wydanie konserwacyjne: aktualizacja zależności i narzędzi budowania (adapter-react-v5, types-vis-2, module-federation/vite). Bez zmian w samych widżetach.",
-                "uk": "Реліз обслуговування: оновлення залежностей та інструментів збірки (adapter-react-v5, types-vis-2, module-federation/vite). Самі віджети не змінювалися.",
-                "zh-cn": "维护版本：更新依赖和构建工具（adapter-react-v5、types-vis-2、module-federation/vite）。小部件本身没有变化。"
+            "0.4.5": {
+                "en": "DynamicFeeding and Environment now colour the water temperature by the koi-biology scale (growth optimum green, the cold Aeromonas window amber, both extremes red) and show the band's meaning as a small chip — toggleable per widget.",
+                "de": "DynamicFeeding und Environment färben die Wassertemperatur jetzt nach der Koi-Biologie-Skala (Wachstumsoptimum grün, kaltes Aeromonas-Fenster gelb, beide Extreme rot) und zeigen die Band-Bedeutung als kleines Chip — pro Widget ein-/ausblendbar.",
+                "ru": "DynamicFeeding и Environment теперь окрашивают температуру воды по шкале биологии кои (оптимум роста зелёный, холодное окно Aeromonas жёлтый, крайние значения красный) и показывают значение диапазона в виде маленького чипа — включается для каждого виджета.",
+                "pt": "DynamicFeeding e Environment agora colorem a temperatura da água pela escala de biologia dos koi (ótimo de crescimento verde, janela Aeromonas fria em âmbar, extremos em vermelho) e mostram o significado da faixa como um pequeno chip — ativável por widget.",
+                "nl": "DynamicFeeding en Environment kleuren de watertemperatuur nu volgens de koi-biologieschaal (groei-optimum groen, koud Aeromonas-venster amber, extremen rood) en tonen de betekenis van de band als klein chip — per widget in/uit te schakelen.",
+                "fr": "DynamicFeeding et Environment colorent désormais la température de l'eau selon l'échelle biologique des koïs (optimum de croissance vert, fenêtre Aeromonas froide en ambre, extrêmes en rouge) et affichent la signification de la bande sous forme d'une petite puce — activable par widget.",
+                "it": "DynamicFeeding ed Environment ora colorano la temperatura dell'acqua secondo la scala biologica dei koi (ottimo di crescita verde, finestra Aeromonas fredda ambra, estremi rossi) e mostrano il significato della fascia come un piccolo chip — attivabile per widget.",
+                "es": "DynamicFeeding y Environment ahora colorean la temperatura del agua según la escala biológica de los koi (óptimo de crecimiento verde, ventana Aeromonas fría en ámbar, extremos en rojo) y muestran el significado de la banda como un pequeño chip — activable por widget.",
+                "pl": "DynamicFeeding i Environment kolorują teraz temperaturę wody według skali biologii koi (optimum wzrostu zielone, zimne okno Aeromonas bursztynowe, skrajności czerwone) i pokazują znaczenie pasma jako mały chip — przełączane dla każdego widżetu.",
+                "uk": "DynamicFeeding та Environment тепер забарвлюють температуру води за шкалою біології коі (оптимум росту зелений, холодне вікно Aeromonas бурштинове, крайнощі червоні) і показують значення смуги як маленький чип — вмикається для кожного віджета.",
+                "zh-cn": "DynamicFeeding 和 Environment 现在按锦鲤生物学色阶为水温着色（生长最佳为绿色、寒冷的气单胞菌窗口期为琥珀色、两端为红色），并将区间含义显示为小徽标——可按小部件开关。"
             }
         },
         "titleLang": {

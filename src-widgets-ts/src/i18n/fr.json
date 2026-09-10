@@ -96,5 +96,16 @@
   "control_hint": "Cette quantité définit la durée de distribution (désactive le dynamique Q10)",
   "daily_max": "Max. par jour (g)",
   "off": "arrêt",
-  "no_feed": "— aucun aliment —"
+  "no_feed": "— aucun aliment —",
+  "temp_lethal_cold": "Froid critique",
+  "temp_borderline": "Limite",
+  "temp_winter_rest": "Repos hivernal",
+  "temp_aeromonas": "Fenêtre Aeromonas",
+  "temp_transition": "Transition",
+  "temp_normal": "Plage normale",
+  "temp_optimum": "Optimum de croissance",
+  "temp_upper_normal": "Normale haute",
+  "temp_heat_stress": "Stress thermique",
+  "temp_danger": "Danger",
+  "show_temp_band": "Afficher la bande de température"
 }

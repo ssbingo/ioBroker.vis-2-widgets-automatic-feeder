@@ -96,5 +96,16 @@
   "control_hint": "Ta ilość ustala czas karmienia (wyłącza dynamikę Q10)",
   "daily_max": "Maks. dzienne (g)",
   "off": "wył",
-  "no_feed": "— brak karmy —"
+  "no_feed": "— brak karmy —",
+  "temp_lethal_cold": "Niebezpiecznie zimno",
+  "temp_borderline": "Graniczny",
+  "temp_winter_rest": "Spoczynek zimowy",
+  "temp_aeromonas": "Okno Aeromonas",
+  "temp_transition": "Przejście",
+  "temp_normal": "Zakres normalny",
+  "temp_optimum": "Optimum wzrostu",
+  "temp_upper_normal": "Górny normalny",
+  "temp_heat_stress": "Stres cieplny",
+  "temp_danger": "Niebezpieczeństwo",
+  "show_temp_band": "Pokaż pasmo temperatury"
 }

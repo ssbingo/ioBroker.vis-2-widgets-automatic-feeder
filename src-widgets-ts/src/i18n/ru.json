@@ -96,5 +96,16 @@
   "control_hint": "Это количество задаёт длительность кормления (отключает динамику Q10)",
   "daily_max": "Макс. в день (г)",
   "off": "выкл",
-  "no_feed": "— нет корма —"
+  "no_feed": "— нет корма —",
+  "temp_lethal_cold": "Опасно холодно",
+  "temp_borderline": "Пограничный",
+  "temp_winter_rest": "Зимний покой",
+  "temp_aeromonas": "Окно аэромоноза",
+  "temp_transition": "Переход",
+  "temp_normal": "Нормальный диапазон",
+  "temp_optimum": "Оптимум роста",
+  "temp_upper_normal": "Верхний нормальный",
+  "temp_heat_stress": "Тепловой стресс",
+  "temp_danger": "Опасность",
+  "show_temp_band": "Показывать температурный диапазон"
 }

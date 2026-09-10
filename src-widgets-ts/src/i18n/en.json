@@ -96,5 +96,16 @@
   "control_hint": "Let this amount set the feeding duration (turns off dynamic Q10)",
   "daily_max": "Daily max (g)",
   "off": "off",
-  "no_feed": "— no feed —"
+  "no_feed": "— no feed —",
+  "temp_lethal_cold": "Life-threatening cold",
+  "temp_borderline": "Borderline",
+  "temp_winter_rest": "Winter rest",
+  "temp_aeromonas": "Aeromonas window",
+  "temp_transition": "Transition",
+  "temp_normal": "Normal range",
+  "temp_optimum": "Growth optimum",
+  "temp_upper_normal": "Upper normal",
+  "temp_heat_stress": "Heat stress",
+  "temp_danger": "Danger",
+  "show_temp_band": "Show temperature band"
 }

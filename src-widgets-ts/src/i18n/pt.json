@@ -96,5 +96,16 @@
   "control_hint": "Esta quantidade define a duração da alimentação (desliga a dinâmica Q10)",
   "daily_max": "Máx. diário (g)",
   "off": "desl",
-  "no_feed": "— sem ração —"
+  "no_feed": "— sem ração —",
+  "temp_lethal_cold": "Frio perigoso",
+  "temp_borderline": "Limítrofe",
+  "temp_winter_rest": "Repouso de inverno",
+  "temp_aeromonas": "Janela Aeromonas",
+  "temp_transition": "Transição",
+  "temp_normal": "Faixa normal",
+  "temp_optimum": "Ótimo de crescimento",
+  "temp_upper_normal": "Normal superior",
+  "temp_heat_stress": "Estresse térmico",
+  "temp_danger": "Perigo",
+  "show_temp_band": "Mostrar faixa de temperatura"
 }

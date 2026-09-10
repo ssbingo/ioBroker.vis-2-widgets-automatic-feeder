@@ -173,3 +173,43 @@ export function feederCommonGroup(): { name: string; fields: RxWidgetInfoAttribu
         ] as RxWidgetInfoAttributesField[],
     };
 }
+
+/**
+ * Koi water-temperature bands keyed to the biology from the pondpump research
+ * (ioBroker.pondpump → doc/research/wassertemperaturen-im-koiteich.md), not a neutral cold→warm
+ * gradient: the growth optimum (23–26 °C) is the strongest green; the cold 8–13 °C "Aeromonas
+ * window" — pathogens active but the koi immune system not — is flagged amber (caution) even though
+ * it is cold; both temperature extremes go red. `max` is the exclusive upper °C bound; `key` is the
+ * i18n key for the band's biological meaning.
+ */
+const TEMP_BANDS: { max: number; color: string; key: string }[] = [
+    { max: 2, color: '#f0645a', key: 'temp_lethal_cold' },
+    { max: 4, color: '#ff8c42', key: 'temp_borderline' },
+    { max: 8, color: '#4aa8ff', key: 'temp_winter_rest' },
+    { max: 13, color: '#ffca3a', key: 'temp_aeromonas' },
+    { max: 17, color: '#35c4c4', key: 'temp_transition' },
+    { max: 23, color: '#8ed081', key: 'temp_normal' },
+    { max: 26, color: '#3fbf5a', key: 'temp_optimum' },
+    { max: 28, color: '#8ed081', key: 'temp_upper_normal' },
+    { max: 30, color: '#ff8c42', key: 'temp_heat_stress' },
+    { max: Infinity, color: '#f0645a', key: 'temp_danger' },
+];
+
+function tempBandIndex(t: number): number {
+    for (let i = 0; i < TEMP_BANDS.length; i++) {
+        if (t < TEMP_BANDS[i].max) {
+            return i;
+        }
+    }
+    return TEMP_BANDS.length - 1;
+}
+
+/** Water-temperature colour for the koi biology band at `t` (°C). */
+export function tempColor(t: number): string {
+    return TEMP_BANDS[tempBandIndex(t)].color;
+}
+
+/** i18n key for the biological meaning of the koi water-temperature band at `t` (°C). */
+export function tempBandKey(t: number): string {
+    return TEMP_BANDS[tempBandIndex(t)].key;
+}

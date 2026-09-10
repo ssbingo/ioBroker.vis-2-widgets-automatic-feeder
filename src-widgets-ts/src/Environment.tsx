@@ -3,11 +3,12 @@ import React from 'react';
 import type { RxRenderWidgetProps, RxWidgetInfo, VisRxWidgetProps } from '@iobroker/types-vis-2';
 
 import FeederWidgetBase, { type FeederBaseRxData, type FeederBaseState } from './FeederWidgetBase';
-import { feederCommonGroup } from './common';
+import { feederCommonGroup, tempColor, tempBandKey } from './common';
 
 interface EnvironmentRxData extends FeederBaseRxData {
     accent: string;
     noCard: boolean;
+    showTempBand: boolean;
 }
 
 export default class Environment extends FeederWidgetBase<EnvironmentRxData, FeederBaseState> {
@@ -46,6 +47,7 @@ export default class Environment extends FeederWidgetBase<EnvironmentRxData, Fee
                     fields: [
                         { name: 'accent', type: 'color', label: 'accent', default: '#33c1cf' },
                         { name: 'noCard', type: 'checkbox', label: 'no_card', default: false },
+                        { name: 'showTempBand', type: 'checkbox', label: 'show_temp_band', default: true },
                     ],
                 },
             ],
@@ -72,6 +74,7 @@ export default class Environment extends FeederWidgetBase<EnvironmentRxData, Fee
         super.renderWidgetBody(props);
         const accent = this.state.rxData.accent || '#33c1cf';
         const noCard = this.state.rxData.noCard === true;
+        const showTempBand = this.state.rxData.showTempBand !== false;
         const t = (k: string): string => Environment.t(k);
         const styleVars = { '--af-accent': accent } as React.CSSProperties;
 
@@ -87,6 +90,8 @@ export default class Environment extends FeederWidgetBase<EnvironmentRxData, Fee
             );
         }
 
+        const wShallow = this.num('status.waterTemperature');
+        const wDeep = this.num('status.waterTemperatureDeep');
         const strat = this.num('status.waterStratification');
         const o2 = this.num('status.oxygen');
         const o2Min = this.num('settings.o2Min');
@@ -105,14 +110,20 @@ export default class Environment extends FeederWidgetBase<EnvironmentRxData, Fee
                 <div className="af-tiles">
                     <div className="af-tile">
                         <div className="t">{t('water_shallow')}</div>
-                        <div className="n">
+                        <div
+                            className="n"
+                            style={wShallow !== null ? { color: tempColor(wShallow) } : undefined}
+                        >
                             {this.f1('status.waterTemperature')}
                             <small> °C</small>
                         </div>
                     </div>
                     <div className="af-tile">
                         <div className="t">{t('water_deep')}</div>
-                        <div className="n">
+                        <div
+                            className="n"
+                            style={wDeep !== null ? { color: tempColor(wDeep) } : undefined}
+                        >
                             {this.f1('status.waterTemperatureDeep')}
                             <small> °C</small>
                         </div>
@@ -144,6 +155,15 @@ export default class Environment extends FeederWidgetBase<EnvironmentRxData, Fee
                         <span>{this.hhmm(this.str('status.sunset'))} ☾</span>
                     </div>
                 </div>
+                {showTempBand && wShallow !== null ? (
+                    <div
+                        className="af-band"
+                        style={{ '--af-band-c': tempColor(wShallow) } as React.CSSProperties}
+                    >
+                        <span className="dot" />
+                        {t(tempBandKey(wShallow))}
+                    </div>
+                ) : null}
             </div>
         );
     }

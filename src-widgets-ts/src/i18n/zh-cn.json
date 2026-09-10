@@ -96,5 +96,16 @@
   "control_hint": "该量决定投喂时长（关闭 Q10 动态）",
   "daily_max": "每日上限 (克)",
   "off": "关",
-  "no_feed": "— 无饲料 —"
+  "no_feed": "— 无饲料 —",
+  "temp_lethal_cold": "危及生命的低温",
+  "temp_borderline": "临界",
+  "temp_winter_rest": "越冬休眠",
+  "temp_aeromonas": "气单胞菌窗口期",
+  "temp_transition": "过渡",
+  "temp_normal": "正常范围",
+  "temp_optimum": "生长最佳",
+  "temp_upper_normal": "偏高正常",
+  "temp_heat_stress": "热应激",
+  "temp_danger": "危险",
+  "show_temp_band": "显示温度区间"
 }

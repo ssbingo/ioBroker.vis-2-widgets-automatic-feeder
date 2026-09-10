@@ -3,11 +3,12 @@ import React from 'react';
 import type { RxRenderWidgetProps, RxWidgetInfo } from '@iobroker/types-vis-2';
 
 import FeederWidgetBase, { type FeederBaseRxData, type FeederBaseState } from './FeederWidgetBase';
-import { feederCommonGroup } from './common';
+import { feederCommonGroup, tempColor, tempBandKey } from './common';
 
 interface DynamicFeedingRxData extends FeederBaseRxData {
     accent: string;
     noCard: boolean;
+    showTempBand: boolean;
 }
 
 export default class DynamicFeeding extends FeederWidgetBase<DynamicFeedingRxData, FeederBaseState> {
@@ -38,6 +39,7 @@ export default class DynamicFeeding extends FeederWidgetBase<DynamicFeedingRxDat
                     fields: [
                         { name: 'accent', type: 'color', label: 'accent', default: '#33c1cf' },
                         { name: 'noCard', type: 'checkbox', label: 'no_card', default: false },
+                        { name: 'showTempBand', type: 'checkbox', label: 'show_temp_band', default: true },
                     ],
                 },
             ],
@@ -75,6 +77,7 @@ export default class DynamicFeeding extends FeederWidgetBase<DynamicFeedingRxDat
         super.renderWidgetBody(props);
         const accent = this.state.rxData.accent || '#33c1cf';
         const noCard = this.state.rxData.noCard === true;
+        const showTempBand = this.state.rxData.showTempBand !== false;
         const t = (k: string): string => DynamicFeeding.t(k);
         const styleVars = { '--af-accent': accent } as React.CSSProperties;
 
@@ -114,12 +117,23 @@ export default class DynamicFeeding extends FeederWidgetBase<DynamicFeedingRxDat
                     </span>
                 </div>
                 {enabled ? (
-                    <div className="af-tiles af-tiles--4">
-                        {this.tile(t('avg_temp'), f(avg), '°C', accent)}
-                        {this.tile(t('rate'), f(rate, 2), '×')}
-                        {this.tile(t('interval'), f(interval, 0), 'min')}
-                        {this.tile(t('portion_short'), f(dur, 0), 's')}
-                    </div>
+                    <>
+                        <div className="af-tiles af-tiles--4">
+                            {this.tile(t('avg_temp'), f(avg), '°C', avg !== null ? tempColor(avg) : accent)}
+                            {this.tile(t('rate'), f(rate, 2), '×')}
+                            {this.tile(t('interval'), f(interval, 0), 'min')}
+                            {this.tile(t('portion_short'), f(dur, 0), 's')}
+                        </div>
+                        {showTempBand && avg !== null ? (
+                            <div
+                                className="af-band"
+                                style={{ '--af-band-c': tempColor(avg) } as React.CSSProperties}
+                            >
+                                <span className="dot" />
+                                {t(tempBandKey(avg))}
+                            </div>
+                        ) : null}
+                    </>
                 ) : (
                     <div className="af-sub">{t('dynamic_off')}</div>
                 )}

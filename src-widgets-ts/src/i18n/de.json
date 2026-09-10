@@ -96,5 +96,16 @@
   "control_hint": "Diese Menge bestimmt die Fütterungsdauer (schaltet Dynamik Q10 ab)",
   "daily_max": "Tagesmaximum (g)",
   "off": "aus",
-  "no_feed": "— kein Futter —"
+  "no_feed": "— kein Futter —",
+  "temp_lethal_cold": "Lebensbedrohlich kalt",
+  "temp_borderline": "Grenzbereich",
+  "temp_winter_rest": "Winterruhe",
+  "temp_aeromonas": "Aeromonas-Fenster",
+  "temp_transition": "Übergang",
+  "temp_normal": "Normalbereich",
+  "temp_optimum": "Wachstumsoptimum",
+  "temp_upper_normal": "Oberer Normalbereich",
+  "temp_heat_stress": "Hitzestress",
+  "temp_danger": "Gefahr",
+  "show_temp_band": "Temperatur-Band anzeigen"
 }

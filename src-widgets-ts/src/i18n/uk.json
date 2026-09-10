@@ -96,5 +96,16 @@
   "control_hint": "Ця кількість задає тривалість годування (вимикає динаміку Q10)",
   "daily_max": "Макс. на день (г)",
   "off": "вимк",
-  "no_feed": "— без корму —"
+  "no_feed": "— без корму —",
+  "temp_lethal_cold": "Небезпечно холодно",
+  "temp_borderline": "Межовий",
+  "temp_winter_rest": "Зимовий спокій",
+  "temp_aeromonas": "Вікно Aeromonas",
+  "temp_transition": "Перехід",
+  "temp_normal": "Нормальний діапазон",
+  "temp_optimum": "Оптимум росту",
+  "temp_upper_normal": "Верхній нормальний",
+  "temp_heat_stress": "Тепловий стрес",
+  "temp_danger": "Небезпека",
+  "show_temp_band": "Показувати температурну смугу"
 }

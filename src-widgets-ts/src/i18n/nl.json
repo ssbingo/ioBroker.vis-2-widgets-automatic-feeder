@@ -96,5 +96,16 @@
   "control_hint": "Deze hoeveelheid bepaalt de voederduur (schakelt dynamiek Q10 uit)",
   "daily_max": "Dagmaximum (g)",
   "off": "uit",
-  "no_feed": "— geen voer —"
+  "no_feed": "— geen voer —",
+  "temp_lethal_cold": "Levensbedreigend koud",
+  "temp_borderline": "Grensgebied",
+  "temp_winter_rest": "Winterrust",
+  "temp_aeromonas": "Aeromonas-venster",
+  "temp_transition": "Overgang",
+  "temp_normal": "Normaal bereik",
+  "temp_optimum": "Groei-optimum",
+  "temp_upper_normal": "Bovenste normaal",
+  "temp_heat_stress": "Hittestress",
+  "temp_danger": "Gevaar",
+  "show_temp_band": "Temperatuurband tonen"
 }
