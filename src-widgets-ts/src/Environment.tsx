@@ -117,6 +117,15 @@ export default class Environment extends FeederWidgetBase<EnvironmentRxData, Fee
                             {this.f1('status.waterTemperature')}
                             <small> °C</small>
                         </div>
+                        {showTempBand && wShallow !== null ? (
+                            <div
+                                className="af-tband"
+                                style={{ color: tempColor(wShallow) }}
+                            >
+                                <span className="dot" />
+                                {t(tempBandKey(wShallow))}
+                            </div>
+                        ) : null}
                     </div>
                     <div className="af-tile">
                         <div className="t">{t('water_deep')}</div>
@@ -127,6 +136,15 @@ export default class Environment extends FeederWidgetBase<EnvironmentRxData, Fee
                             {this.f1('status.waterTemperatureDeep')}
                             <small> °C</small>
                         </div>
+                        {showTempBand && wDeep !== null ? (
+                            <div
+                                className="af-tband"
+                                style={{ color: tempColor(wDeep) }}
+                            >
+                                <span className="dot" />
+                                {t(tempBandKey(wDeep))}
+                            </div>
+                        ) : null}
                     </div>
                 </div>
                 <div className="af-strip">
@@ -155,15 +173,6 @@ export default class Environment extends FeederWidgetBase<EnvironmentRxData, Fee
                         <span>{this.hhmm(this.str('status.sunset'))} ☾</span>
                     </div>
                 </div>
-                {showTempBand && wShallow !== null ? (
-                    <div
-                        className="af-band"
-                        style={{ '--af-band-c': tempColor(wShallow) } as React.CSSProperties}
-                    >
-                        <span className="dot" />
-                        {t(tempBandKey(wShallow))}
-                    </div>
-                ) : null}
             </div>
         );
     }

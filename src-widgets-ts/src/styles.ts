@@ -48,9 +48,8 @@ const CSS = `
 .af-tile .t{font-size:10.5px;color:#9aa3b0;text-transform:uppercase;letter-spacing:.06em}
 .af-tile .n{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;color:#fff}
 .af-tile .n small{font-size:12px;color:#9aa3b0;font-weight:500}
-.af-band{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:11px;font-weight:600;
-  padding:3px 10px;border-radius:999px;border:1px solid var(--af-band-c,#9aa3b0);color:#e6e9ee;line-height:1.4;letter-spacing:.02em}
-.af-band .dot{width:8px;height:8px;border-radius:50%;background:var(--af-band-c,#9aa3b0);flex:0 0 auto}
+.af-tband{display:flex;align-items:center;gap:5px;margin-top:6px;font-size:10px;font-weight:600;line-height:1.25;letter-spacing:.02em}
+.af-tband .dot{width:7px;height:7px;border-radius:50%;background:currentColor;flex:0 0 auto}
 .af-strip{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .af-astro{margin-top:12px}
 .af-astro-bar{position:relative;height:15px;border-radius:8px;overflow:hidden;

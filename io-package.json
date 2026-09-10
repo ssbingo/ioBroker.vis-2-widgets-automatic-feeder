@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.4.5",
+        "version": "0.4.6",
         "news": {
-            "0.4.5": {
-                "en": "DynamicFeeding and Environment now colour the water temperature by the koi-biology scale (growth optimum green, the cold Aeromonas window amber, both extremes red) and show the band's meaning as a small chip — toggleable per widget.",
-                "de": "DynamicFeeding und Environment färben die Wassertemperatur jetzt nach der Koi-Biologie-Skala (Wachstumsoptimum grün, kaltes Aeromonas-Fenster gelb, beide Extreme rot) und zeigen die Band-Bedeutung als kleines Chip — pro Widget ein-/ausblendbar.",
-                "ru": "DynamicFeeding и Environment теперь окрашивают температуру воды по шкале биологии кои (оптимум роста зелёный, холодное окно Aeromonas жёлтый, крайние значения красный) и показывают значение диапазона в виде маленького чипа — включается для каждого виджета.",
-                "pt": "DynamicFeeding e Environment agora colorem a temperatura da água pela escala de biologia dos koi (ótimo de crescimento verde, janela Aeromonas fria em âmbar, extremos em vermelho) e mostram o significado da faixa como um pequeno chip — ativável por widget.",
-                "nl": "DynamicFeeding en Environment kleuren de watertemperatuur nu volgens de koi-biologieschaal (groei-optimum groen, koud Aeromonas-venster amber, extremen rood) en tonen de betekenis van de band als klein chip — per widget in/uit te schakelen.",
-                "fr": "DynamicFeeding et Environment colorent désormais la température de l'eau selon l'échelle biologique des koïs (optimum de croissance vert, fenêtre Aeromonas froide en ambre, extrêmes en rouge) et affichent la signification de la bande sous forme d'une petite puce — activable par widget.",
-                "it": "DynamicFeeding ed Environment ora colorano la temperatura dell'acqua secondo la scala biologica dei koi (ottimo di crescita verde, finestra Aeromonas fredda ambra, estremi rossi) e mostrano il significato della fascia come un piccolo chip — attivabile per widget.",
-                "es": "DynamicFeeding y Environment ahora colorean la temperatura del agua según la escala biológica de los koi (óptimo de crecimiento verde, ventana Aeromonas fría en ámbar, extremos en rojo) y muestran el significado de la banda como un pequeño chip — activable por widget.",
-                "pl": "DynamicFeeding i Environment kolorują teraz temperaturę wody według skali biologii koi (optimum wzrostu zielone, zimne okno Aeromonas bursztynowe, skrajności czerwone) i pokazują znaczenie pasma jako mały chip — przełączane dla każdego widżetu.",
-                "uk": "DynamicFeeding та Environment тепер забарвлюють температуру води за шкалою біології коі (оптимум росту зелений, холодне вікно Aeromonas бурштинове, крайнощі червоні) і показують значення смуги як маленький чип — вмикається для кожного віджета.",
-                "zh-cn": "DynamicFeeding 和 Environment 现在按锦鲤生物学色阶为水温着色（生长最佳为绿色、寒冷的气单胞菌窗口期为琥珀色、两端为红色），并将区间含义显示为小徽标——可按小部件开关。"
+            "0.4.6": {
+                "en": "DynamicFeeding and Environment now show the temperature band meaning directly under each individual temperature (Environment: separate band under water shallow and deep; DynamicFeeding: under the average-temperature tile) instead of one chip at the card bottom",
+                "de": "DynamicFeeding und Environment zeigen die Bedeutung des Temperatur-Bandes jetzt direkt unter jeder einzelnen Temperatur (Environment: eigenes Band unter Wasser flach und tief; DynamicFeeding: unter der Durchschnittstemperatur) statt als ein Chip am Kartenende",
+                "ru": "DynamicFeeding и Environment теперь показывают значение температурного диапазона прямо под каждой отдельной температурой (Environment: отдельный диапазон под мелкой и глубокой водой; DynamicFeeding: под средней температурой) вместо одного чипа внизу карточки",
+                "pt": "DynamicFeeding e Environment agora mostram o significado da faixa de temperatura diretamente abaixo de cada temperatura individual (Environment: faixa separada abaixo da água rasa e profunda; DynamicFeeding: abaixo da temperatura média) em vez de um chip no fim do cartão",
+                "nl": "DynamicFeeding en Environment tonen de betekenis van de temperatuurband nu direct onder elke afzonderlijke temperatuur (Environment: aparte band onder ondiep en diep water; DynamicFeeding: onder de gemiddelde temperatuur) in plaats van één chip onderaan de kaart",
+                "fr": "DynamicFeeding et Environment affichent désormais la signification de la bande de température directement sous chaque température individuelle (Environment : bande distincte sous l eau peu profonde et profonde ; DynamicFeeding : sous la température moyenne) au lieu d une seule puce en bas de la carte",
+                "it": "DynamicFeeding ed Environment ora mostrano il significato della banda di temperatura direttamente sotto ogni singola temperatura (Environment: banda separata sotto acqua bassa e profonda; DynamicFeeding: sotto la temperatura media) invece di un chip in fondo alla scheda",
+                "es": "DynamicFeeding y Environment ahora muestran el significado de la banda de temperatura directamente debajo de cada temperatura individual (Environment: banda separada bajo agua poco profunda y profunda; DynamicFeeding: bajo la temperatura media) en lugar de un chip al final de la tarjeta",
+                "pl": "DynamicFeeding i Environment pokazują teraz znaczenie pasma temperatury bezpośrednio pod każdą pojedynczą temperaturą (Environment: osobne pasmo pod wodą płytką i głęboką; DynamicFeeding: pod temperaturą średnią) zamiast jednego chipa na dole karty",
+                "uk": "DynamicFeeding та Environment тепер показують значення температурного діапазону безпосередньо під кожною окремою температурою (Environment: окремий діапазон під мілкою та глибокою водою; DynamicFeeding: під середньою температурою) замість одного чипа внизу картки",
+                "zh-cn": "DynamicFeeding 和 Environment 现在将温度带含义直接显示在每个温度值下方（Environment：浅水和深水各自显示；DynamicFeeding：显示在平均温度下方），而不是在卡片底部显示一个标签"
             }
         },
         "titleLang": {

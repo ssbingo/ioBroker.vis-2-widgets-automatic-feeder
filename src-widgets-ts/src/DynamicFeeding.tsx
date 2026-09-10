@@ -58,7 +58,13 @@ export default class DynamicFeeding extends FeederWidgetBase<DynamicFeedingRxDat
     }
 
     // eslint-disable-next-line class-methods-use-this
-    private tile(label: string, value: string, unit: string, color?: string): React.JSX.Element {
+    private tile(
+        label: string,
+        value: string,
+        unit: string,
+        color?: string,
+        band?: React.JSX.Element | null,
+    ): React.JSX.Element {
         return (
             <div className="af-tile">
                 <div className="t">{label}</div>
@@ -69,6 +75,7 @@ export default class DynamicFeeding extends FeederWidgetBase<DynamicFeedingRxDat
                     {value}
                     <small> {unit}</small>
                 </div>
+                {band || null}
             </div>
         );
     }
@@ -119,20 +126,25 @@ export default class DynamicFeeding extends FeederWidgetBase<DynamicFeedingRxDat
                 {enabled ? (
                     <>
                         <div className="af-tiles af-tiles--4">
-                            {this.tile(t('avg_temp'), f(avg), '°C', avg !== null ? tempColor(avg) : accent)}
+                            {this.tile(
+                                t('avg_temp'),
+                                f(avg),
+                                '°C',
+                                avg !== null ? tempColor(avg) : accent,
+                                showTempBand && avg !== null ? (
+                                    <div
+                                        className="af-tband"
+                                        style={{ color: tempColor(avg) }}
+                                    >
+                                        <span className="dot" />
+                                        {t(tempBandKey(avg))}
+                                    </div>
+                                ) : null,
+                            )}
                             {this.tile(t('rate'), f(rate, 2), '×')}
                             {this.tile(t('interval'), f(interval, 0), 'min')}
                             {this.tile(t('portion_short'), f(dur, 0), 's')}
                         </div>
-                        {showTempBand && avg !== null ? (
-                            <div
-                                className="af-band"
-                                style={{ '--af-band-c': tempColor(avg) } as React.CSSProperties}
-                            >
-                                <span className="dot" />
-                                {t(tempBandKey(avg))}
-                            </div>
-                        ) : null}
                     </>
                 ) : (
                     <div className="af-sub">{t('dynamic_off')}</div>
