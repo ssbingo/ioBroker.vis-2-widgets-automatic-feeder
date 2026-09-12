@@ -3,6 +3,10 @@
 Changelog entries that were moved out of [README.md](README.md) (it keeps the latest 10) are
 collected here.
 
+### 0.3.0 (2026-09-01)
+* (ssbingo) New widget **FeedingAmount**: shows the adapter's feeding-amount model for a switch — recommended daily ration, the feeding percentage for the current water temperature, estimated total weight and, in control mode, the per-feeding portion and motor run-times. It uses the adapter's `status.feedTargetPortionGrams` / `status.feedingsPerDayToday` for an exact per-feeding amount (**automatic-feeder v1.16.0+**)
+* (ssbingo) The FeedingAmount widget is **editable**: an *Edit* toggle lets you change the fish counts, the temperature percentages, the Phase-A/B switches and the dispense rate; the changes are written to the adapter's writable `switches.<id>.settings.*` states (needs **automatic-feeder v1.16.0+** for the amount-model settings mirror)
+
 ### 0.2.1 (2026-07-07)
 * (ssbingo) Fixed **AnimatedFeeder** showing nothing in Firefox: the built-in feeder image now uses a base64 data URI (Firefox rejects the non-standard `;utf8,` form that Chrome tolerated) and the canvas 2D context is initialised from the `<canvas>` ref callback, so it binds reliably regardless of mount order. A failed or zero-size custom image can no longer blank the whole widget
 

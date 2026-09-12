@@ -1,7 +1,7 @@
 {
     "name": "iobroker.vis-2-widgets-automatic-feeder-ts",
     "private": true,
-    "version": "0.4.6",
+    "version": "0.4.7",
     "type": "module",
     "dependencies": {
         "@emotion/react": "^11.14.0",

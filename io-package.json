@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.4.6",
+        "version": "0.4.7",
         "news": {
-            "0.4.6": {
-                "en": "DynamicFeeding and Environment now show the temperature band meaning directly under each individual temperature (Environment: separate band under water shallow and deep; DynamicFeeding: under the average-temperature tile) instead of one chip at the card bottom",
-                "de": "DynamicFeeding und Environment zeigen die Bedeutung des Temperatur-Bandes jetzt direkt unter jeder einzelnen Temperatur (Environment: eigenes Band unter Wasser flach und tief; DynamicFeeding: unter der Durchschnittstemperatur) statt als ein Chip am Kartenende",
-                "ru": "DynamicFeeding и Environment теперь показывают значение температурного диапазона прямо под каждой отдельной температурой (Environment: отдельный диапазон под мелкой и глубокой водой; DynamicFeeding: под средней температурой) вместо одного чипа внизу карточки",
-                "pt": "DynamicFeeding e Environment agora mostram o significado da faixa de temperatura diretamente abaixo de cada temperatura individual (Environment: faixa separada abaixo da água rasa e profunda; DynamicFeeding: abaixo da temperatura média) em vez de um chip no fim do cartão",
-                "nl": "DynamicFeeding en Environment tonen de betekenis van de temperatuurband nu direct onder elke afzonderlijke temperatuur (Environment: aparte band onder ondiep en diep water; DynamicFeeding: onder de gemiddelde temperatuur) in plaats van één chip onderaan de kaart",
-                "fr": "DynamicFeeding et Environment affichent désormais la signification de la bande de température directement sous chaque température individuelle (Environment : bande distincte sous l eau peu profonde et profonde ; DynamicFeeding : sous la température moyenne) au lieu d une seule puce en bas de la carte",
-                "it": "DynamicFeeding ed Environment ora mostrano il significato della banda di temperatura direttamente sotto ogni singola temperatura (Environment: banda separata sotto acqua bassa e profonda; DynamicFeeding: sotto la temperatura media) invece di un chip in fondo alla scheda",
-                "es": "DynamicFeeding y Environment ahora muestran el significado de la banda de temperatura directamente debajo de cada temperatura individual (Environment: banda separada bajo agua poco profunda y profunda; DynamicFeeding: bajo la temperatura media) en lugar de un chip al final de la tarjeta",
-                "pl": "DynamicFeeding i Environment pokazują teraz znaczenie pasma temperatury bezpośrednio pod każdą pojedynczą temperaturą (Environment: osobne pasmo pod wodą płytką i głęboką; DynamicFeeding: pod temperaturą średnią) zamiast jednego chipa na dole karty",
-                "uk": "DynamicFeeding та Environment тепер показують значення температурного діапазону безпосередньо під кожною окремою температурою (Environment: окремий діапазон під мілкою та глибокою водою; DynamicFeeding: під середньою температурою) замість одного чипа внизу картки",
-                "zh-cn": "DynamicFeeding 和 Environment 现在将温度带含义直接显示在每个温度值下方（Environment：浅水和深水各自显示；DynamicFeeding：显示在平均温度下方），而不是在卡片底部显示一个标签"
+            "0.4.7": {
+                "en": "Maintenance: added Node.js 26 to the CI test matrix (now 22.x, 24.x, 26.x) per the ioBroker check bot. No widget changes",
+                "de": "Wartung: Node.js 26 zur CI-Testmatrix hinzugefügt (jetzt 22.x, 24.x, 26.x) gemäß ioBroker-Check-Bot. Keine Widget-Änderungen",
+                "ru": "Обслуживание: добавлен Node.js 26 в матрицу тестов CI (теперь 22.x, 24.x, 26.x) согласно боту проверки ioBroker. Без изменений виджетов",
+                "pt": "Manutenção: adicionado Node.js 26 à matriz de testes de CI (agora 22.x, 24.x, 26.x) conforme o bot de verificação do ioBroker. Sem alterações nos widgets",
+                "nl": "Onderhoud: Node.js 26 toegevoegd aan de CI-testmatrix (nu 22.x, 24.x, 26.x) volgens de ioBroker-controlebot. Geen widgetwijzigingen",
+                "fr": "Maintenance : ajout de Node.js 26 à la matrice de tests CI (désormais 22.x, 24.x, 26.x) selon le bot de vérification ioBroker. Aucune modification des widgets",
+                "it": "Manutenzione: aggiunto Node.js 26 alla matrice di test CI (ora 22.x, 24.x, 26.x) come da bot di controllo ioBroker. Nessuna modifica ai widget",
+                "es": "Mantenimiento: se añadió Node.js 26 a la matriz de pruebas de CI (ahora 22.x, 24.x, 26.x) según el bot de verificación de ioBroker. Sin cambios en los widgets",
+                "pl": "Konserwacja: dodano Node.js 26 do macierzy testów CI (teraz 22.x, 24.x, 26.x) zgodnie z botem sprawdzającym ioBroker. Bez zmian w widgetach",
+                "uk": "Обслуговування: додано Node.js 26 до матриці тестів CI (тепер 22.x, 24.x, 26.x) згідно з ботом перевірки ioBroker. Без змін у віджетах",
+                "zh-cn": "维护：根据 ioBroker 检查机器人的要求，将 Node.js 26 添加到 CI 测试矩阵（现为 22.x、24.x、26.x）。无小部件更改"
             }
         },
         "titleLang": {
