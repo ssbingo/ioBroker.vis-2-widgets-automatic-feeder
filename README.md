@@ -487,6 +487,9 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2026-10-12)
+* (ssbingo) Maintenance: dependency updates — `@module-federation/vite` 1.23.2 (#46), `@types/react` 19.3 (#45). No widget changes
+
 ### 0.5.0 (2026-10-12)
 * (ssbingo) **Breaking:** the widget set is rebuilt for **React 19 / MUI 9**, the stack vis-2 uses from its next release on. A React 18 build fails to load there (its bundled JSX runtime reads React 18 internals) and is skipped by the vis-2 editor. Requires a **vis-2 version based on React 19** — older vis-2 versions should stay on widget 0.4.x
 * (ssbingo) `@iobroker/adapter-react-v5` removed from the widget build; its successor `@iobroker/gui-components` provides the types. `@iobroker/types-vis-2` updated to 2.20.1 (#43), `@iobroker/testing` to 6.3.0 (#42)
@@ -517,9 +520,6 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 * (ssbingo) New separate **FeedingAmountSettings** widget — a light settings panel matching the agreed design: a model on/off switch, a fish list with per-size icons + reference weights and editable counts (with a live total weight), the seven temperature percentages, a Phase-B control switch and the optional daily maximum. All fields write to the adapter's writable `switches.<id>.settings.*` states (**automatic-feeder v1.16.0+**)
 * (ssbingo) FeedingAmountSettings has an **active-feed switcher** built from the feed profiles configured for the switch in the adapter admin; one tap selects the active profile and its dispense rate (writes `settings.activeFeed`, needs **automatic-feeder v1.17.0+**)
 * (ssbingo) The **FeedingAmount** widget is now purely a **read-only** display card again; all editing moved to the new FeedingAmountSettings widget. It also shows the active feed-profile name (`status.activeFeedName`)
-
-### 0.3.2 (2026-09-01)
-* (ssbingo) Housekeeping: keep only the latest 7 entries in `common.news` (repository checker W1032). No widget changes
 
 ---
 

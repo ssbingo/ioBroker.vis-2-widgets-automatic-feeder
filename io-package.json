@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.5.0",
+        "version": "0.5.1",
         "news": {
-            "0.5.0": {
-                "en": "Widgets rebuilt for React 19 / MUI 9 so they load in the new vis-2 host; @iobroker/adapter-react-v5 replaced by @iobroker/gui-components. Requires a vis-2 version based on React 19",
-                "de": "Widgets für React 19 / MUI 9 neu gebaut, damit sie im neuen vis-2 laden; @iobroker/adapter-react-v5 durch @iobroker/gui-components ersetzt. Benötigt eine vis-2-Version auf Basis von React 19",
-                "ru": "Виджеты пересобраны для React 19 / MUI 9, чтобы загружаться в новом vis-2; @iobroker/adapter-react-v5 заменён на @iobroker/gui-components. Требуется версия vis-2 на базе React 19",
-                "pt": "Widgets recompilados para React 19 / MUI 9 para carregarem no novo vis-2; @iobroker/adapter-react-v5 substituído por @iobroker/gui-components. Requer uma versão do vis-2 baseada em React 19",
-                "nl": "Widgets opnieuw gebouwd voor React 19 / MUI 9 zodat ze in de nieuwe vis-2 laden; @iobroker/adapter-react-v5 vervangen door @iobroker/gui-components. Vereist een vis-2-versie op basis van React 19",
-                "fr": "Widgets recompilés pour React 19 / MUI 9 afin de se charger dans le nouveau vis-2 ; @iobroker/adapter-react-v5 remplacé par @iobroker/gui-components. Nécessite une version de vis-2 basée sur React 19",
-                "it": "Widget ricompilati per React 19 / MUI 9 per essere caricati nel nuovo vis-2; @iobroker/adapter-react-v5 sostituito da @iobroker/gui-components. Richiede una versione di vis-2 basata su React 19",
-                "es": "Widgets recompilados para React 19 / MUI 9 para que carguen en el nuevo vis-2; @iobroker/adapter-react-v5 reemplazado por @iobroker/gui-components. Requiere una versión de vis-2 basada en React 19",
-                "pl": "Widżety przebudowane dla React 19 / MUI 9, aby ładowały się w nowym vis-2; @iobroker/adapter-react-v5 zastąpiony przez @iobroker/gui-components. Wymaga wersji vis-2 opartej na React 19",
-                "uk": "Віджети перезібрано для React 19 / MUI 9, щоб вони завантажувалися в новому vis-2; @iobroker/adapter-react-v5 замінено на @iobroker/gui-components. Потрібна версія vis-2 на базі React 19",
-                "zh-cn": "小部件已针对 React 19 / MUI 9 重新构建，以便在新版 vis-2 中加载；@iobroker/adapter-react-v5 已替换为 @iobroker/gui-components。需要基于 React 19 的 vis-2 版本"
+            "0.5.1": {
+                "en": "Maintenance: dependency updates (@module-federation/vite 1.23.2, @types/react 19.3). No widget changes",
+                "de": "Wartung: Abhängigkeiten aktualisiert (@module-federation/vite 1.23.2, @types/react 19.3). Keine Widget-Änderungen",
+                "ru": "Обслуживание: обновлены зависимости (@module-federation/vite 1.23.2, @types/react 19.3). Без изменений виджетов",
+                "pt": "Manutenção: dependências atualizadas (@module-federation/vite 1.23.2, @types/react 19.3). Sem alterações nos widgets",
+                "nl": "Onderhoud: afhankelijkheden bijgewerkt (@module-federation/vite 1.23.2, @types/react 19.3). Geen widgetwijzigingen",
+                "fr": "Maintenance : dépendances mises à jour (@module-federation/vite 1.23.2, @types/react 19.3). Aucune modification des widgets",
+                "it": "Manutenzione: dipendenze aggiornate (@module-federation/vite 1.23.2, @types/react 19.3). Nessuna modifica ai widget",
+                "es": "Mantenimiento: dependencias actualizadas (@module-federation/vite 1.23.2, @types/react 19.3). Sin cambios en los widgets",
+                "pl": "Konserwacja: zaktualizowano zależności (@module-federation/vite 1.23.2, @types/react 19.3). Bez zmian w widżetach",
+                "uk": "Обслуговування: оновлено залежності (@module-federation/vite 1.23.2, @types/react 19.3). Без змін у віджетах",
+                "zh-cn": "维护：更新依赖项（@module-federation/vite 1.23.2、@types/react 19.3）。无小部件更改"
             }
         },
         "titleLang": {
