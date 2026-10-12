@@ -419,7 +419,7 @@ meaning of each data point.
 
 ## 9. Development
 
-The widgets are written in **TypeScript + React 18** (with MUI for the attribute editors) and bundled with **Vite**
+The widgets are written in **TypeScript + React 19** (with MUI for the attribute editors) and bundled with **Vite**
 and **Module Federation** into a single `customWidgets.js` that vis-2 loads at runtime. The source lives in
 [`src-widgets-ts/src/`](src-widgets-ts/src/):
 
@@ -487,6 +487,10 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2026-10-12)
+* (ssbingo) **Breaking:** the widget set is rebuilt for **React 19 / MUI 9**, the stack vis-2 uses from its next release on. A React 18 build fails to load there (its bundled JSX runtime reads React 18 internals) and is skipped by the vis-2 editor. Requires a **vis-2 version based on React 19** — older vis-2 versions should stay on widget 0.4.x
+* (ssbingo) `@iobroker/adapter-react-v5` removed from the widget build; its successor `@iobroker/gui-components` provides the types. `@iobroker/types-vis-2` updated to 2.20.1 (#43), `@iobroker/testing` to 6.3.0 (#42)
+
 ### 0.4.7 (2026-09-12)
 * (ssbingo) Maintenance: added **Node.js 26** to the CI test matrix (now 22.x, 24.x, 26.x) as requested by the ioBroker check bot (#39). No widget changes
 
@@ -516,9 +520,6 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 
 ### 0.3.2 (2026-09-01)
 * (ssbingo) Housekeeping: keep only the latest 7 entries in `common.news` (repository checker W1032). No widget changes
-
-### 0.3.1 (2026-09-01)
-* (ssbingo) Housekeeping (repository checker): bumped `@alcalzone/release-script-plugin-license` to 5.2.2 (S0064), removed the unneeded `prepublishOnly` script (W0095) and the unnecessary **admin** dependency — this is a pure widget set with no admin config UI (S1091) — and unpinned the CI deploy action to `@v1` (S3044). No widget changes
 
 ---
 

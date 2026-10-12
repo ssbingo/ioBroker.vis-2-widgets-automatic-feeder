@@ -40,24 +40,9 @@ updates:
     versioning-strategy: 'increase'
     cooldown:
       default-days: 7
-    # the widget stack is held at React 18 / MUI 6 by @iobroker/adapter-react-v5
-    # (peerDependencies react ^18.3.1 / @mui ^6.5.0 — still true in latest 8.3.2).
-    # Target: move to React 19 / MUI 9 (as used by iobroker.admin > 8.0.0) once
-    # adapter-react-v5 ships a compatible release; until then major bumps of these
-    # break the widget build (npm ERESOLVE).
+    # react / react-dom / @mui follow the vis-2 host (React 19 / MUI 9); majors of the build
+    # toolchain are still reviewed manually.
     ignore:
-      - dependency-name: 'react'
-        update-types:
-          - 'version-update:semver-major'
-      - dependency-name: 'react-dom'
-        update-types:
-          - 'version-update:semver-major'
-      - dependency-name: '@mui/material'
-        update-types:
-          - 'version-update:semver-major'
-      - dependency-name: '@mui/icons-material'
-        update-types:
-          - 'version-update:semver-major'
       - dependency-name: 'vite'
         update-types:
           - 'version-update:semver-major'
