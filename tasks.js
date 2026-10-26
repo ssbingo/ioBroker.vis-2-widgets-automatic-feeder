@@ -15,6 +15,8 @@ function tsClean() {
 function tsCopyAllFiles() {
     copyFiles([`${SRC_TS}build/customWidgets.js`], `widgets/${adapterName}`);
     copyFiles([`${SRC_TS}build/icon-set.json`], `widgets/${adapterName}`);
+    // module-federation manifests: vis-2 requests them next to customWidgets.js
+    copyFiles([`${SRC_TS}build/mf-manifest.json`, `${SRC_TS}build/mf-stats.json`], `widgets/${adapterName}`);
     copyFiles([`${SRC_TS}build/assets/*.*`], `widgets/${adapterName}/assets`);
     copyFiles([`${SRC_TS}build/img/*`], `widgets/${adapterName}/img`);
 }

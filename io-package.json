@@ -1,20 +1,20 @@
 {
     "common": {
         "name": "vis-2-widgets-automatic-feeder",
-        "version": "0.5.1",
+        "version": "0.5.2",
         "news": {
-            "0.5.1": {
-                "en": "Maintenance: dependency updates (@module-federation/vite 1.23.2, @types/react 19.3). No widget changes",
-                "de": "Wartung: Abhängigkeiten aktualisiert (@module-federation/vite 1.23.2, @types/react 19.3). Keine Widget-Änderungen",
-                "ru": "Обслуживание: обновлены зависимости (@module-federation/vite 1.23.2, @types/react 19.3). Без изменений виджетов",
-                "pt": "Manutenção: dependências atualizadas (@module-federation/vite 1.23.2, @types/react 19.3). Sem alterações nos widgets",
-                "nl": "Onderhoud: afhankelijkheden bijgewerkt (@module-federation/vite 1.23.2, @types/react 19.3). Geen widgetwijzigingen",
-                "fr": "Maintenance : dépendances mises à jour (@module-federation/vite 1.23.2, @types/react 19.3). Aucune modification des widgets",
-                "it": "Manutenzione: dipendenze aggiornate (@module-federation/vite 1.23.2, @types/react 19.3). Nessuna modifica ai widget",
-                "es": "Mantenimiento: dependencias actualizadas (@module-federation/vite 1.23.2, @types/react 19.3). Sin cambios en los widgets",
-                "pl": "Konserwacja: zaktualizowano zależności (@module-federation/vite 1.23.2, @types/react 19.3). Bez zmian w widżetach",
-                "uk": "Обслуговування: оновлено залежності (@module-federation/vite 1.23.2, @types/react 19.3). Без змін у віджетах",
-                "zh-cn": "维护：更新依赖项（@module-federation/vite 1.23.2、@types/react 19.3）。无小部件更改"
+            "0.5.2": {
+                "en": "Fix: the module-federation manifest (mf-manifest.json, mf-stats.json) is now shipped next to customWidgets.js; vis-2 2.20.x requested it and got a 404",
+                "de": "Fix: Das Module-Federation-Manifest (mf-manifest.json, mf-stats.json) wird jetzt neben customWidgets.js ausgeliefert; vis-2 2.20.x hat es angefordert und einen 404 erhalten",
+                "ru": "Исправление: манифест module federation (mf-manifest.json, mf-stats.json) теперь поставляется рядом с customWidgets.js; vis-2 2.20.x запрашивал его и получал 404",
+                "pt": "Correção: o manifesto de module federation (mf-manifest.json, mf-stats.json) agora é distribuído junto com customWidgets.js; o vis-2 2.20.x o solicitava e recebia 404",
+                "nl": "Fix: het module-federation-manifest (mf-manifest.json, mf-stats.json) wordt nu naast customWidgets.js meegeleverd; vis-2 2.20.x vroeg het op en kreeg een 404",
+                "fr": "Correctif : le manifeste module federation (mf-manifest.json, mf-stats.json) est désormais livré à côté de customWidgets.js ; vis-2 2.20.x le demandait et recevait une 404",
+                "it": "Correzione: il manifest di module federation (mf-manifest.json, mf-stats.json) viene ora distribuito accanto a customWidgets.js; vis-2 2.20.x lo richiedeva e riceveva un 404",
+                "es": "Corrección: el manifiesto de module federation (mf-manifest.json, mf-stats.json) ahora se incluye junto a customWidgets.js; vis-2 2.20.x lo solicitaba y recibía un 404",
+                "pl": "Poprawka: manifest module federation (mf-manifest.json, mf-stats.json) jest teraz dostarczany obok customWidgets.js; vis-2 2.20.x żądał go i otrzymywał 404",
+                "uk": "Виправлення: маніфест module federation (mf-manifest.json, mf-stats.json) тепер постачається поруч із customWidgets.js; vis-2 2.20.x запитував його й отримував 404",
+                "zh-cn": "修复：module federation 清单（mf-manifest.json、mf-stats.json）现在与 customWidgets.js 一起发布；vis-2 2.20.x 请求它时返回 404"
             }
         },
         "titleLang": {

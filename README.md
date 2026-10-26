@@ -487,6 +487,10 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.2 (2026-10-26)
+* (ssbingo) Fix: the module-federation manifest (`mf-manifest.json`, `mf-stats.json`) is now shipped next to `customWidgets.js`. vis-2 2.20.x requests it when loading the widget sets and got a 404, because the build step only copied `customWidgets.js`, the assets and the images
+* (ssbingo) Maintenance: the Dependabot auto-merge workflow uses `pull_request` instead of `pull_request_target` (#48, #49)
+
 ### 0.5.1 (2026-10-12)
 * (ssbingo) Maintenance: dependency updates — `@module-federation/vite` 1.23.2 (#46), `@types/react` 19.3 (#45). No widget changes
 
@@ -515,11 +519,6 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 ### 0.4.1 (2026-09-01)
 * (ssbingo) **FeedingAmountSettings** now follows the vis-2 **colour mode** (dark/light) like the other widgets — it reads `context.themeType` and renders a dark panel in dark mode and the light panel in light mode (previously it was always light)
 * (ssbingo) The **No card background** option of FeedingAmountSettings now actually works (transparent background) instead of doing nothing
-
-### 0.4.0 (2026-09-01)
-* (ssbingo) New separate **FeedingAmountSettings** widget — a light settings panel matching the agreed design: a model on/off switch, a fish list with per-size icons + reference weights and editable counts (with a live total weight), the seven temperature percentages, a Phase-B control switch and the optional daily maximum. All fields write to the adapter's writable `switches.<id>.settings.*` states (**automatic-feeder v1.16.0+**)
-* (ssbingo) FeedingAmountSettings has an **active-feed switcher** built from the feed profiles configured for the switch in the adapter admin; one tap selects the active profile and its dispense rate (writes `settings.activeFeed`, needs **automatic-feeder v1.17.0+**)
-* (ssbingo) The **FeedingAmount** widget is now purely a **read-only** display card again; all editing moved to the new FeedingAmountSettings widget. It also shows the active feed-profile name (`status.activeFeedName`)
 
 ---
 
